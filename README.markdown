@@ -1,10 +1,10 @@
 # Vocabulary Quiz System
 
-A customizable vocabulary quiz application designed for computer science education, featuring separate teacher and student interfaces. Teachers can upload CSV files to create vocab sets, while students can take paginated multiple-choice quizzes with real-time scoring and generate printable reports. Hosted on GitHub Pages at [https://kappter.github.io/kappquiz/](https://kappter.github.io/kappquiz/).
+A customizable vocabulary quiz application designed for computer science and video production education, featuring separate teacher and student interfaces. Teachers can upload CSV files to create vocab sets, while students can take paginated multiple-choice quizzes with real-time scoring and generate printable reports. Hosted on GitHub Pages at [https://kappter.github.io/](https://kappter.github.io/).
 
 ## Features
-- **Teacher Interface**: Upload CSV files with `term`, `definition`, and `strand` columns to create vocab sets (stored in browser `localStorage`).
-- **Student Interface**: Select a vocab set, take a 10-question multiple-choice quiz with randomized options, and view a running percentage score.
+- **Teacher Interface**: Upload CSV files with `term`, `definition`, and `strand` columns (stored in browser `localStorage`).
+- **Student Interface**: Select a vocab set, take a quiz with a dynamic number of questions (up to 20, based on CSV entries), and view a running percentage score updated after each answer.
 - **Report Generation**: Enter a name after completing the quiz to generate a printable HTML report summarizing results.
 - **Extensible**: Designed for future additions like new test types (e.g., matching, fill-in-the-blank).
 
@@ -16,20 +16,24 @@ A customizable vocabulary quiz application designed for computer science educati
 
 ### Installation
 1. Visit the repository at [https://github.com/kappter/kappquiz](https://github.com/kappter/kappquiz).
-2. Ensure the files (`index.html`, `styles.css`, `script.js`) are present in the `kappquiz` directory.
-3. GitHub Pages is already enabled; access the live app at [https://kappter.github.io/kappquiz/](https://kappter.github.io/kappquiz/).
+2. Ensure the files (`index.html`, `styles.css`, `script.js`) are present in the root directory.
+3. GitHub Pages is already enabled; access the live app at [https://kappter.github.io/](https://kappter.github.io/).
 
 ### Usage
-- **Teacher Mode**: Navigate to [https://kappter.github.io/kappquiz/?mode=teacher](https://kappter.github.io/kappquiz/?mode=teacher), upload a CSV file (e.g., `term,definition,strand\nAlgorithm,A step-by-step procedure,01-01`), and the vocab set will be available for students.
-- **Student Mode**: Go to [https://kappter.github.io/kappquiz/](https://kappter.github.io/kappquiz/), select a vocab set, answer the questions, and generate a report at the end.
+- **Teacher Mode**: Navigate to [https://kappter.github.io/?mode=teacher](https://kappter.github.io/?mode=teacher), upload a CSV file (e.g., `term,definition,strand\nCamera,A device used to capture video,02-01`), and the vocab set will be available for students.
+- **Student Mode**: Go to [https://kappter.github.io/](https://kappter.github.io/), select a vocab set, answer the questions, and generate a report at the end.
 
 ## File Structure
 ```
-kappquiz/
-├── index.html        # Main HTML structure
-├── styles.css        # CSS for styling
-├── script.js         # JavaScript logic and PapaParse for CSV handling
-└── README.md         # This file
+/kappquiz
+├── uploads/           # Directory for sample CSV files (used in local server setup, not on GitHub Pages)
+│   ├── sample_vocab.csv
+│   ├── utah_video_production_terms.csv
+├── index.html         # Main HTML structure
+├── script.js          # JavaScript logic and PapaParse for CSV handling
+├── server.js          # Node.js server (used in local setup, not on GitHub Pages)
+├── styles.css         # CSS for styling
+└── README.markdown    # This file
 ```
 
 ## Contributing
