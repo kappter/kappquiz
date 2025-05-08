@@ -29,7 +29,7 @@ async function fetchVocabSets() {
     // Preload all CSV files
     for (const set of availableSets) {
         try {
-            const response = await fetch(`/vocab-sets/${set}`);
+            const response = await fetch(`./vocab-sets/${set}`);
             if (!response.ok) throw new Error(`Failed to fetch ${set}`);
             const csvData = await response.text();
             const parsedData = Papa.parse(csvData, { header: true, skipEmptyLines: true }).data;
@@ -45,6 +45,7 @@ async function fetchVocabSets() {
             select.appendChild(option);
         } catch (error) {
             console.error(`Error loading ${set}:`, error);
+            document.getElementById('quizArea').innerHTML = `<p>Error loading ${set}. Please check the file or repository.</p>`;
         }
     }
 
