@@ -1,4 +1,5 @@
-// Predefined vocab sets from uploads directory (to be replaced by server data)
+// List of known CSV files in the uploads directory
+const availableSets = ['sample_vocab.csv', 'utah_video_production_terms.csv'];
 let vocabSets = {};
 let currentSet = null;
 let currentQuestionIndex = 0;
@@ -15,32 +16,45 @@ if (urlParams.get('mode') === 'teacher') {
     fetchVocabSets();
 }
 
-// Teacher: Upload CSV (disabled for now since we're hardcoding)
+// Teacher: Upload CSV (disabled for now)
 function uploadCSV() {
     alert('Upload functionality is disabled. Vocab sets are preloaded.');
 }
 
-// Student: Populate dropdown with vocab sets from server
+// Student: Populate dropdown with vocab sets
 async function fetchVocabSets() {
-    try {
-        const response = await fetch('/vocab-sets');
-        const sets = await response.json();
-        const select = document.getElementById('vocabSet');
-        select.innerHTML = '<option value="">Select a set</option>';
-        sets.forEach(set => {
+    const select = document.getElementById('vocabSet');
+    select.innerHTML = '<option value="">Select a set</option>';
+
+    // Preload all CSV files
+    for (const set of availableSets) {
+        try {
+            const response = await fetch(`/uploads/${set}`);
+            if (!response.ok) throw new Error(`Failed to fetch ${set}`);
+            const csvData = await response.text();
+            const parsedData = Papa.parse(csvData, { header: true, skipEmptyLines: true }).data;
+            vocabSets[set] = parsedData.map(item => ({
+                term: item.term || '',
+                definition: item.definition || '',
+                strand: item.strand || ''
+            })).filter(item => item.term && item.definition);
+
             const option = document.createElement('option');
             option.value = set;
             option.textContent = set.replace('.csv', '');
             select.appendChild(option);
-        });
-    } catch (error) {
-        console.error('Error fetching vocab sets:', error);
-        document.getElementById('quizArea').innerHTML = '<p>Error: Unable to load vocab sets. Please check the server.</p>';
+        } catch (error) {
+            console.error(`Error loading ${set}:`, error);
+        }
+    }
+
+    if (Object.keys(vocabSets).length === 0) {
+        document.getElementById('quizArea').innerHTML = '<p>Error: No vocab sets loaded. Please check the uploads directory.</p>';
     }
 }
 
 // Student: Load selected vocab set
-async function loadVocabSet() {
+function loadVocabSet() {
     const select = document.getElementById('vocabSet');
     const setName = select.value;
     if (!setName) {
@@ -50,20 +64,8 @@ async function loadVocabSet() {
         return;
     }
 
-    try {
-        const response = await fetch(`/vocab/${setName}`);
-        const csvData = await response.text();
-        const parsedData = Papa.parse(csvData, { header: true, skipEmptyLines: true }).data;
-        currentSet = parsedData.map(item => ({
-            term: item.term || '',
-            definition: item.definition || '',
-            strand: item.strand || ''
-        })).filter(item => item.term && item.definition);
-        startQuiz();
-    } catch (error) {
-        console.error('Error loading vocab set:', error);
-        document.getElementById('quizArea').innerHTML = '<p>Error: Unable to load the selected vocab set. Please try again.</p>';
-    }
+    currentSet = vocabSets[setName];
+    startQuiz();
 }
 
 // Start quiz with randomized questions
