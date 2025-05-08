@@ -8,6 +8,10 @@ A customizable vocabulary quiz application designed for computer science and vid
 - **Report Generation**: Enter a name after completing the quiz to generate a printable HTML report summarizing results.
 - **Extensible**: Designed for future additions like new test types (e.g., matching, fill-in-the-blank).
 
+![01](https://github.com/kappter/kappquiz/blob/main/images/kappquizz01.png?raw=true)
+
+![02](https://github.com/kappter/kappquiz/blob/main/images/kappquizz02.png?raw=true)
+
 ## Getting Started
 
 ### Prerequisites
