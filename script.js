@@ -1,19 +1,5 @@
-// Predefined vocab sets from uploads directory
-const vocabSets = {
-    'sample_vocab.csv': [
-        { term: 'Algorithm', definition: 'A step-by-step procedure for solving a problem', strand: '01-01' },
-        { term: 'Variable', definition: 'A named storage location in memory', strand: '01-02' },
-        { term: 'Loop', definition: 'A control structure that repeats a block of code', strand: '01-03' },
-        { term: 'Function', definition: 'A reusable block of code that performs a specific task', strand: '01-04' }
-    ],
-    'utah_video_production_terms.csv': [
-        { term: 'Camera', definition: 'A device used to capture video', strand: '02-01' },
-        { term: 'Lighting', definition: 'Illumination for video shoots', strand: '02-02' },
-        { term: 'Editing', definition: 'Post-production video processing', strand: '02-03' },
-        { term: 'Storyboard', definition: 'A visual plan for a video project', strand: '02-04' }
-    ]
-};
-
+// Predefined vocab sets from uploads directory (to be replaced by server data)
+let vocabSets = {};
 let currentSet = null;
 let currentQuestionIndex = 0;
 let score = 0;
@@ -34,21 +20,27 @@ function uploadCSV() {
     alert('Upload functionality is disabled. Vocab sets are preloaded.');
 }
 
-// Student: Populate dropdown with predefined vocab sets
-function fetchVocabSets() {
-    const sets = Object.keys(vocabSets);
-    const select = document.getElementById('vocabSet');
-    select.innerHTML = '<option value="">Select a set</option>';
-    sets.forEach(set => {
-        const option = document.createElement('option');
-        option.value = set;
-        option.textContent = set.replace('.csv', '');
-        select.appendChild(option);
-    });
+// Student: Populate dropdown with vocab sets from server
+async function fetchVocabSets() {
+    try {
+        const response = await fetch('/vocab-sets');
+        const sets = await response.json();
+        const select = document.getElementById('vocabSet');
+        select.innerHTML = '<option value="">Select a set</option>';
+        sets.forEach(set => {
+            const option = document.createElement('option');
+            option.value = set;
+            option.textContent = set.replace('.csv', '');
+            select.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error fetching vocab sets:', error);
+        document.getElementById('quizArea').innerHTML = '<p>Error: Unable to load vocab sets. Please check the server.</p>';
+    }
 }
 
 // Student: Load selected vocab set
-function loadVocabSet() {
+async function loadVocabSet() {
     const select = document.getElementById('vocabSet');
     const setName = select.value;
     if (!setName) {
@@ -58,9 +50,20 @@ function loadVocabSet() {
         return;
     }
 
-    currentSet = vocabSets[setName];
-    console.log('Loaded currentSet:', currentSet); // Debugging
-    startQuiz();
+    try {
+        const response = await fetch(`/vocab/${setName}`);
+        const csvData = await response.text();
+        const parsedData = Papa.parse(csvData, { header: true, skipEmptyLines: true }).data;
+        currentSet = parsedData.map(item => ({
+            term: item.term || '',
+            definition: item.definition || '',
+            strand: item.strand || ''
+        })).filter(item => item.term && item.definition);
+        startQuiz();
+    } catch (error) {
+        console.error('Error loading vocab set:', error);
+        document.getElementById('quizArea').innerHTML = '<p>Error: Unable to load the selected vocab set. Please try again.</p>';
+    }
 }
 
 // Start quiz with randomized questions
