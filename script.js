@@ -76,6 +76,7 @@ function loadVocabSet() {
     const storedData = localStorage.getItem(setName);
     if (storedData) {
         currentSet = JSON.parse(storedData);
+        console.log('Loaded currentSet:', currentSet); // Debugging
         startQuiz();
     } else {
         alert('Error loading vocab set.');
@@ -85,6 +86,15 @@ function loadVocabSet() {
 // Start quiz with randomized questions
 function startQuiz() {
     questions = generateQuestions(currentSet);
+    console.log('Generated questions:', questions); // Debugging
+    if (questions.length === 0) {
+        document.getElementById('quizArea').innerHTML = '<p>Error: No valid questions generated. Please check the CSV format (requires term, definition, strand columns).</p>';
+        document.getElementById('results').innerHTML = '';
+        document.getElementById('progress').innerHTML = '';
+        document.getElementById('nextBtn').disabled = true;
+        document.getElementById('prevBtn').disabled = true;
+        return;
+    }
     currentQuestionIndex = 0;
     score = 0;
     answers = [];
@@ -98,21 +108,22 @@ function startQuiz() {
 // Generate multiple-choice questions
 function generateQuestions(data) {
     const questions = [];
+    if (!data || !Array.isArray(data)) return questions;
     data.forEach(item => {
-        if (!item.term || !item.definition) return;
+        if (!item || !item.term || !item.definition) return;
         const incorrect = [];
         while (incorrect.length < 3) {
             const randomItem = data[Math.floor(Math.random() * data.length)];
-            if (randomItem.definition !== item.definition && !incorrect.includes(randomItem.definition)) {
-                incorrect.push(randomItem.definition);
-            }
+            if (!randomItem || randomItem.definition === item.definition || incorrect.includes(randomItem.definition)) continue;
+            incorrect.push(randomItem.definition);
         }
+        if (incorrect.length < 3) return; // Skip if not enough incorrect options
         const options = [...incorrect, item.definition].sort(() => Math.random() - 0.5);
         questions.push({
             term: item.term,
             correct: item.definition,
             options,
-            strand: item.strand
+            strand: item.strand || ''
         });
     });
     return questions.sort(() => Math.random() - 0.5).slice(0, Math.min(10, questions.length));
