@@ -1,5 +1,5 @@
-// List of known CSV files in the uploads directory
-const availableSets = ['sample_vocab.csv', 'utah_video_production_terms.csv'];
+// List of known CSV files in the vocab-sets directory
+const availableSets = ['sample_vocab.csv', 'utah_video_production_terms_FINAL.csv'];
 let vocabSets = {};
 let currentSet = null;
 let currentQuestionIndex = 0;
@@ -29,7 +29,7 @@ async function fetchVocabSets() {
     // Preload all CSV files
     for (const set of availableSets) {
         try {
-            const response = await fetch(`/uploads/${set}`);
+            const response = await fetch(`/vocab-sets/${set}`);
             if (!response.ok) throw new Error(`Failed to fetch ${set}`);
             const csvData = await response.text();
             const parsedData = Papa.parse(csvData, { header: true, skipEmptyLines: true }).data;
@@ -49,7 +49,7 @@ async function fetchVocabSets() {
     }
 
     if (Object.keys(vocabSets).length === 0) {
-        document.getElementById('quizArea').innerHTML = '<p>Error: No vocab sets loaded. Please check the uploads directory.</p>';
+        document.getElementById('quizArea').innerHTML = '<p>Error: No vocab sets loaded. Please check the vocab-sets directory.</p>';
     }
 }
 
