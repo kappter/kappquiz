@@ -106,7 +106,7 @@ function generateQuestions(data) {
             strand: item.strand || ''
         });
     });
-    return questions.sort(() => Math.random() - 0.5).slice(0, Math.min(data.length, 20)); // Dynamic number of questions, capped at 20
+    return questions.sort(() => Math.random() - 0.5); // No cap, use all valid questions
 }
 
 // Display current question
