@@ -23,34 +23,32 @@ function uploadCSV() {
         return;
     }
 
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const csvText = e.target.result;
-        Papa.parse(csvText, {
-            header: true,
-            complete: (result) => {
-                // Store vocab set in localStorage
-                const setName = file.name;
-                vocabSets[setName] = result.data;
-                localStorage.setItem('vocabSets', JSON.stringify(Object.keys(vocabSets)));
-                localStorage.setItem(setName, JSON.stringify(result.data));
-                alert('CSV uploaded successfully!');
-                fileInput.value = '';
-            },
-            error: (error) => {
-                console.error('Parsing error:', error);
-                alert('Failed to parse CSV.');
-            }
-        });
-    };
-    reader.readAsText(file);
+    const formData = new FormData();
+    formData.append('file', file);
+
+    fetch('/upload', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => {
+        if (response.ok) {
+            alert('CSV uploaded successfully!');
+            fileInput.value = '';
+        } else {
+            alert('Upload failed.');
+        }
+    })
+    .catch(error => {
+        console.error('Upload error:', error);
+        alert('Upload failed.');
+    });
 }
 
-// Student: Fetch available vocab sets from localStorage
+// Student: Fetch available vocab sets from server
 function fetchVocabSets() {
-    const storedSets = localStorage.getItem('vocabSets');
-    if (storedSets) {
-        const sets = JSON.parse(storedSets);
+    fetch('/vocab-sets')
+    .then(response => response.json())
+    .then(sets => {
         const select = document.getElementById('vocabSet');
         select.innerHTML = '<option value="">Select a set</option>';
         sets.forEach(set => {
@@ -59,10 +57,11 @@ function fetchVocabSets() {
             option.textContent = set.replace('.csv', '');
             select.appendChild(option);
         });
-    }
+    })
+    .catch(error => console.error('Error fetching vocab sets:', error));
 }
 
-// Student: Load selected vocab set from localStorage
+// Student: Load selected vocab set from server
 function loadVocabSet() {
     const select = document.getElementById('vocabSet');
     const setName = select.value;
@@ -73,14 +72,22 @@ function loadVocabSet() {
         return;
     }
 
-    const storedData = localStorage.getItem(setName);
-    if (storedData) {
-        currentSet = JSON.parse(storedData);
-        console.log('Loaded currentSet:', currentSet); // Debugging
-        startQuiz();
-    } else {
+    fetch(`/vocab/${setName}`)
+    .then(response => response.text())
+    .then(csvText => {
+        Papa.parse(csvText, {
+            header: true,
+            complete: (result) => {
+                currentSet = result.data;
+                console.log('Loaded currentSet:', currentSet); // Debugging
+                startQuiz();
+            }
+        });
+    })
+    .catch(error => {
+        console.error('Error loading vocab set:', error);
         alert('Error loading vocab set.');
-    }
+    });
 }
 
 // Start quiz with randomized questions
@@ -126,7 +133,7 @@ function generateQuestions(data) {
             strand: item.strand || ''
         });
     });
-    return questions.sort(() => Math.random() - 0.5).slice(0, Math.min(10, questions.length));
+    return questions.sort(() => Math.random() - 0.5).slice(0, Math.min(data.length, 20)); // Dynamic number of questions, capped at 20
 }
 
 // Display current question
