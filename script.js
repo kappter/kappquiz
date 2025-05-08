@@ -168,6 +168,7 @@ function selectOption(index) {
         opt.onclick = null;
     });
 
+    updateProgress(); // Update percentage after each answer
     setTimeout(() => {
         if (currentQuestionIndex < questions.length - 1) {
             document.getElementById('nextBtn').disabled = false;
