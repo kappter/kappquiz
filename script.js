@@ -1,4 +1,19 @@
-let vocabSets = {};
+// Predefined vocab sets from uploads directory
+const vocabSets = {
+    'sample_vocab.csv': [
+        { term: 'Algorithm', definition: 'A step-by-step procedure for solving a problem', strand: '01-01' },
+        { term: 'Variable', definition: 'A named storage location in memory', strand: '01-02' },
+        { term: 'Loop', definition: 'A control structure that repeats a block of code', strand: '01-03' },
+        { term: 'Function', definition: 'A reusable block of code that performs a specific task', strand: '01-04' }
+    ],
+    'utah_video_production_terms.csv': [
+        { term: 'Camera', definition: 'A device used to capture video', strand: '02-01' },
+        { term: 'Lighting', definition: 'Illumination for video shoots', strand: '02-02' },
+        { term: 'Editing', definition: 'Post-production video processing', strand: '02-03' },
+        { term: 'Storyboard', definition: 'A visual plan for a video project', strand: '02-04' }
+    ]
+};
+
 let currentSet = null;
 let currentQuestionIndex = 0;
 let score = 0;
@@ -14,55 +29,25 @@ if (urlParams.get('mode') === 'teacher') {
     fetchVocabSets();
 }
 
-// Teacher: Upload CSV (client-side)
+// Teacher: Upload CSV (disabled for now since we're hardcoding)
 function uploadCSV() {
-    const fileInput = document.getElementById('csvFile');
-    const file = fileInput.files[0];
-    if (!file) {
-        alert('Please select a CSV file.');
-        return;
-    }
-
-    const reader = new FileReader();
-    reader.onload = function(e) {
-        const csvText = e.target.result;
-        Papa.parse(csvText, {
-            header: true,
-            complete: (result) => {
-                // Store vocab set in localStorage
-                const setName = file.name;
-                vocabSets[setName] = result.data;
-                localStorage.setItem('vocabSets', JSON.stringify(Object.keys(vocabSets)));
-                localStorage.setItem(setName, JSON.stringify(result.data));
-                alert('CSV uploaded successfully!');
-                fileInput.value = '';
-            },
-            error: (error) => {
-                console.error('Parsing error:', error);
-                alert('Failed to parse CSV.');
-            }
-        });
-    };
-    reader.readAsText(file);
+    alert('Upload functionality is disabled. Vocab sets are preloaded.');
 }
 
-// Student: Fetch available vocab sets from localStorage
+// Student: Populate dropdown with predefined vocab sets
 function fetchVocabSets() {
-    const storedSets = localStorage.getItem('vocabSets');
-    if (storedSets) {
-        const sets = JSON.parse(storedSets);
-        const select = document.getElementById('vocabSet');
-        select.innerHTML = '<option value="">Select a set</option>';
-        sets.forEach(set => {
-            const option = document.createElement('option');
-            option.value = set;
-            option.textContent = set.replace('.csv', '');
-            select.appendChild(option);
-        });
-    }
+    const sets = Object.keys(vocabSets);
+    const select = document.getElementById('vocabSet');
+    select.innerHTML = '<option value="">Select a set</option>';
+    sets.forEach(set => {
+        const option = document.createElement('option');
+        option.value = set;
+        option.textContent = set.replace('.csv', '');
+        select.appendChild(option);
+    });
 }
 
-// Student: Load selected vocab set from localStorage
+// Student: Load selected vocab set
 function loadVocabSet() {
     const select = document.getElementById('vocabSet');
     const setName = select.value;
@@ -73,14 +58,9 @@ function loadVocabSet() {
         return;
     }
 
-    const storedData = localStorage.getItem(setName);
-    if (storedData) {
-        currentSet = JSON.parse(storedData);
-        console.log('Loaded currentSet:', currentSet); // Debugging
-        startQuiz();
-    } else {
-        alert('Error loading vocab set.');
-    }
+    currentSet = vocabSets[setName];
+    console.log('Loaded currentSet:', currentSet); // Debugging
+    startQuiz();
 }
 
 // Start quiz with randomized questions
@@ -88,7 +68,7 @@ function startQuiz() {
     questions = generateQuestions(currentSet);
     console.log('Generated questions:', questions); // Debugging
     if (questions.length === 0) {
-        document.getElementById('quizArea').innerHTML = '<p>Error: No valid questions generated. Please check the CSV format (requires term, definition, strand columns).</p>';
+        document.getElementById('quizArea').innerHTML = '<p>Error: No valid questions generated. Please check the data format (requires term, definition, strand).</p>';
         document.getElementById('results').innerHTML = '';
         document.getElementById('progress').innerHTML = '';
         document.getElementById('nextBtn').disabled = true;
