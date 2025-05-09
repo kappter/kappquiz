@@ -75,6 +75,18 @@ select, input, button {
 .theme-selector select {
     width: auto;
     display: inline-block;
+    padding: 8px;
+}
+
+.question-mode-selector {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.question-mode-selector select {
+    width: auto;
+    display: inline-block;
+    padding: 8px;
 }
 
 button {
@@ -172,6 +184,14 @@ footer a:hover {
     text-decoration: underline;
 }
 
+.donation-links {
+    margin-top: 5px;
+}
+
+.donation-links a {
+    margin: 0 5px;
+}
+
 /* Responsive adjustments for smaller screens */
 @media (max-width: 800px) {
     .container {
@@ -197,5 +217,15 @@ footer a:hover {
 
     .button-group button {
         width: 100%; /* Full width on smaller screens */
+    }
+
+    .donation-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .donation-links a {
+        margin: 2px 0;
     }
 }

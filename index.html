@@ -76,7 +76,7 @@
         }
         return gk_fileData[filename] || "";
         }
-        </script><!DOCTYPE html>
+</script><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -105,6 +105,14 @@
         <select id="vocabSet" onchange="loadVocabSet()">
             <option value="">Select a set</option>
         </select>
+        <div class="question-mode-selector">
+            <label for="questionMode">Question Mode: </label>
+            <select id="questionMode">
+                <option value="termToDefinition">Term to Definition</option>
+                <option value="definitionToTerm">Definition to Term</option>
+                <option value="mixed">Mixed (Both)</option>
+            </select>
+        </div>
         <div id="progress"></div>
         <div id="quizArea"></div>
         <div id="results"></div>
@@ -115,15 +123,17 @@
     </div>
 
     <footer>
-            <p>© 2025 Ken Kapptie | For educational use only | All rights reserved.</p>
-            <div class="donation-links">
-                <a href="https://github.com/kappter/kappquiz/">Detailed info on app | </a>
-                <a href="https://kappter.github.io/portfolio/#projects" target="_blank">More tools like this | </a>
-                <a href="https://kappter.github.io/portfolio/proposal.html">Want your own?</a>  
-            </div>
+        <p>© 2025 Ken Kapptie | For educational use only | All rights reserved.</p>
+        <div class="donation-links">
+            <a href="https://github.com/kappter/kappquiz/">Detailed info on app | </a>
+            <a href="https://kappter.github.io/portfolio/#projects" target="_blank">More tools like this | </a>
+            <a href="https://kappter.github.io/portfolio/proposal.html">Want your own?</a>  
+        </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="script.js"></script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d162c93df8bd02',t:'MTc0Njc5NTY5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d162c93df8bd02',t:'MTc0Njc5NTY5MC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'93d195b5ec6abd34',t:'MTc0Njc5Nzc3Ni4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script>
+</body>
 </html>
