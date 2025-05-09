@@ -1,5 +1,5 @@
 // List of known CSV files in the vocab-sets directory
-const availableSets = ['utah_video_production_terms_Final.csv','Exploring_Computer_Science_Vocabulary.csv','advanced_computer_programming_vocab.csv'];
+const availableSets = ['utah_video_production_terms_Final.csv', 'Exploring_Computer_Science_Vocabulary.csv', 'advanced_computer_programming_vocab.csv'];
 let vocabSets = {};
 let currentSet = null;
 let currentQuestionIndex = 0;
@@ -74,6 +74,10 @@ function loadVocabSet() {
 
     currentSet = vocabSets[setName];
     startQuiz();
+
+    // Disable both dropdowns after selection
+    document.getElementById('questionMode').disabled = true;
+    document.getElementById('vocabSet').disabled = true;
 }
 
 // Start quiz with randomized questions, optionally using a specific dataset
