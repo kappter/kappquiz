@@ -35,6 +35,9 @@ body {
     padding: 20px;
     background-color: var(--background-color);
     color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .container {
@@ -44,6 +47,7 @@ body {
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex: 1 0 auto;
 }
 
 h1, h2 {
@@ -124,4 +128,16 @@ button:hover {
     text-align: center;
     font-weight: bold;
     margin-bottom: 20px;
+}
+
+footer {
+    width: 100%;
+    background: var(--container-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid var(--option-border);
 }
