@@ -3,31 +3,31 @@
     --background-color: #f4f4f9;
     --container-bg: white;
     --text-color: #333;
-    --option-bg: #f8f9fa;
+    --option-bg: #389377; /* Teal from swatch */
     --option-border: #ddd;
-    --option-hover-bg: #e9ecef;
-    --correct-bg: #d4edda;
-    --correct-border: #c3e6cb;
+    --option-hover-bg: #388293; /* Blue-teal from swatch */
+    --correct-bg: #a3d7c2; /* Lighter teal for correct */
+    --correct-border: #8cc7a8;
     --incorrect-bg: #f8d7da;
     --incorrect-border: #f5c6cb;
-    --button-bg: #007BFF;
-    --button-hover-bg: #0056b3;
-    --link-color: #007BFF;
+    --button-bg: #38938D; /* Teal-blue from swatch */
+    --button-hover-bg: #386B93; /* Mid-tone blue from swatch */
+    --link-color: #38938D;
 }
 
 body.dark {
     --background-color: #333;
     --container-bg: #444;
     --text-color: #f4f4f9;
-    --option-bg: #555;
+    --option-bg: #2a6d5a; /* Darker teal for dark mode */
     --option-border: #666;
-    --option-hover-bg: #666;
-    --correct-bg: #2e7d32;
-    --correct-border: #1b5e20;
+    --option-hover-bg: #2a5d6e; /* Darker blue-teal for dark mode */
+    --correct-bg: #1e5a43; /* Darker teal for correct in dark mode */
+    --correct-border: #164d38;
     --incorrect-bg: #d32f2f;
     --incorrect-border: #b71c1c;
-    --button-bg: #0288d1;
-    --button-hover-bg: #0277bd;
+    --button-bg: #385493; /* Deepest blue from swatch */
+    --button-hover-bg: #4a69a5; /* Lighter shade for hover in dark mode */
     --link-color: #66b0ff; /* Lighter blue for better contrast in dark mode */
 }
 
@@ -94,6 +94,18 @@ button:disabled {
     cursor: not-allowed;
 }
 
+.button-group {
+    display: flex;
+    gap: 10px; /* Space between Generate Report and Retake Missed Terms buttons */
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button-group button {
+    width: auto; /* Allow buttons to size based on content */
+    padding: 10px 20px; /* Consistent padding for better appearance */
+}
+
 #quizArea, #results {
     margin-top: 20px;
 }
@@ -130,6 +142,7 @@ button:disabled {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+    gap: 10px; /* Space between Previous and Next buttons */
 }
 
 #progress {
@@ -175,5 +188,14 @@ footer a:hover {
 
     select, input, button {
         padding: 8px;
+    }
+
+    .button-group {
+        flex-direction: column; /* Stack buttons on smaller screens */
+        gap: 5px;
+    }
+
+    .button-group button {
+        width: 100%; /* Full width on smaller screens */
     }
 }
