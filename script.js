@@ -7,7 +7,7 @@ let score = 0;
 let answers = [];
 let questions = [];
 let missedTerms = [];
-let questionMode = 'termToDefinition'; // Default mode
+let questionMode = ''; // Default mode (empty until selected)
 
 // Toggle between teacher and student pages
 const urlParams = new URLSearchParams(window.location.search);
@@ -16,9 +16,10 @@ if (urlParams.get('mode') === 'teacher') {
     document.getElementById('studentPage').style.display = 'none';
 } else {
     fetchVocabSets();
-    // Add event listener for question mode selection
+    // Add event listener for question mode selection to enable vocab set dropdown
     document.getElementById('questionMode').addEventListener('change', (e) => {
         questionMode = e.target.value;
+        document.getElementById('vocabSet').disabled = false; // Enable vocab set dropdown
     });
 }
 
@@ -77,6 +78,10 @@ function loadVocabSet() {
 
 // Start quiz with randomized questions, optionally using a specific dataset
 function startQuiz(data = currentSet) {
+    if (!questionMode) {
+        alert('Please select a question mode before starting the quiz.');
+        return;
+    }
     questions = generateQuestions(data);
     console.log('Generated questions:', questions); // Debugging
     if (questions.length === 0) {
