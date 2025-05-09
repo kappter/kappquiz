@@ -6,6 +6,7 @@ let currentQuestionIndex = 0;
 let score = 0;
 let answers = [];
 let questions = [];
+let missedTerms = []; // To store terms answered incorrectly
 
 // Toggle between teacher and student pages
 const urlParams = new URLSearchParams(window.location.search);
@@ -69,9 +70,9 @@ function loadVocabSet() {
     startQuiz();
 }
 
-// Start quiz with randomized questions
-function startQuiz() {
-    questions = generateQuestions(currentSet);
+// Start quiz with randomized questions, optionally using a specific dataset
+function startQuiz(data = currentSet) {
+    questions = generateQuestions(data);
     console.log('Generated questions:', questions); // Debugging
     if (questions.length === 0) {
         document.getElementById('quizArea').innerHTML = '<p>Error: No valid questions generated. Please check the data format (requires term, definition, strand).</p>';
@@ -84,6 +85,7 @@ function startQuiz() {
     currentQuestionIndex = 0;
     score = 0;
     answers = [];
+    missedTerms = []; // Reset missed terms for new quiz
     document.getElementById('results').innerHTML = '';
     displayQuestion();
     updateProgress();
@@ -134,12 +136,20 @@ function displayQuestion() {
     `;
 }
 
-// Handle option selection
+// Handle option selection and track missed terms
 function selectOption(index) {
     const question = questions[currentQuestionIndex];
     const selected = question.options[index];
     const isCorrect = selected === question.correct;
     if (isCorrect) score++;
+    else {
+        // Add the missed term to missedTerms array
+        missedTerms.push({
+            term: question.term,
+            definition: question.correct,
+            strand: question.strand
+        });
+    }
     answers.push({ term: question.term, selected, correct: question.correct, isCorrect });
 
     const options = document.querySelectorAll('.option');
@@ -190,19 +200,29 @@ function nextQuestion() {
     }
 }
 
-// Show final results and report generation
+// Show final results with retake option
 function showResults() {
     const percentage = Math.round((score / questions.length) * 100);
     const resultsDiv = document.getElementById('results');
+    const hasMissedTerms = missedTerms.length > 0;
     resultsDiv.innerHTML = `
         <h2>Quiz Completed!</h2>
         <p>Final Score: ${score}/${questions.length} (${percentage}%)</p>
         <input type="text" id="studentName" placeholder="Enter your name">
         <button onclick="generateReport()">Generate Report</button>
+        <button id="retakeMissedBtn" onclick="retakeMissedTerms()" ${!hasMissedTerms ? 'disabled' : ''}>
+            Retake Missed Terms (${missedTerms.length})
+        </button>
     `;
     document.getElementById('quizArea').innerHTML = '';
     document.getElementById('progress').innerHTML = '';
     document.getElementById('nextBtn').disabled = true;
+}
+
+// Retake quiz with only missed terms
+function retakeMissedTerms() {
+    if (missedTerms.length === 0) return;
+    startQuiz(missedTerms);
 }
 
 // Generate HTML report with state test readiness

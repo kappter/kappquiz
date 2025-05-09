@@ -86,6 +86,11 @@ button:hover {
     background-color: var(--button-hover-bg);
 }
 
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
 #quizArea, #results {
     margin-top: 20px;
 }
