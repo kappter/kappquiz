@@ -100,7 +100,7 @@ function startQuiz(data = currentSet) {
     displayQuestion();
     updateProgress();
     document.getElementById('prevBtn').disabled = true;
-    document.getElementById('nextBtn').disabled = false;
+    document.getElementById('nextBtn').disabled = true; // Ensure Next button is disabled at start
 }
 
 // Generate multiple-choice questions based on the selected mode
@@ -178,6 +178,10 @@ function displayQuestion() {
             `).join('')}
         </div>
     `;
+
+    // Ensure the Next button is disabled until an option is selected
+    document.getElementById('nextBtn').disabled = true;
+    document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
 }
 
 // Handle option selection and track missed terms
@@ -209,13 +213,13 @@ function selectOption(index) {
     });
 
     updateProgress();
-    setTimeout(() => {
-        if (currentQuestionIndex < questions.length - 1) {
-            document.getElementById('nextBtn').disabled = false;
-        } else {
-            showResults();
-        }
-    }, 500);
+
+    // Enable the Next button after a selection is made
+    if (currentQuestionIndex < questions.length - 1) {
+        document.getElementById('nextBtn').disabled = false;
+    } else {
+        setTimeout(showResults, 500);
+    }
 }
 
 // Update progress with running total and percentage
@@ -234,7 +238,7 @@ function prevQuestion() {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
         displayQuestion();
-        document.getElementById('nextBtn').disabled = false;
+        document.getElementById('nextBtn').disabled = true; // Disable Next button until selection
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
     }
 }
@@ -246,7 +250,7 @@ function nextQuestion() {
         displayQuestion();
         updateProgress();
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-        document.getElementById('nextBtn').disabled = currentQuestionIndex >= questions.length;
+        document.getElementById('nextBtn').disabled = true; // Disable Next button until selection
     }
 }
 
