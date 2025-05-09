@@ -101,18 +101,21 @@
             </select>
         </div>
         <h1>Student Vocabulary Quiz</h1>
-        <h2>Select Vocabulary Set</h2>
-        <select id="vocabSet" onchange="loadVocabSet()">
-            <option value="">Select a set</option>
-        </select>
+        <h2>Select Question Mode First</h2>
         <div class="question-mode-selector">
+            <p class="instruction">Please select a question mode to enable the vocabulary set dropdown.</p>
             <label for="questionMode">Question Mode: </label>
             <select id="questionMode">
+                <option value="" disabled selected>Select a mode</option>
                 <option value="termToDefinition">Term to Definition</option>
                 <option value="definitionToTerm">Definition to Term</option>
                 <option value="mixed">Mixed (Both)</option>
             </select>
         </div>
+        <h2>Select Vocabulary Set</h2>
+        <select id="vocabSet" onchange="loadVocabSet()" disabled>
+            <option value="">Select a set</option>
+        </select>
         <div id="progress"></div>
         <div id="quizArea"></div>
         <div id="results"></div>

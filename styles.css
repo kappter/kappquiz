@@ -89,6 +89,18 @@ select, input, button {
     padding: 8px;
 }
 
+.instruction {
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+select:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
 button {
     background-color: var(--button-bg);
     color: white;
