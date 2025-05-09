@@ -12,6 +12,7 @@
     --incorrect-border: #f5c6cb;
     --button-bg: #007BFF;
     --button-hover-bg: #0056b3;
+    --link-color: #007BFF;
 }
 
 body.dark {
@@ -27,6 +28,7 @@ body.dark {
     --incorrect-border: #b71c1c;
     --button-bg: #0288d1;
     --button-hover-bg: #0277bd;
+    --link-color: #66b0ff; /* Lighter blue for better contrast in dark mode */
 }
 
 body {
@@ -41,7 +43,8 @@ body {
 }
 
 .container {
-    max-width: 800px;
+    width: 100%;
+    max-width: 800px; /* Fixed width at 800px for larger screens */
     margin: 0 auto;
     background: var(--container-bg);
     padding: 20px;
@@ -145,4 +148,32 @@ footer {
     bottom: 0;
     left: 0;
     border-top: 1px solid var(--option-border);
+}
+
+footer a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 800px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    select, input, button {
+        padding: 8px;
+    }
 }
