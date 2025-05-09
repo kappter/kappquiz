@@ -1,5 +1,5 @@
 // List of known CSV files in the vocab-sets directory
-const availableSets = ['utah_video_production_terms_Final.csv']; // Removed sample_vocab.csv since it's not present
+const availableSets = ['utah_video_production_terms_Final.csv','Exploring_Computer_Science_Vocabulary.csv']; // Removed sample_vocab.csv since it's not present
 let vocabSets = {};
 let currentSet = null;
 let currentQuestionIndex = 0;
