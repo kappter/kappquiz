@@ -174,23 +174,30 @@ function displayQuestion() {
         ? `What is the definition of "${question.prompt}"?`
         : `What term matches this definition: "${question.prompt}"?`;
 
+    // Check if the question has already been answered
+    const existingAnswer = answers.find(answer => answer.term === question.term && answer.questionType === question.type);
+
     quizArea.innerHTML = `
         <div class="question">
             <h3>Question ${currentQuestionIndex + 1}: ${questionText}</h3>
             ${question.options.map((option, i) => `
-                <div class="option" onclick="selectOption(${i})">${option}</div>
+                <div class="option${existingAnswer ? (option === question.correct ? ' correct' : (option === existingAnswer.selected ? ' incorrect' : '')) : ''}" 
+                     ${existingAnswer ? '' : `onclick="selectOption(${i})"`}>${option}</div>
             `).join('')}
         </div>
     `;
 
-    // Ensure the Next button is disabled until an option is selected
-    document.getElementById('nextBtn').disabled = true;
+    // Ensure the Next button is disabled until an option is selected, unless it's the last question or already answered
+    document.getElementById('nextBtn').disabled = !existingAnswer;
     document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
 }
 
 // Handle option selection and track missed terms
 function selectOption(index) {
     const question = questions[currentQuestionIndex];
+    // Prevent re-selection if the question has already been answered
+    if (answers.find(answer => answer.term === question.term && answer.questionType === question.type)) return;
+
     const selected = question.options[index];
     const isCorrect = selected === question.correct;
     if (isCorrect) score++;
@@ -242,7 +249,7 @@ function prevQuestion() {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
         displayQuestion();
-        document.getElementById('nextBtn').disabled = true; // Disable Next button until selection
+        document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex].term && answer.questionType === questions[currentQuestionIndex].type); // Disable Next button unless answered
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
     }
 }
@@ -254,7 +261,7 @@ function nextQuestion() {
         displayQuestion();
         updateProgress();
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-        document.getElementById('nextBtn').disabled = true; // Disable Next button until selection
+        document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex]?.term && answer.questionType === questions[currentQuestionIndex]?.type); // Disable Next button unless answered
     }
 }
 
