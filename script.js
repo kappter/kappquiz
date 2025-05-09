@@ -1,12 +1,13 @@
 // List of known CSV files in the vocab-sets directory
-const availableSets = ['utah_video_production_terms_Final.csv','Exploring_Computer_Science_Vocabulary.csv']; // Removed sample_vocab.csv since it's not present
+const availableSets = ['utah_video_production_terms_Final.csv','Exploring_Computer_Science_Vocabulary.csv'];
 let vocabSets = {};
 let currentSet = null;
 let currentQuestionIndex = 0;
 let score = 0;
 let answers = [];
 let questions = [];
-let missedTerms = []; // To store terms answered incorrectly
+let missedTerms = [];
+let questionMode = 'termToDefinition'; // Default mode
 
 // Toggle between teacher and student pages
 const urlParams = new URLSearchParams(window.location.search);
@@ -15,6 +16,10 @@ if (urlParams.get('mode') === 'teacher') {
     document.getElementById('studentPage').style.display = 'none';
 } else {
     fetchVocabSets();
+    // Add event listener for question mode selection
+    document.getElementById('questionMode').addEventListener('change', (e) => {
+        questionMode = e.target.value;
+    });
 }
 
 // Teacher: Upload CSV (disabled for now)
@@ -93,31 +98,61 @@ function startQuiz(data = currentSet) {
     document.getElementById('nextBtn').disabled = false;
 }
 
-// Generate multiple-choice questions
+// Generate multiple-choice questions based on the selected mode
 function generateQuestions(data) {
     const questions = [];
     if (!data || !Array.isArray(data)) return questions;
     data.forEach(item => {
         if (!item || !item.term || !item.definition) return;
-        const incorrect = [];
-        while (incorrect.length < 3) {
-            const randomItem = data[Math.floor(Math.random() * data.length)];
-            if (!randomItem || randomItem.definition === item.definition || incorrect.includes(randomItem.definition)) continue;
-            incorrect.push(randomItem.definition);
+
+        // Determine question type based on mode
+        let questionType = questionMode;
+        if (questionMode === 'mixed') {
+            questionType = Math.random() > 0.5 ? 'termToDefinition' : 'definitionToTerm';
         }
-        if (incorrect.length < 3) return; // Skip if not enough incorrect options
-        const options = [...incorrect, item.definition].sort(() => Math.random() - 0.5);
+
+        let prompt, correctAnswer, incorrectOptions, options;
+
+        if (questionType === 'termToDefinition') {
+            // Term to Definition: Show term, options are definitions
+            prompt = item.term;
+            correctAnswer = item.definition;
+            incorrectOptions = [];
+            while (incorrectOptions.length < 3) {
+                const randomItem = data[Math.floor(Math.random() * data.length)];
+                if (!randomItem || randomItem.definition === item.definition || incorrectOptions.includes(randomItem.definition)) continue;
+                incorrectOptions.push(randomItem.definition);
+            }
+            if (incorrectOptions.length < 3) return; // Skip if not enough incorrect options
+            options = [...incorrectOptions, item.definition].sort(() => Math.random() - 0.5);
+        } else {
+            // Definition to Term: Show definition, options are terms
+            prompt = item.definition;
+            correctAnswer = item.term;
+            incorrectOptions = [];
+            while (incorrectOptions.length < 3) {
+                const randomItem = data[Math.floor(Math.random() * data.length)];
+                if (!randomItem || randomItem.term === item.term || incorrectOptions.includes(randomItem.term)) continue;
+                incorrectOptions.push(randomItem.term);
+            }
+            if (incorrectOptions.length < 3) return; // Skip if not enough incorrect options
+            options = [...incorrectOptions, item.term].sort(() => Math.random() - 0.5);
+        }
+
         questions.push({
+            type: questionType,
+            prompt: prompt,
+            correct: correctAnswer,
+            options: options,
             term: item.term,
-            correct: item.definition,
-            options,
+            definition: item.definition,
             strand: item.strand || ''
         });
     });
-    return questions.sort(() => Math.random() - 0.5); // No cap, use all valid questions
+    return questions.sort(() => Math.random() - 0.5);
 }
 
-// Display current question
+// Display current question based on the question type
 function displayQuestion() {
     const quizArea = document.getElementById('quizArea');
     if (currentQuestionIndex >= questions.length) {
@@ -126,9 +161,13 @@ function displayQuestion() {
     }
 
     const question = questions[currentQuestionIndex];
+    const questionText = question.type === 'termToDefinition'
+        ? `What is the definition of "${question.prompt}"?`
+        : `What term matches this definition: "${question.prompt}"?`;
+
     quizArea.innerHTML = `
         <div class="question">
-            <h3>Question ${currentQuestionIndex + 1}: What is the definition of "${question.term}"?</h3>
+            <h3>Question ${currentQuestionIndex + 1}: ${questionText}</h3>
             ${question.options.map((option, i) => `
                 <div class="option" onclick="selectOption(${i})">${option}</div>
             `).join('')}
@@ -146,11 +185,17 @@ function selectOption(index) {
         // Add the missed term to missedTerms array
         missedTerms.push({
             term: question.term,
-            definition: question.correct,
+            definition: question.definition,
             strand: question.strand
         });
     }
-    answers.push({ term: question.term, selected, correct: question.correct, isCorrect });
+    answers.push({ 
+        term: question.term, 
+        selected, 
+        correct: question.correct, 
+        isCorrect,
+        questionType: question.type 
+    });
 
     const options = document.querySelectorAll('.option');
     options.forEach((opt, i) => {
@@ -158,7 +203,7 @@ function selectOption(index) {
         opt.onclick = null;
     });
 
-    updateProgress(); // Update percentage after each answer
+    updateProgress();
     setTimeout(() => {
         if (currentQuestionIndex < questions.length - 1) {
             document.getElementById('nextBtn').disabled = false;
@@ -209,10 +254,12 @@ function showResults() {
         <h2>Quiz Completed!</h2>
         <p>Final Score: ${score}/${questions.length} (${percentage}%)</p>
         <input type="text" id="studentName" placeholder="Enter your name">
-        <button onclick="generateReport()">Generate Report</button>
-        <button id="retakeMissedBtn" onclick="retakeMissedTerms()" ${!hasMissedTerms ? 'disabled' : ''}>
-            Retake Missed Terms (${missedTerms.length})
-        </button>
+        <div class="button-group">
+            <button onclick="generateReport()">Generate Report</button>
+            <button id="retakeMissedBtn" onclick="retakeMissedTerms()" ${!hasMissedTerms ? 'disabled' : ''}>
+                Retake Missed Terms (${missedTerms.length})
+            </button>
+        </div>
     `;
     document.getElementById('quizArea').innerHTML = '';
     document.getElementById('progress').innerHTML = '';
@@ -256,6 +303,7 @@ function generateReport() {
             <table>
                 <tr>
                     <th>Term</th>
+                    <th>Question Type</th>
                     <th>Your Answer</th>
                     <th>Correct Answer</th>
                     <th>Result</th>
@@ -264,6 +312,7 @@ function generateReport() {
                 ${answers.map(answer => `
                     <tr>
                         <td>${answer.term}</td>
+                        <td>${answer.questionType === 'termToDefinition' ? 'Term to Definition' : 'Definition to Term'}</td>
                         <td>${answer.selected}</td>
                         <td>${answer.correct}</td>
                         <td class="${answer.isCorrect ? 'correct' : 'incorrect'}">${answer.isCorrect ? 'Correct' : 'Incorrect'}</td>
@@ -281,8 +330,8 @@ function generateReport() {
 // Theme switching function
 function changeTheme() {
     const theme = document.getElementById('themeSelect').value;
-    document.body.className = theme; // Apply light or dark class to body
-    localStorage.setItem('theme', theme); // Persist theme choice
+    document.body.className = theme;
+    localStorage.setItem('theme', theme);
 }
 
 // Apply saved theme on page load
