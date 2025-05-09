@@ -14,6 +14,7 @@ The Vocabulary Quiz System is a web-based application designed to help students 
   - Multiple-choice questions with four options per question.
   - "Next" button is disabled until an option is selected, preventing accidental skips.
   - Answers are locked after selection; users cannot change responses when navigating back to previous questions using the "Previous" button.
+  - Score is accurately tracked and displayed as a percentage based on answered questions, updating correctly during navigation.
   - Visual feedback for correct/incorrect answers with color-coded options (teal for correct, red for incorrect).
   - Navigation between questions using "Previous" and "Next" buttons.
   - Progress tracking with a running score percentage displayed during the quiz.
@@ -46,7 +47,7 @@ The Vocabulary Quiz System is a web-based application designed to help students 
 4. **Take the Quiz**:
    - Answer questions by selecting one of four options.
    - Navigate using "Previous" and "Next" buttons; answers are locked after selection.
-   - Track progress with the score percentage displayed.
+   - Track progress with the score percentage displayed, which updates accurately as you navigate.
 5. **View Results**:
    - View final score and percentage upon quiz completion.
    - Enter your name to personalize the report.
@@ -74,7 +75,7 @@ The app is hosted on GitHub Pages. To deploy your own instance:
    - In repository settings, under "GitHub Pages," set the source to the `main` branch.
    - Access the app at `https://<your-username>.github.io/kappquiz/`.
 5. **Test the App**:
-   - Verify functionality of question modes, quiz navigation, answer locking, report generation, and theme switching.
+   - Verify functionality of question modes, quiz navigation, answer locking, score accuracy, report generation, and theme switching.
 
 ## Credits
 

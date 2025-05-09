@@ -3,7 +3,6 @@ const availableSets = ['ARRL_Ham_Radio_General_License_Terms_Definitions.csv','A
 let vocabSets = {};
 let currentSet = null;
 let currentQuestionIndex = 0;
-let score = 0;
 let answers = [];
 let questions = [];
 let missedTerms = [];
@@ -97,7 +96,6 @@ function startQuiz(data = currentSet) {
         return;
     }
     currentQuestionIndex = 0;
-    score = 0;
     answers = [];
     missedTerms = []; // Reset missed terms for new quiz
     document.getElementById('results').innerHTML = '';
@@ -200,15 +198,6 @@ function selectOption(index) {
 
     const selected = question.options[index];
     const isCorrect = selected === question.correct;
-    if (isCorrect) score++;
-    else {
-        // Add the missed term to missedTerms array
-        missedTerms.push({
-            term: question.term,
-            definition: question.definition,
-            strand: question.strand
-        });
-    }
     answers.push({ 
         term: question.term, 
         selected, 
@@ -216,6 +205,15 @@ function selectOption(index) {
         isCorrect,
         questionType: question.type 
     });
+
+    if (!isCorrect) {
+        // Add the missed term to missedTerms array
+        missedTerms.push({
+            term: question.term,
+            definition: question.definition,
+            strand: question.strand
+        });
+    }
 
     const options = document.querySelectorAll('.option');
     options.forEach((opt, i) => {
@@ -235,7 +233,10 @@ function selectOption(index) {
 
 // Update progress with running total and percentage
 function updateProgress() {
-    const percentage = Math.round((score / (currentQuestionIndex + 1)) * 100) || 0;
+    // Calculate score based on correct answers up to currentQuestionIndex
+    const score = answers.filter((answer, index) => index <= currentQuestionIndex && answer.isCorrect).length;
+    const totalQuestions = currentQuestionIndex + 1 <= questions.length ? currentQuestionIndex + 1 : questions.length;
+    const percentage = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
     const questionProgress = currentQuestionIndex < questions.length 
         ? `Question ${currentQuestionIndex + 1} of ${questions.length}` 
         : `Completed ${questions.length} of ${questions.length}`;
@@ -249,7 +250,7 @@ function prevQuestion() {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
         displayQuestion();
-        document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex].term && answer.questionType === questions[currentQuestionIndex].type); // Disable Next button unless answered
+        document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex].term && answer.questionType === questions[currentQuestionIndex].type);
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
     }
 }
@@ -261,12 +262,13 @@ function nextQuestion() {
         displayQuestion();
         updateProgress();
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-        document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex]?.term && answer.questionType === questions[currentQuestionIndex]?.type); // Disable Next button unless answered
+        document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex]?.term && answer.questionType === questions[currentQuestionIndex]?.type);
     }
 }
 
 // Show final results with retake option
 function showResults() {
+    const score = answers.filter(answer => answer.isCorrect).length;
     const percentage = Math.round((score / questions.length) * 100);
     const resultsDiv = document.getElementById('results');
     const hasMissedTerms = missedTerms.length > 0;
@@ -295,6 +297,7 @@ function retakeMissedTerms() {
 // Generate HTML report with state test readiness
 function generateReport() {
     const studentName = document.getElementById('studentName').value || 'Student';
+    const score = answers.filter(answer => answer.isCorrect).length;
     const percentage = Math.round((score / questions.length) * 100);
     const isReady = percentage > 80;
     const readinessMessage = isReady 
