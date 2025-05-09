@@ -1,14 +1,46 @@
+/* Define theme variables */
+:root {
+    --background-color: #f4f4f9;
+    --container-bg: white;
+    --text-color: #333;
+    --option-bg: #f8f9fa;
+    --option-border: #ddd;
+    --option-hover-bg: #e9ecef;
+    --correct-bg: #d4edda;
+    --correct-border: #c3e6cb;
+    --incorrect-bg: #f8d7da;
+    --incorrect-border: #f5c6cb;
+    --button-bg: #007BFF;
+    --button-hover-bg: #0056b3;
+}
+
+body.dark {
+    --background-color: #333;
+    --container-bg: #444;
+    --text-color: #f4f4f9;
+    --option-bg: #555;
+    --option-border: #666;
+    --option-hover-bg: #666;
+    --correct-bg: #2e7d32;
+    --correct-border: #1b5e20;
+    --incorrect-bg: #d32f2f;
+    --incorrect-border: #b71c1c;
+    --button-bg: #0288d1;
+    --button-hover-bg: #0277bd;
+}
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    background-color: #f4f4f9;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
-    background: white;
+    background: var(--container-bg);
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0,0,0,0.1);
@@ -16,7 +48,7 @@ body {
 
 h1, h2 {
     text-align: center;
-    color: #333;
+    color: var(--text-color);
 }
 
 select, input, button {
@@ -24,10 +56,22 @@ select, input, button {
     margin: 10px 0;
     width: 100%;
     box-sizing: border-box;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    border: 1px solid var(--option-border);
+}
+
+.theme-selector {
+    text-align: right;
+}
+
+.theme-selector select {
+    width: auto;
+    display: inline-block;
 }
 
 button {
-    background-color: #007BFF;
+    background-color: var(--button-bg);
     color: white;
     border: none;
     cursor: pointer;
@@ -35,7 +79,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: var(--button-hover-bg);
 }
 
 #quizArea, #results {
@@ -50,24 +94,24 @@ button:hover {
     display: block;
     padding: 10px;
     margin: 5px 0;
-    background: #f8f9fa;
-    border: 1px solid #ddd;
+    background: var(--option-bg);
+    border: 1px solid var(--option-border);
     cursor: pointer;
     border-radius: 4px;
 }
 
 .option:hover {
-    background: #e9ecef;
+    background: var(--option-hover-bg);
 }
 
 .correct {
-    background: #d4edda;
-    border-color: #c3e6cb;
+    background: var(--correct-bg);
+    border-color: var(--correct-border);
 }
 
 .incorrect {
-    background: #f8d7da;
-    border-color: #f5c6cb;
+    background: var(--incorrect-bg);
+    border-color: var(--incorrect-border);
 }
 
 .pagination {

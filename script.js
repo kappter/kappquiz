@@ -158,10 +158,15 @@ function selectOption(index) {
     }, 500);
 }
 
-// Update progress percentage
+// Update progress with running total and percentage
 function updateProgress() {
     const percentage = Math.round((score / (currentQuestionIndex + 1)) * 100) || 0;
-    document.getElementById('progress').innerHTML = `Current Score: ${percentage}%`;
+    const questionProgress = currentQuestionIndex < questions.length 
+        ? `Question ${currentQuestionIndex + 1} of ${questions.length}` 
+        : `Completed ${questions.length} of ${questions.length}`;
+    document.getElementById('progress').innerHTML = `
+        ${questionProgress} | Current Score: ${percentage}%
+    `;
 }
 
 // Navigate to previous question
@@ -200,10 +205,15 @@ function showResults() {
     document.getElementById('nextBtn').disabled = true;
 }
 
-// Generate HTML report
+// Generate HTML report with state test readiness
 function generateReport() {
     const studentName = document.getElementById('studentName').value || 'Student';
     const percentage = Math.round((score / questions.length) * 100);
+    const isReady = percentage > 80;
+    const readinessMessage = isReady 
+        ? '<p style="color: green;"><strong>Congratulations!</strong> You are ready for the state test with a score above 80%.</p>'
+        : '<p style="color: red;">Keep practicing! A score above 80% is recommended to be ready for the state test.</p>';
+
     const reportWindow = window.open('', '_blank');
     reportWindow.document.write(`
         <html>
@@ -222,6 +232,7 @@ function generateReport() {
             <h1>Vocabulary Quiz Report</h1>
             <p><strong>Student:</strong> ${studentName}</p>
             <p><strong>Score:</strong> ${score}/${questions.length} (${percentage}%)</p>
+            ${readinessMessage}
             <table>
                 <tr>
                     <th>Term</th>
@@ -246,3 +257,17 @@ function generateReport() {
     `);
     reportWindow.document.close();
 }
+
+// Theme switching function
+function changeTheme() {
+    const theme = document.getElementById('themeSelect').value;
+    document.body.className = theme; // Apply light or dark class to body
+    localStorage.setItem('theme', theme); // Persist theme choice
+}
+
+// Apply saved theme on page load
+document.addEventListener('DOMContentLoaded', () => {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.body.className = savedTheme;
+    document.getElementById('themeSelect').value = savedTheme;
+});
