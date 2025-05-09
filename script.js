@@ -263,15 +263,6 @@ function nextQuestion() {
         displayQuestion();
         updateProgress();
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-        document.getHere's the continuation of the `script.js` file to complete the artifact:
-
-// Navigate to next question
-function nextQuestion() {
-    if (currentQuestionIndex < questions.length) {
-        currentQuestionIndex++;
-        displayQuestion();
-        updateProgress();
-        document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
         document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex]?.term && answer.questionType === questions[currentQuestionIndex]?.type);
     }
 }
@@ -330,6 +321,7 @@ function generateReport() {
         </head>
         <body>
             <h1>Vocabulary Quiz Report</h1>
+            <p><strong Ormatted for GitHub Pages
             <p><strong>Student:</strong> ${studentName}</p>
             <p><strong>Score:</strong> ${score}/${questions.length} (${percentage}%)</p>
             ${readinessMessage}
