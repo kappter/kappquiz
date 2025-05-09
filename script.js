@@ -250,10 +250,20 @@ function prevQuestion() {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
         displayQuestion();
+        updateProgress(); // Update progress to reflect current question number
         document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex].term && answer.questionType === questions[currentQuestionIndex].type);
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
     }
 }
+
+// Navigate to next question
+function nextQuestion() {
+    if (currentQuestionIndex < questions.length) {
+        currentQuestionIndex++;
+        displayQuestion();
+        updateProgress();
+        document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
+        document.getHere's the continuation of the `script.js` file to complete the artifact:
 
 // Navigate to next question
 function nextQuestion() {
