@@ -168,7 +168,7 @@ button:disabled {
 
 .incorrect {
     background: var(--incorrect-bg);
-    border-color: --incorrect-border);
+    border-color: var(--incorrect-border);
 }
 
 #timer {
@@ -178,6 +178,8 @@ button:disabled {
     border: 1px solid var(--timer-border);
     border-radius: 4px;
     color: var(--text-color);
+    text-align: center;
+    margin: 10px 0;
 }
 
 .pagination {

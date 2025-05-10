@@ -1,5 +1,5 @@
-// Vocabulary Quiz System - script.js (Version: 2025-05-15)
-// Includes fixes for retake freeze, report copyright, school colors, timer, and dynamic title
+// Vocabulary Quiz System - script.js (Version: 2025-05-16)
+// Includes timer, dynamic title, retake freeze fix, report copyright, school colors
 
 const availableSets = ['Short_Testing_Sample.csv', 'ARRL_Ham_Radio_General_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Extra_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Technician_License_Terms_Definitions.csv', 'Game_Development_Fundamentals-2_Terms_Definitions.csv', 'Game_Development_Fundamentals_1_Terms_Definitions.csv', 'utah_video_production_terms_Final.csv', 'Computer_Programming_2_Terms_Definitions.csv', 'Exploring_Computer_Science_Vocabulary.csv', 'advanced_computer_programming_vocab.csv', 'Digital_Media_2_Terms_and_Definitions.csv'];
 let vocabSets = {};
@@ -16,14 +16,23 @@ let currentSetName = '';
 
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('mode') === 'teacher') {
-    document.getElementById('teacherPage').style.display = 'block';
-    document.getElementById('studentPage').style.display = 'none';
+    const teacherPage = document.getElementById('teacherPage');
+    const studentPage = document.getElementById('studentPage');
+    if (teacherPage && studentPage) {
+        teacherPage.style.display = 'block';
+        studentPage.style.display = 'none';
+    }
 } else {
     fetchVocabSets();
-    document.getElementById('questionMode').addEventListener('change', (e) => {
-        questionMode = e.target.value;
-        document.getElementById('vocabSet').disabled = false;
-    });
+    const questionModeSelect = document.getElementById('questionMode');
+    if (questionModeSelect) {
+        questionModeSelect.addEventListener('change', (e) => {
+            questionMode = e.target.value;
+            const vocabSet = document.getElementById('vocabSet');
+            if (vocabSet) vocabSet.disabled = false;
+            console.log('Question mode selected:', questionMode); // Debug
+        });
+    }
 }
 
 function uploadCSV() {
@@ -32,6 +41,10 @@ function uploadCSV() {
 
 async function fetchVocabSets() {
     const select = document.getElementById('vocabSet');
+    if (!select) {
+        console.error('Vocab set select element not found');
+        return;
+    }
     select.innerHTML = '<option value="">Select a set</option>';
 
     for (const set of availableSets) {
@@ -52,12 +65,18 @@ async function fetchVocabSets() {
             select.appendChild(option);
         } catch (error) {
             console.error(`Error loading ${set}:`, error);
-            document.getElementById('quizArea').innerHTML = `<p>Error loading ${set}. Please check the file or repository.</p>`;
+            const quizArea = document.getElementById('quizArea');
+            if (quizArea) {
+                quizArea.innerHTML = `<p>Error loading ${set}. Please check the file or repository.</p>`;
+            }
         }
     }
 
     if (Object.keys(vocabSets).length === 0) {
-        document.getElementById('quizArea').innerHTML = '<p>Error: No vocab sets loaded. Please check the vocab-sets directory.</p>';
+        const quizArea = document.getElementById('quizArea');
+        if (quizArea) {
+            quizArea.innerHTML = '<p>Error: No vocab sets loaded. Please check the vocab-sets directory.</p>';
+        }
     }
 }
 
@@ -70,29 +89,79 @@ function formatSetName(setName) {
 
 function loadVocabSet() {
     const select = document.getElementById('vocabSet');
+    const pageTitle = document.getElementById('pageTitle');
+    const timer = document.getElementById('timer');
+    if (!select || !pageTitle || !timer) {
+        console.error('Missing DOM elements:', { select, pageTitle, timer });
+        return;
+    }
+
     const setName = select.value;
+    console.log('loadVocabSet:', setName); // Debug
     if (!setName) {
         document.getElementById('quizArea').innerHTML = '';
         document.getElementById('progress').innerHTML = '';
         document.getElementById('results').innerHTML = '';
-        document.getElementById('pageTitle').textContent = 'Student Vocabulary Quiz';
-        document.getElementById('timer').style.display = 'none';
+        pageTitle.textContent = 'Student Vocabulary Quiz';
+        timer.style.display = 'none';
         currentSetName = '';
         return;
     }
 
     currentSet = vocabSets[setName];
     currentSetName = formatSetName(setName);
-    document.getElementById('pageTitle').textContent = currentSetName;
+    pageTitle.textContent = currentSetName;
+    console.log('Setting title to:', currentSetName); // Debug
     startQuiz();
     document.getElementById('questionMode').disabled = true;
-    document.getElementById('vocabSet').disabled = true;
+    select.disabled = true;
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+function startTimer() {
+    const timer = document.getElementById('timer');
+    if (!timer) {
+        console.error('Timer element not found');
+        return;
+    }
+    if (timerInterval) clearInterval(timerInterval);
+    quizStartTime = Date.now();
+    timer.style.display = 'block';
+    console.log('Starting timer'); // Debug
+    timerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - quizStartTime) / 1000);
+        timer.textContent = `Time Elapsed: ${formatTime(elapsed)}`;
+    }, 1000);
+}
+
+function stopTimer() {
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+    const timer = document.getElementById('timer');
+    if (timer) {
+        totalDuration = Math.floor((Date.now() - quizStartTime) / 1000);
+        timer.textContent = `Total Time: ${formatTime(totalDuration)}`;
+        console.log('Stopped timer, total duration:', totalDuration); // Debug
+    }
 }
 
 function startQuiz(data = currentSet) {
-    console.log('Starting quiz with data:', data);
+    console.log('startQuiz called with data:', data); // Debug
     if (!questionMode) {
         alert('Please select a question mode before starting the quiz.');
+        return;
+    }
+
+    const quizArea = document.getElementById('quizArea');
+    if (!quizArea) {
+        console.error('Quiz area element not found');
         return;
     }
 
@@ -107,7 +176,7 @@ function startQuiz(data = currentSet) {
         }
 
         questions = generateQuestions(validData);
-        console.log('Generated questions:', questions);
+        console.log('Generated questions:', questions.length); // Debug
         if (questions.length === 0) {
             throw new Error('No valid questions could be generated from the data.');
         }
@@ -115,10 +184,7 @@ function startQuiz(data = currentSet) {
         currentQuestionIndex = 0;
         answers = [];
         missedTerms = [];
-        quizStartTime = Date.now();
-        totalDuration = 0;
         document.getElementById('results').innerHTML = '';
-        document.getElementById('timer').style.display = 'block';
         startTimer();
         displayQuestion();
         updateProgress();
@@ -126,47 +192,25 @@ function startQuiz(data = currentSet) {
         document.getElementById('nextBtn').disabled = true;
     } catch (error) {
         console.error('Error starting quiz:', error);
-        document.getElementById('quizArea').innerHTML = `<p>Error: ${error.message} Please select a different set or try again.</p>`;
+        quizArea.innerHTML = `<p>Error: ${error.message} Please select a different set or try again.</p>`;
         document.getElementById('results').innerHTML = '';
         document.getElementById('progress').innerHTML = '';
-        document.getElementById('timer').style.display = 'none';
+        const timer = document.getElementById('timer');
+        if (timer) timer.style.display = 'none';
         document.getElementById('nextBtn').disabled = true;
         document.getElementById('prevBtn').disabled = true;
     }
 }
 
-function formatTime(seconds) {
-    const minutes = Math.floor(seconds / 60);
-    const secs = Math.floor(seconds % 60);
-    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-}
-
-function startTimer() {
-    if (timerInterval) clearInterval(timerInterval);
-    timerInterval = setInterval(() => {
-        const elapsed = Math.floor((Date.now() - quizStartTime) / 1000);
-        document.getElementById('timer').textContent = `Time Elapsed: ${formatTime(elapsed)}`;
-    }, 1000);
-}
-
-function stopTimer() {
-    if (timerInterval) {
-        clearInterval(timerInterval);
-        timerInterval = null;
-    }
-    totalDuration = Math.floor((Date.now() - quizStartTime) / 1000);
-    document.getElementById('timer').textContent = `Total Time: ${formatTime(totalDuration)}`;
-}
-
 function generateQuestions(data) {
-    console.log('Generating questions with data length:', data.length);
+    console.log('Generating questions with data length:', data.length); // Debug
     const questions = [];
     if (!data || !Array.isArray(data)) return questions;
 
     const maxAttempts = 50;
     data.forEach(item => {
         if (!item || !item.term?.trim() || !item.definition?.trim()) {
-            console.log('Skipping invalid item:', item);
+            console.log('Skipping invalid item:', item); // Debug
             return;
         }
 
@@ -191,7 +235,7 @@ function generateQuestions(data) {
                 incorrectOptions.push(randomItem.definition);
             }
             if (incorrectOptions.length < 3) {
-                console.log('Failed to generate enough options for term:', item.term);
+                console.log('Failed to generate enough options for term:', item.term); // Debug
                 return;
             }
             options = [...incorrectOptions, item.definition].sort(() => Math.random() - 0.5);
@@ -208,7 +252,7 @@ function generateQuestions(data) {
                 incorrectOptions.push(randomItem.term);
             }
             if (incorrectOptions.length < 3) {
-                console.log('Failed to generate enough options for definition:', item.definition);
+                console.log('Failed to generate enough options for definition:', item.definition); // Debug
                 return;
             }
             options = [...incorrectOptions, item.term].sort(() => Math.random() - 0.5);
@@ -225,13 +269,17 @@ function generateQuestions(data) {
         });
     });
 
-    console.log('Questions generated:', questions.length);
+    console.log('Questions generated:', questions.length); // Debug
     return questions.sort(() => Math.random() - 0.5);
 }
 
 function displayQuestion() {
-    console.log('Displaying question index:', currentQuestionIndex);
+    console.log('Displaying question index:', currentQuestionIndex); // Debug
     const quizArea = document.getElementById('quizArea');
+    if (!quizArea) {
+        console.error('Quiz area element not found');
+        return;
+    }
     if (currentQuestionIndex >= questions.length) {
         stopTimer();
         showResults();
@@ -245,7 +293,6 @@ function displayQuestion() {
 
     const existingAnswer = answers.find(answer => answer.term === question.term && answer.questionType === question.type);
 
-    quizArea.innerHTML = '';
     quizArea.innerHTML = `
         <div class="question">
             <h3>Question ${currentQuestionIndex + 1}: ${questionText}</h3>
@@ -261,7 +308,7 @@ function displayQuestion() {
 }
 
 function selectOption(index) {
-    console.log('Selecting option index:', index);
+    console.log('Selecting option index:', index); // Debug
     const question = questions[currentQuestionIndex];
     if (answers.find(answer => answer.term === question.term && answer.questionType === question.type)) return;
 
@@ -306,9 +353,12 @@ function updateProgress() {
     const questionProgress = currentQuestionIndex < questions.length
         ? `Question ${currentQuestionIndex + 1} of ${questions.length}`
         : `Completed ${questions.length} of ${questions.length}`;
-    document.getElementById('progress').innerHTML = `
-        ${questionProgress} | Current Score: ${percentage}%
-    `;
+    const progress = document.getElementById('progress');
+    if (progress) {
+        progress.innerHTML = `
+            ${questionProgress} | Current Score: ${percentage}%
+        `;
+    }
 }
 
 function prevQuestion() {
@@ -335,6 +385,10 @@ function showResults() {
     const score = answers.filter(answer => answer.isCorrect).length;
     const percentage = Math.round((score / questions.length) * 100);
     const resultsDiv = document.getElementById('results');
+    if (!resultsDiv) {
+        console.error('Results div not found');
+        return;
+    }
     const hasMissedTerms = missedTerms.length > 0;
     resultsDiv.innerHTML = `
         <h2>Quiz Completed!</h2>
@@ -350,12 +404,13 @@ function showResults() {
     `;
     document.getElementById('quizArea').innerHTML = '';
     document.getElementById('progress').innerHTML = '';
-    document.getElementById('timer').style.display = 'none';
+    const timer = document.getElementById('timer');
+    if (timer) timer.style.display = 'none';
     document.getElementById('nextBtn').disabled = true;
 }
 
 function retakeMissedTerms() {
-    console.log('Retaking missed terms:', missedTerms);
+    console.log('Retaking missed terms:', missedTerms); // Debug
     try {
         if (!missedTerms || !Array.isArray(missedTerms) || missedTerms.length === 0) {
             alert('No missed terms available to retake.');
@@ -371,14 +426,14 @@ function retakeMissedTerms() {
             }
         }
 
-        console.log('Valid missed terms:', validMissedTerms);
+        console.log('Valid missed terms:', validMissedTerms); // Debug
         if (validMissedTerms.length < 4) {
             alert('Not enough unique missed terms to generate a quiz (minimum 4 required).');
             return;
         }
 
         startQuiz(validMissedTerms);
-    } showResults(error) {
+    } catch (error) {
         console.error('Error retaking missed terms:', error);
         alert('An error occurred while retaking missed terms. Please try again.');
     }
@@ -386,7 +441,7 @@ function retakeMissedTerms() {
 
 function generateReport() {
     try {
-        const studentName = document.getElementById('studentName').value || 'Student';
+        const studentName = document.getElementById('studentName')?.value || 'Student';
         const score = answers.filter(answer => answer.isCorrect).length;
         const percentage = questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
         const isReady = percentage > 80;
@@ -461,13 +516,18 @@ function generateReport() {
 }
 
 function changeTheme() {
-    const theme = document.getElementById('themeSelect').value;
-    document.body.className = theme;
-    localStorage.setItem('theme', theme);
+    const themeSelect = document.getElementById('themeSelect');
+    if (themeSelect) {
+        const theme = themeSelect.value;
+        document.body.className = theme;
+        localStorage.setItem('theme', theme);
+    }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('DOM loaded'); // Debug
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.className = savedTheme;
-    document.getElementById('themeSelect').value = savedTheme;
+    const themeSelect = document.getElementById('themeSelect');
+    if (themeSelect) themeSelect.value = savedTheme;
 });
