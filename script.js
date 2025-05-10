@@ -297,58 +297,76 @@ function retakeMissedTerms() {
 
 // Generate HTML report with state test readiness
 function generateReport() {
-    const studentName = document.getElementById('studentName').value || 'Student';
-    const score = answers.filter(answer => answer.isCorrect).length;
-    const percentage = Math.round((score / questions.length) * 100);
-    const isReady = percentage > 80;
-    const readinessMessage = isReady 
-        ? '<p style="color: green;"><strong>Congratulations!</strong> You are ready for the state test with a score above 80%.</p>'
-        : '<p style="color: red;">Keep practicing! A score above 80% is recommended to be ready for the state test.</p>';
+    try {
+        const studentName = document.getElementById('studentName').value || 'Student';
+        const score = answers.filter(answer => answer.isCorrect).length;
+        const percentage = questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
+        const isReady = percentage > 80;
+        const readinessMessage = isReady 
+            ? '<p style="color: green;"><strong>Congratulations!</strong> You are ready for the state test with a score above 80%.</p>'
+            : '<p style="color: red;">Keep practicing! A score above 80% is recommended to be ready for the state test.</p>';
 
-    const reportWindow = window.open('', '_blank');
-    reportWindow.document.write(`
-        <html>
-        <head>
-            <title>Quiz Report</title>
-            <style>
-                body { font-family: Arial, sans-serif; margin: 20px; }
-                table { width: 100%; border-collapse: collapse; }
-                th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-                th { background: #f4f4f9; }
-                .correct { color: green; }
-                .incorrect { color: red; }
-            </style>
-        </head>
-        <body>
-            <h1>Vocabulary Quiz Report</h1>
-            <p><strong>Student:</strong> ${studentName}</p>
-            <p><strong>Score:</strong> ${score}/${questions.length} (${percentage}%)</p>
-            ${readinessMessage}
-            <table>
-                <tr>
-                    <th>Term</th>
-                    <th>Question Type</th>
-                    <th>Your Answer</th>
-                    <th>Correct Answer</th>
-                    <th>Result</th>
-                    <th>Strand</th>
-                </tr>
-                ${answers.map(answer => `
+        if (!answers.length || !questions.length) {
+            alert('No quiz data available to generate a report.');
+            return;
+        }
+
+        const reportWindow = window.open('', '_blank');
+        if (!reportWindow) {
+            alert('Failed to open report window. Please allow pop-ups.');
+            return;
+        }
+
+        reportWindow.document.write(`
+            <html>
+            <head>
+                <title>Quiz Report</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; }
+                    table { width: 100%; border-collapse: collapse; }
+                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                    th { background: #f4f4f9; }
+                    .correct { color: green; }
+                    .incorrect { color: red; }
+                </style>
+            </head>
+            <body>
+                <h1>Vocabulary Quiz Report</h1>
+                <p><strong>Student:</strong> ${studentName}</p>
+                <p><strong>Score:</strong> ${score}/${questions.length} (${percentage}%)</p>
+                ${readinessMessage}
+                <table>
                     <tr>
-                        <td>${answer.term}</td>
-                        <td>${answer.questionType === 'termToDefinition' ? 'Term to Definition' : 'Definition to Term'}</td>
-                        <td>${answer.selected}</td>
-                        <td>${answer.correct}</td>
-                        <td class="${answer.isCorrect ? 'correct' : 'incorrect'}">${answer.isCorrect ? 'Correct' : 'Incorrect'}</td>
-                        <td>${questions.find(q => q.term === answer.term).strand}</td>
+                        <th>Term</th>
+                        <th>Question Type</th>
+                        <th>Your Answer</th>
+                        <th>Correct Answer</th>
+                        <th>Result</th>
+                        <th>Strand</th>
                     </tr>
-                `).join('')}
-            </table>
-            <button onclick="window.print()">Print Report</button>
-        </body>
-        </html>
-    `);
-    reportWindow.document.close();
+                    ${answers.map(answer => {
+                        const question = questions.find(q => q.term === answer.term && q.type === answer.questionType) || {};
+                        return `
+                            <tr>
+                                <td>${answer.term || 'N/A'}</td>
+                                <td>${answer.questionType === 'termToDefinition' ? 'Term to Definition' : 'Definition to Term'}</td>
+                                <td>${answer.selected || 'N/A'}</td>
+                                <td>${answer.correct || 'N/A'}</td>
+                                <td class="${answer.isCorrect ? 'correct' : 'incorrect'}">${answer.isCorrect ? 'Correct' : 'Incorrect'}</td>
+                                <td>${question.strand || 'N/A'}</td>
+                            </tr>
+                        `;
+                    }).join('')}
+                </table>
+                <button onclick="window.print()">Print Report</button>
+            </body>
+            </html>
+        `);
+        reportWindow.document.close();
+    } catch (error) {
+        console.error('Error generating report:', error);
+        alert('An error occurred while generating the report. Please try again.');
+    }
 }
 
 // Theme switching function
