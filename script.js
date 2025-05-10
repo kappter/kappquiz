@@ -35,9 +35,9 @@ async function fetchVocabSets() {
             const csvData = await response.text();
             const parsedData = Papa.parse(csvData, { header: true, skipEmptyLines: true }).data;
             vocabSets[set] = parsedData.map(item => ({
-                term: item.term || '',
-                definition: item.definition || '',
-                strand: item.strand || ''
+                term: item.term?.trim() || '',
+                definition: item.definition?.trim() || '',
+                strand: item.strand?.trim() || ''
             })).filter(item => item.term && item.definition);
 
             const option = document.createElement('option');
@@ -67,12 +67,12 @@ function loadVocabSet() {
 
     currentSet = vocabSets[setName];
     startQuiz();
-
     document.getElementById('questionMode').disabled = true;
     document.getElementById('vocabSet').disabled = true;
 }
 
 function startQuiz(data = currentSet) {
+    console.log('Starting quiz with data:', data); // Debug log
     if (!questionMode) {
         alert('Please select a question mode before starting the quiz.');
         return;
@@ -83,13 +83,13 @@ function startQuiz(data = currentSet) {
             throw new Error('Invalid or empty data provided for quiz.');
         }
 
-        // Validate data entries
-        const validData = data.filter(item => item && item.term && item.definition);
+        const validData = data.filter(item => item && item.term?.trim() && item.definition?.trim());
         if (validData.length === 0) {
             throw new Error('No valid terms with definitions found in the data.');
         }
 
         questions = generateQuestions(validData);
+        console.log('Generated questions:', questions); // Debug log
         if (questions.length === 0) {
             throw new Error('No valid questions could be generated from the data.');
         }
@@ -113,12 +113,16 @@ function startQuiz(data = currentSet) {
 }
 
 function generateQuestions(data) {
+    console.log('Generating questions with data length:', data.length); // Debug log
     const questions = [];
     if (!data || !Array.isArray(data)) return questions;
 
-    const maxAttempts = 100; // Prevent infinite loops
+    const maxAttempts = 50; // Reduced to prevent long loops
     data.forEach(item => {
-        if (!item || !item.term || !item.definition) return;
+        if (!item || !item.term?.trim() || !item.definition?.trim()) {
+            console.log('Skipping invalid item:', item); // Debug log
+            return;
+        }
 
         let questionType = questionMode;
         if (questionMode === 'mixed') {
@@ -139,9 +143,11 @@ function generateQuestions(data) {
                     continue;
                 }
                 incorrectOptions.push(randomItem.definition);
-                attempts = 0;
             }
-            if (incorrectOptions.length < 3) return; // Skip if not enough unique options
+            if (incorrectOptions.length < 3) {
+                console.log('Failed to generate enough options for term:', item.term); // Debug log
+                return;
+            }
             options = [...incorrectOptions, item.definition].sort(() => Math.random() - 0.5);
         } else {
             prompt = item.definition;
@@ -154,9 +160,11 @@ function generateQuestions(data) {
                     continue;
                 }
                 incorrectOptions.push(randomItem.term);
-                attempts = 0;
             }
-            if (incorrectOptions.length < 3) return; // Skip if not enough unique options
+            if (incorrectOptions.length < 3) {
+                console.log('Failed to generate enough options for definition:', item.definition); // Debug log
+                return;
+            }
             options = [...incorrectOptions, item.term].sort(() => Math.random() - 0.5);
         }
 
@@ -171,10 +179,12 @@ function generateQuestions(data) {
         });
     });
 
+    console.log('Questions generated:', questions.length); // Debug log
     return questions.sort(() => Math.random() - 0.5);
 }
 
 function displayQuestion() {
+    console.log('Displaying question index:', currentQuestionIndex); // Debug log
     const quizArea = document.getElementById('quizArea');
     if (currentQuestionIndex >= questions.length) {
         showResults();
@@ -188,6 +198,7 @@ function displayQuestion() {
 
     const existingAnswer = answers.find(answer => answer.term === question.term && answer.questionType === question.type);
 
+    quizArea.innerHTML = ''; // Clear before rendering to prevent stacking
     quizArea.innerHTML = `
         <div class="question">
             <h3>Question ${currentQuestionIndex + 1}: ${questionText}</h3>
@@ -203,6 +214,7 @@ function displayQuestion() {
 }
 
 function selectOption(index) {
+    console.log('Selecting option index:', index); // Debug log
     const question = questions[currentQuestionIndex];
     if (answers.find(answer => answer.term === question.term && answer.questionType === question.type)) return;
 
@@ -293,16 +305,26 @@ function showResults() {
 }
 
 function retakeMissedTerms() {
+    console.log('Retaking missed terms:', missedTerms); // Debug log
     try {
         if (!missedTerms || !Array.isArray(missedTerms) || missedTerms.length === 0) {
             alert('No missed terms available to retake.');
             return;
         }
 
-        // Validate missedTerms entries
-        const validMissedTerms = missedTerms.filter(item => item && item.term && item.definition);
+        // Validate and deduplicate missedTerms
+        const validMissedTerms = [];
+        const seen = new Set();
+        for (const item of missedTerms) {
+            if (item && item.term?.trim() && item.definition?.trim() && !seen.has(item.term + item.definition)) {
+                validMissedTerms.push(item);
+                seen.add(item.term + item.definition);
+            }
+        }
+
+        console.log('Valid missed terms:', validMissedTerms); // Debug log
         if (validMissedTerms.length < 4) {
-            alert('Not enough valid missed terms to generate a quiz (minimum 4 required).');
+            alert('Not enough unique missed terms to generate a quiz (minimum 4 required).');
             return;
         }
 
@@ -341,61 +363,243 @@ function generateReport() {
                 <style>
                     body { font-family: Arial, sans-serif; margin: 20px; }
                     table { width: 100%; border-collapse: collapse; }
-                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
-                    th { background: #f4f4f9; }
-                    .correct { color: green; }
-                    .incorrect { color: red; }
-                    .copyright { text-align: center; margin-top: 20px; color: #333; font-size: 0.9em; }
-                </style>
-            </head>
-            <body>
-                <h1>Vocabulary Quiz Report</h1>
-                <p><strong>Student:</strong> ${studentName}</p>
-                <p><strong>Score:</strong> ${score}/${questions.length} (${percentage}%)</p>
-                ${readinessMessage}
-                <table>
-                    <tr>
-                        <th>Term</th>
-                        <th>Question Type</th>
-                        <th>Your Answer</th>
-                        <th>Correct Answer</th>
-                        <th>Result</th>
-                        <th>Strand</th>
-                    </tr>
-                    ${answers.map(answer => {
-                        const question = questions.find(q => q.term === answer.term && q.type === answer.questionType) || {};
-                        return `
-                            <tr>
-                                <td>${answer.term || 'N/A'}</td>
-                                <td>${answer.questionType === 'termToDefinition' ? 'Term to Definition' : 'Definition to Term'}</td>
-                                <td>${answer.selected || 'N/A'}</td>
-                                <td>${answer.correct || 'N/A'}</td>
-                                <td class="${answer.isCorrect ? 'correct' : 'incorrect'}">${answer.isCorrect ? 'Correct' : 'Incorrect'}</td>
-                                <td>${question.strand || 'N/A'}</td>
-                            </tr>
-                        `;
-                    }).join('')}
-                </table>
-                <button onclick="window.print()">Print Report</button>
-                <p class="copyright">© 2025 Ken Kapptie | For educational use only | All rights reserved.</p>
-            </body>
-            </html>
-        `);
-        reportWindow.document.close();
-    } catch (error) {
-        console.error('Error generating report:', error);
-        alert('An error occurred while generating the report. Please try again.');
+                    th, td { border: 1px solid #ddd    --incorrect-bg: #f8d7da;
+    --incorrect-border: #f5c6cb;
+    --button-bg: #38938D;
+    --button-hover-bg: #386B93;
+    --link-color: #38938D;
+}
+
+body.dark {
+    --background-color: #333;
+    --container-bg: #444;
+    --text-color: #f4f4f9;
+    --option-bg: #2a6d5a;
+    --option-border: #666;
+    --option-hover-bg: #2a5d6e;
+    --correct-bg: #1e5a43;
+    --correct-border: #164d38;
+    --incorrect-bg: #d32f2f;
+    --incorrect-border: #b71c1c;
+    --button-bg: #385493;
+    --button-hover-bg: #4a69a5;
+    --link-color: #66b0ff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+    padding-bottom: 60px;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--container-bg);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    flex: 1 0 auto;
+}
+
+h1, h2 {
+    text-align: center;
+    color: var(--text-color);
+}
+
+select, input, button {
+    padding: 10px;
+    margin: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: var(--container-bg);
+    color: var(--text-color);
+    border: 1px solid var(--option-border);
+}
+
+.theme-selector {
+    text-align: right;
+}
+
+.theme-selector select {
+    width: auto;
+    display: inline-block;
+    padding: 8px;
+}
+
+.question-mode-selector {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.question-mode-selector select {
+    width: auto;
+    display: inline-block;
+    padding: 8px;
+}
+
+.instruction {
+    font-size: 0.9em;
+    color: var(--text-color);
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+select:disabled {
+    background-color: #e0e0e0;
+    cursor: not-allowed;
+}
+
+button {
+    background-color: var(--button-bg);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button:hover {
+    background-color: var(--button-hover-bg);
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.button-group button {
+    width: auto;
+    padding: 10px 20px;
+}
+
+#quizArea, #results {
+    margin-top: 20px;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.option {
+    display: block;
+    padding: 10px;
+    margin: 5px 0;
+    background: var(--option-bg);
+    border: 1px solid var(--option-border);
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.option:hover {
+    background: var(--option-hover-bg);
+}
+
+.correct {
+    background: var(--correct-bg);
+    border-color: var(--correct-border);
+}
+
+.incorrect {
+    background: var(--incorrect-bg);
+    border-color: var(--incorrect-border);
+}
+
+.pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+#progress {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+footer {
+    width: 100%;
+    background: var(--container-bg);
+    color: var(--text-color);
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    border-top: 1px solid var(--option-border);
+}
+
+footer a {
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+.donation-links {
+    margin-top: 5px;
+}
+
+@media (max-width: 800px) {
+    .container {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+    }
+
+    select, input, button {
+        padding: 8px;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .button-group button {
+        width: 100%;
+    }
+
+    .donation-links {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .donation-links a {
+        margin: 2px 0;
+    }
+
+    footer {
+        position: static;
+        border-top: none;
+        padding: 10px;
+    }
+
+    .pagination {
+        margin-bottom: 20px;
     }
 }
-
-function changeTheme() {
-    const theme = document.getElementById('themeSelect').value;
-    document.body.className = theme;
-    localStorage.setItem('theme', theme);
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.className = savedTheme;
-    document.getElementById('themeSelect').value = savedTheme;
-});
