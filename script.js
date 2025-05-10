@@ -6,33 +6,28 @@ let currentQuestionIndex = 0;
 let answers = [];
 let questions = [];
 let missedTerms = [];
-let questionMode = ''; // Default mode (empty until selected)
+let questionMode = '';
 
-// Toggle between teacher and student pages
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('mode') === 'teacher') {
     document.getElementById('teacherPage').style.display = 'block';
     document.getElementById('studentPage').style.display = 'none';
 } else {
     fetchVocabSets();
-    // Add event listener for question mode selection to enable伊朗 set dropdown
     document.getElementById('questionMode').addEventListener('change', (e) => {
         questionMode = e.target.value;
-        document.getElementById('vocabSet').disabled = false; // Enable vocab set dropdown
+        document.getElementById('vocabSet').disabled = false;
     });
 }
 
-// Teacher: Upload CSV (disabled for now)
 function uploadCSV() {
     alert('Upload functionality is disabled. Vocab sets are preloaded.');
 }
 
-// Student: Populate dropdown with vocab sets
 async function fetchVocabSets() {
     const select = document.getElementById('vocabSet');
     select.innerHTML = '<option value="">Select a set</option>';
 
-    // Preload all CSV files
     for (const set of availableSets) {
         try {
             const response = await fetch(`/kappquiz/vocab-sets/${set}`);
@@ -60,7 +55,6 @@ async function fetchVocabSets() {
     }
 }
 
-// Student: Load selected vocab set
 function loadVocabSet() {
     const select = document.getElementById('vocabSet');
     const setName = select.value;
@@ -74,75 +68,95 @@ function loadVocabSet() {
     currentSet = vocabSets[setName];
     startQuiz();
 
-    // Disable both dropdowns after selection
     document.getElementById('questionMode').disabled = true;
     document.getElementById('vocabSet').disabled = true;
 }
 
-// Start quiz with randomized questions, optionally using a specific dataset
 function startQuiz(data = currentSet) {
     if (!questionMode) {
         alert('Please select a question mode before starting the quiz.');
         return;
     }
-    questions = generateQuestions(data);
-    console.log('Generated questions:', questions); // Debugging
-    if (questions.length === 0) {
-        document.getElementById('quizArea').innerHTML = '<p>Error: No valid questions generated. Please check the data format (requires term, definition, strand).</p>';
+
+    try {
+        if (!data || !Array.isArray(data) || data.length === 0) {
+            throw new Error('Invalid or empty data provided for quiz.');
+        }
+
+        // Validate data entries
+        const validData = data.filter(item => item && item.term && item.definition);
+        if (validData.length === 0) {
+            throw new Error('No valid terms with definitions found in the data.');
+        }
+
+        questions = generateQuestions(validData);
+        if (questions.length === 0) {
+            throw new Error('No valid questions could be generated from the data.');
+        }
+
+        currentQuestionIndex = 0;
+        answers = [];
+        missedTerms = [];
+        document.getElementById('results').innerHTML = '';
+        displayQuestion();
+        updateProgress();
+        document.getElementById('prevBtn').disabled = true;
+        document.getElementById('nextBtn').disabled = true;
+    } catch (error) {
+        console.error('Error starting quiz:', error);
+        document.getElementById('quizArea').innerHTML = `<p>Error: ${error.message} Please select a different set or try again.</p>`;
         document.getElementById('results').innerHTML = '';
         document.getElementById('progress').innerHTML = '';
         document.getElementById('nextBtn').disabled = true;
         document.getElementById('prevBtn').disabled = true;
-        return;
     }
-    currentQuestionIndex = 0;
-    answers = [];
-    missedTerms = []; // Reset missed terms for new quiz
-    document.getElementById('results').innerHTML = '';
-    displayQuestion();
-    updateProgress();
-    document.getElementById('prevBtn').disabled = true;
-    document.getElementById('nextBtn').disabled = true; // Ensure Next button is disabled at start
 }
 
-// Generate multiple-choice questions based on the selected mode
 function generateQuestions(data) {
     const questions = [];
     if (!data || !Array.isArray(data)) return questions;
+
+    const maxAttempts = 100; // Prevent infinite loops
     data.forEach(item => {
         if (!item || !item.term || !item.definition) return;
 
-        // Determine question type based on mode
         let questionType = questionMode;
         if (questionMode === 'mixed') {
             questionType = Math.random() > 0.5 ? 'termToDefinition' : 'definitionToTerm';
         }
 
         let prompt, correctAnswer, incorrectOptions, options;
+        let attempts = 0;
 
         if (questionType === 'termToDefinition') {
-            // Term to Definition: Show term, options are definitions
             prompt = item.term;
             correctAnswer = item.definition;
             incorrectOptions = [];
-            while (incorrectOptions.length < 3) {
+            while (incorrectOptions.length < 3 && attempts < maxAttempts) {
                 const randomItem = data[Math.floor(Math.random() * data.length)];
-                if (!randomItem || randomItem.definition === item.definition || incorrectOptions.includes(randomItem.definition)) continue;
+                if (!randomItem || randomItem.definition === item.definition || incorrectOptions.includes(randomItem.definition)) {
+                    attempts++;
+                    continue;
+                }
                 incorrectOptions.push(randomItem.definition);
+                attempts = 0;
             }
-            if (incorrectOptions.length < 3) return; // Skip if not enough incorrect options
+            if (incorrectOptions.length < 3) return; // Skip if not enough unique options
             options = [...incorrectOptions, item.definition].sort(() => Math.random() - 0.5);
         } else {
-            // Definition to Term: Show definition, options are terms
             prompt = item.definition;
             correctAnswer = item.term;
             incorrectOptions = [];
-            while (incorrectOptions.length < 3) {
+            while (incorrectOptions.length < 3 && attempts < maxAttempts) {
                 const randomItem = data[Math.floor(Math.random() * data.length)];
-                if (!randomItem || randomItem.term === item.term || incorrectOptions.includes(randomItem.term)) continue;
+                if (!randomItem || randomItem.term === item.term || incorrectOptions.includes(randomItem.term)) {
+                    attempts++;
+                    continue;
+                }
                 incorrectOptions.push(randomItem.term);
+                attempts = 0;
             }
-            if (incorrectOptions.length < 3) return; // Skip if not enough incorrect options
+            if (incorrectOptions.length < 3) return; // Skip if not enough unique options
             options = [...incorrectOptions, item.term].sort(() => Math.random() - 0.5);
         }
 
@@ -156,10 +170,10 @@ function generateQuestions(data) {
             strand: item.strand || ''
         });
     });
+
     return questions.sort(() => Math.random() - 0.5);
 }
 
-// Display current question based on the question type
 function displayQuestion() {
     const quizArea = document.getElementById('quizArea');
     if (currentQuestionIndex >= questions.length) {
@@ -172,7 +186,6 @@ function displayQuestion() {
         ? `What is the definition of "${question.prompt}"?`
         : `What term matches this definition: "${question.prompt}"?`;
 
-    // Check if the question has already been answered
     const existingAnswer = answers.find(answer => answer.term === question.term && answer.questionType === question.type);
 
     quizArea.innerHTML = `
@@ -185,29 +198,25 @@ function displayQuestion() {
         </div>
     `;
 
-    // Ensure the Next button is disabled until an option is selected, unless it's the last question or already answered
     document.getElementById('nextBtn').disabled = !existingAnswer;
     document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
 }
 
-// Handle option selection and track missed terms
 function selectOption(index) {
     const question = questions[currentQuestionIndex];
-    // Prevent re-selection if the question has already been answered
     if (answers.find(answer => answer.term === question.term && answer.questionType === question.type)) return;
 
     const selected = question.options[index];
     const isCorrect = selected === question.correct;
-    answers.push({ 
-        term: question.term, 
-        selected, 
-        correct: question.correct, 
+    answers.push({
+        term: question.term,
+        selected,
+        correct: question.correct,
         isCorrect,
-        questionType: question.type 
+        questionType: question.type
     });
 
     if (!isCorrect) {
-        // Add the missed term to missedTerms array
         missedTerms.push({
             term: question.term,
             definition: question.definition,
@@ -223,7 +232,6 @@ function selectOption(index) {
 
     updateProgress();
 
-    // Enable the Next button after a selection is made
     if (currentQuestionIndex < questions.length - 1) {
         document.getElementById('nextBtn').disabled = false;
     } else {
@@ -231,32 +239,28 @@ function selectOption(index) {
     }
 }
 
-// Update progress with running total and percentage
 function updateProgress() {
-    // Calculate score based on correct answers up to currentQuestionIndex
     const score = answers.filter((answer, index) => index <= currentQuestionIndex && answer.isCorrect).length;
     const totalQuestions = currentQuestionIndex + 1 <= questions.length ? currentQuestionIndex + 1 : questions.length;
     const percentage = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
-    const questionProgress = currentQuestionIndex < questions.length 
-        ? `Question ${currentQuestionIndex + 1} of ${questions.length}` 
+    const questionProgress = currentQuestionIndex < questions.length
+        ? `Question ${currentQuestionIndex + 1} of ${questions.length}`
         : `Completed ${questions.length} of ${questions.length}`;
     document.getElementById('progress').innerHTML = `
         ${questionProgress} | Current Score: ${percentage}%
     `;
 }
 
-// Navigate to previous question
 function prevQuestion() {
     if (currentQuestionIndex > 0) {
         currentQuestionIndex--;
         displayQuestion();
-        updateProgress(); // Update progress to reflect current question number
+        updateProgress();
         document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex].term && answer.questionType === questions[currentQuestionIndex].type);
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
     }
 }
 
-// Navigate to next question
 function nextQuestion() {
     if (currentQuestionIndex < questions.length) {
         currentQuestionIndex++;
@@ -267,7 +271,6 @@ function nextQuestion() {
     }
 }
 
-// Show final results with retake option
 function showResults() {
     const score = answers.filter(answer => answer.isCorrect).length;
     const percentage = Math.round((score / questions.length) * 100);
@@ -289,20 +292,34 @@ function showResults() {
     document.getElementById('nextBtn').disabled = true;
 }
 
-// Retake quiz with only missed terms
 function retakeMissedTerms() {
-    if (missedTerms.length === 0) return;
-    startQuiz(missedTerms);
+    try {
+        if (!missedTerms || !Array.isArray(missedTerms) || missedTerms.length === 0) {
+            alert('No missed terms available to retake.');
+            return;
+        }
+
+        // Validate missedTerms entries
+        const validMissedTerms = missedTerms.filter(item => item && item.term && item.definition);
+        if (validMissedTerms.length < 4) {
+            alert('Not enough valid missed terms to generate a quiz (minimum 4 required).');
+            return;
+        }
+
+        startQuiz(validMissedTerms);
+    } catch (error) {
+        console.error('Error retaking missed terms:', error);
+        alert('An error occurred while retaking missed terms. Please try again.');
+    }
 }
 
-// Generate HTML report with state test readiness
 function generateReport() {
     try {
         const studentName = document.getElementById('studentName').value || 'Student';
         const score = answers.filter(answer => answer.isCorrect).length;
         const percentage = questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
         const isReady = percentage > 80;
-        const readinessMessage = isReady 
+        const readinessMessage = isReady
             ? '<p style="color: green;"><strong>Congratulations!</strong> You are ready for the state test with a score above 80%.</p>'
             : '<p style="color: red;">Keep practicing! A score above 80% is recommended to be ready for the state test.</p>';
 
@@ -371,14 +388,12 @@ function generateReport() {
     }
 }
 
-// Theme switching function
 function changeTheme() {
     const theme = document.getElementById('themeSelect').value;
     document.body.className = theme;
     localStorage.setItem('theme', theme);
 }
 
-// Apply saved theme on page load
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.className = savedTheme;
