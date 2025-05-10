@@ -12,6 +12,8 @@
     --button-bg: #155BEA;
     --button-hover-bg: #EAA415;
     --link-color: #155BEA;
+    --timer-bg: #f4f4f9;
+    --timer-border: #155BEA;
 }
 
 body.dark {
@@ -28,6 +30,8 @@ body.dark {
     --button-bg: #155BEA;
     --button-hover-bg: #EAA415;
     --link-color: #3B7AF2;
+    --timer-bg: #333;
+    --timer-border: #3B7AF2;
 }
 
 body {
@@ -56,6 +60,11 @@ body {
 h1, h2 {
     text-align: center;
     color: var(--text-color);
+}
+
+h1 {
+    word-wrap: break-word;
+    max-width: 100%;
 }
 
 select, input, button {
@@ -159,7 +168,16 @@ button:disabled {
 
 .incorrect {
     background: var(--incorrect-bg);
-    border-color: var(--incorrect-border);
+    border-color: --incorrect-border);
+}
+
+#timer {
+    font-weight: bold;
+    padding: 8px;
+    background: var(--timer-bg);
+    border: 1px solid var(--timer-border);
+    border-radius: 4px;
+    color: var(--text-color);
 }
 
 .pagination {
@@ -245,5 +263,9 @@ footer a:hover {
 
     .pagination {
         margin-bottom: 20px;
+    }
+
+    #timer {
+        font-size: 0.9em;
     }
 }

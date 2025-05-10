@@ -1,5 +1,7 @@
-// List of known CSV files in the vocab-sets directory
-const availableSets = ['Short_Testing_Sample.csv','ARRL_Ham_Radio_General_License_Terms_Definitions.csv','ARRL_Ham_Radio_Extra_License_Terms_Definitions.csv','ARRL_Ham_Radio_Technician_License_Terms_Definitions.csv','Game_Development_Fundamentals-2_Terms_Definitions.csv', 'Game_Development_Fundamentals_1_Terms_Definitions.csv', 'utah_video_production_terms_Final.csv', 'Computer_Programming_2_Terms_Definitions.csv', 'Exploring_Computer_Science_Vocabulary.csv', 'advanced_computer_programming_vocab.csv','Digital_Media_2_Terms_and_Definitions.csv'];
+// Vocabulary Quiz System - script.js (Version: 2025-05-15)
+// Includes fixes for retake freeze, report copyright, school colors, timer, and dynamic title
+
+const availableSets = ['Short_Testing_Sample.csv', 'ARRL_Ham_Radio_General_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Extra_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Technician_License_Terms_Definitions.csv', 'Game_Development_Fundamentals-2_Terms_Definitions.csv', 'Game_Development_Fundamentals_1_Terms_Definitions.csv', 'utah_video_production_terms_Final.csv', 'Computer_Programming_2_Terms_Definitions.csv', 'Exploring_Computer_Science_Vocabulary.csv', 'advanced_computer_programming_vocab.csv', 'Digital_Media_2_Terms_and_Definitions.csv'];
 let vocabSets = {};
 let currentSet = null;
 let currentQuestionIndex = 0;
@@ -7,6 +9,10 @@ let answers = [];
 let questions = [];
 let missedTerms = [];
 let questionMode = '';
+let quizStartTime = null;
+let timerInterval = null;
+let totalDuration = 0;
+let currentSetName = '';
 
 const urlParams = new URLSearchParams(window.location.search);
 if (urlParams.get('mode') === 'teacher') {
@@ -18,11 +24,11 @@ if (urlParams.get('mode') === 'teacher') {
         questionMode = e.target.value;
         document.getElementById('vocabSet').disabled = false;
     });
-} // End if-else for page mode
+}
 
 function uploadCSV() {
     alert('Upload functionality is disabled. Vocab sets are preloaded.');
-} // End uploadCSV
+}
 
 async function fetchVocabSets() {
     const select = document.getElementById('vocabSet');
@@ -53,7 +59,14 @@ async function fetchVocabSets() {
     if (Object.keys(vocabSets).length === 0) {
         document.getElementById('quizArea').innerHTML = '<p>Error: No vocab sets loaded. Please check the vocab-sets directory.</p>';
     }
-} // End fetchVocabSets
+}
+
+function formatSetName(setName) {
+    return setName
+        .replace('.csv', '')
+        .replace(/_/g, ' ')
+        .replace(/\b\w/g, c => c.toUpperCase()) + ' Quiz';
+}
 
 function loadVocabSet() {
     const select = document.getElementById('vocabSet');
@@ -62,14 +75,19 @@ function loadVocabSet() {
         document.getElementById('quizArea').innerHTML = '';
         document.getElementById('progress').innerHTML = '';
         document.getElementById('results').innerHTML = '';
+        document.getElementById('pageTitle').textContent = 'Student Vocabulary Quiz';
+        document.getElementById('timer').style.display = 'none';
+        currentSetName = '';
         return;
     }
 
     currentSet = vocabSets[setName];
+    currentSetName = formatSetName(setName);
+    document.getElementById('pageTitle').textContent = currentSetName;
     startQuiz();
     document.getElementById('questionMode').disabled = true;
     document.getElementById('vocabSet').disabled = true;
-} // End loadVocabSet
+}
 
 function startQuiz(data = currentSet) {
     console.log('Starting quiz with data:', data);
@@ -97,7 +115,11 @@ function startQuiz(data = currentSet) {
         currentQuestionIndex = 0;
         answers = [];
         missedTerms = [];
+        quizStartTime = Date.now();
+        totalDuration = 0;
         document.getElementById('results').innerHTML = '';
+        document.getElementById('timer').style.display = 'block';
+        startTimer();
         displayQuestion();
         updateProgress();
         document.getElementById('prevBtn').disabled = true;
@@ -107,10 +129,34 @@ function startQuiz(data = currentSet) {
         document.getElementById('quizArea').innerHTML = `<p>Error: ${error.message} Please select a different set or try again.</p>`;
         document.getElementById('results').innerHTML = '';
         document.getElementById('progress').innerHTML = '';
+        document.getElementById('timer').style.display = 'none';
         document.getElementById('nextBtn').disabled = true;
         document.getElementById('prevBtn').disabled = true;
     }
-} // End startQuiz
+}
+
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
+}
+
+function startTimer() {
+    if (timerInterval) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+        const elapsed = Math.floor((Date.now() - quizStartTime) / 1000);
+        document.getElementById('timer').textContent = `Time Elapsed: ${formatTime(elapsed)}`;
+    }, 1000);
+}
+
+function stopTimer() {
+    if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+    }
+    totalDuration = Math.floor((Date.now() - quizStartTime) / 1000);
+    document.getElementById('timer').textContent = `Total Time: ${formatTime(totalDuration)}`;
+}
 
 function generateQuestions(data) {
     console.log('Generating questions with data length:', data.length);
@@ -181,12 +227,13 @@ function generateQuestions(data) {
 
     console.log('Questions generated:', questions.length);
     return questions.sort(() => Math.random() - 0.5);
-} // End generateQuestions
+}
 
 function displayQuestion() {
     console.log('Displaying question index:', currentQuestionIndex);
     const quizArea = document.getElementById('quizArea');
     if (currentQuestionIndex >= questions.length) {
+        stopTimer();
         showResults();
         return;
     }
@@ -211,7 +258,7 @@ function displayQuestion() {
 
     document.getElementById('nextBtn').disabled = !existingAnswer;
     document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-} // End displayQuestion
+}
 
 function selectOption(index) {
     console.log('Selecting option index:', index);
@@ -247,9 +294,10 @@ function selectOption(index) {
     if (currentQuestionIndex < questions.length - 1) {
         document.getElementById('nextBtn').disabled = false;
     } else {
+        stopTimer();
         setTimeout(showResults, 500);
     }
-} // End selectOption
+}
 
 function updateProgress() {
     const score = answers.filter((answer, index) => index <= currentQuestionIndex && answer.isCorrect).length;
@@ -261,7 +309,7 @@ function updateProgress() {
     document.getElementById('progress').innerHTML = `
         ${questionProgress} | Current Score: ${percentage}%
     `;
-} // End updateProgress
+}
 
 function prevQuestion() {
     if (currentQuestionIndex > 0) {
@@ -271,7 +319,7 @@ function prevQuestion() {
         document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex].term && answer.questionType === questions[currentQuestionIndex].type);
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
     }
-} // End prevQuestion
+}
 
 function nextQuestion() {
     if (currentQuestionIndex < questions.length) {
@@ -281,7 +329,7 @@ function nextQuestion() {
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
         document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex]?.term && answer.questionType === questions[currentQuestionIndex]?.type);
     }
-} // End nextQuestion
+}
 
 function showResults() {
     const score = answers.filter(answer => answer.isCorrect).length;
@@ -291,6 +339,7 @@ function showResults() {
     resultsDiv.innerHTML = `
         <h2>Quiz Completed!</h2>
         <p>Final Score: ${score}/${questions.length} (${percentage}%)</p>
+        <p>Total Time: ${formatTime(totalDuration)}</p>
         <input type="text" id="studentName" placeholder="Enter your name">
         <div class="button-group">
             <button onclick="generateReport()">Generate Report</button>
@@ -301,8 +350,9 @@ function showResults() {
     `;
     document.getElementById('quizArea').innerHTML = '';
     document.getElementById('progress').innerHTML = '';
+    document.getElementById('timer').style.display = 'none';
     document.getElementById('nextBtn').disabled = true;
-} // End showResults
+}
 
 function retakeMissedTerms() {
     console.log('Retaking missed terms:', missedTerms);
@@ -328,11 +378,11 @@ function retakeMissedTerms() {
         }
 
         startQuiz(validMissedTerms);
-    } catch (error) {
+    } showResults(error) {
         console.error('Error retaking missed terms:', error);
         alert('An error occurred while retaking missed terms. Please try again.');
     }
-} // End retakeMissedTerms
+}
 
 function generateReport() {
     try {
@@ -370,9 +420,10 @@ function generateReport() {
                 </style>
             </head>
             <body>
-                <h1>Vocabulary Quiz Report</h1>
+                <h1>${currentSetName || 'Vocabulary Quiz'} Report</h1>
                 <p><strong>Student:</strong> ${studentName}</p>
                 <p><strong>Score:</strong> ${score}/${questions.length} (${percentage}%)</p>
+                <p><strong>Total Time:</strong> ${formatTime(totalDuration)}</p>
                 ${readinessMessage}
                 <table>
                     <tr>
@@ -407,16 +458,16 @@ function generateReport() {
         console.error('Error generating report:', error);
         alert('An error occurred while generating the report. Please try again.');
     }
-} // End generateReport
+}
 
 function changeTheme() {
     const theme = document.getElementById('themeSelect').value;
     document.body.className = theme;
     localStorage.setItem('theme', theme);
-} // End changeTheme
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.className = savedTheme;
     document.getElementById('themeSelect').value = savedTheme;
-}); // End DOMContentLoaded
+});
