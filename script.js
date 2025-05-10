@@ -18,11 +18,11 @@ if (urlParams.get('mode') === 'teacher') {
         questionMode = e.target.value;
         document.getElementById('vocabSet').disabled = false;
     });
-}
+} // End if-else for page mode
 
 function uploadCSV() {
     alert('Upload functionality is disabled. Vocab sets are preloaded.');
-}
+} // End uploadCSV
 
 async function fetchVocabSets() {
     const select = document.getElementById('vocabSet');
@@ -53,7 +53,7 @@ async function fetchVocabSets() {
     if (Object.keys(vocabSets).length === 0) {
         document.getElementById('quizArea').innerHTML = '<p>Error: No vocab sets loaded. Please check the vocab-sets directory.</p>';
     }
-}
+} // End fetchVocabSets
 
 function loadVocabSet() {
     const select = document.getElementById('vocabSet');
@@ -69,7 +69,7 @@ function loadVocabSet() {
     startQuiz();
     document.getElementById('questionMode').disabled = true;
     document.getElementById('vocabSet').disabled = true;
-}
+} // End loadVocabSet
 
 function startQuiz(data = currentSet) {
     console.log('Starting quiz with data:', data);
@@ -110,7 +110,7 @@ function startQuiz(data = currentSet) {
         document.getElementById('nextBtn').disabled = true;
         document.getElementById('prevBtn').disabled = true;
     }
-}
+} // End startQuiz
 
 function generateQuestions(data) {
     console.log('Generating questions with data length:', data.length);
@@ -181,7 +181,7 @@ function generateQuestions(data) {
 
     console.log('Questions generated:', questions.length);
     return questions.sort(() => Math.random() - 0.5);
-}
+} // End generateQuestions
 
 function displayQuestion() {
     console.log('Displaying question index:', currentQuestionIndex);
@@ -211,7 +211,7 @@ function displayQuestion() {
 
     document.getElementById('nextBtn').disabled = !existingAnswer;
     document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
-}
+} // End displayQuestion
 
 function selectOption(index) {
     console.log('Selecting option index:', index);
@@ -249,7 +249,7 @@ function selectOption(index) {
     } else {
         setTimeout(showResults, 500);
     }
-}
+} // End selectOption
 
 function updateProgress() {
     const score = answers.filter((answer, index) => index <= currentQuestionIndex && answer.isCorrect).length;
@@ -261,7 +261,7 @@ function updateProgress() {
     document.getElementById('progress').innerHTML = `
         ${questionProgress} | Current Score: ${percentage}%
     `;
-}
+} // End updateProgress
 
 function prevQuestion() {
     if (currentQuestionIndex > 0) {
@@ -271,7 +271,7 @@ function prevQuestion() {
         document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex].term && answer.questionType === questions[currentQuestionIndex].type);
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
     }
-}
+} // End prevQuestion
 
 function nextQuestion() {
     if (currentQuestionIndex < questions.length) {
@@ -281,7 +281,7 @@ function nextQuestion() {
         document.getElementById('prevBtn').disabled = currentQuestionIndex === 0;
         document.getElementById('nextBtn').disabled = !answers.find(answer => answer.term === questions[currentQuestionIndex]?.term && answer.questionType === questions[currentQuestionIndex]?.type);
     }
-}
+} // End nextQuestion
 
 function showResults() {
     const score = answers.filter(answer => answer.isCorrect).length;
@@ -302,7 +302,7 @@ function showResults() {
     document.getElementById('quizArea').innerHTML = '';
     document.getElementById('progress').innerHTML = '';
     document.getElementById('nextBtn').disabled = true;
-}
+} // End showResults
 
 function retakeMissedTerms() {
     console.log('Retaking missed terms:', missedTerms);
@@ -332,7 +332,7 @@ function retakeMissedTerms() {
         console.error('Error retaking missed terms:', error);
         alert('An error occurred while retaking missed terms. Please try again.');
     }
-}
+} // End retakeMissedTerms
 
 function generateReport() {
     try {
@@ -407,16 +407,16 @@ function generateReport() {
         console.error('Error generating report:', error);
         alert('An error occurred while generating the report. Please try again.');
     }
-}
+} // End generateReport
 
 function changeTheme() {
     const theme = document.getElementById('themeSelect').value;
     document.body.className = theme;
     localStorage.setItem('theme', theme);
-}
+} // End changeTheme
 
 document.addEventListener('DOMContentLoaded', () => {
     const savedTheme = localStorage.getItem('theme') || 'light';
     document.body.className = savedTheme;
     document.getElementById('themeSelect').value = savedTheme;
-});
+}); // End DOMContentLoaded
