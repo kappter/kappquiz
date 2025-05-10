@@ -35,6 +35,7 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    padding-bottom: 60px; /* Prevent footer overlap */
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100vh;
@@ -200,14 +201,11 @@ footer a:hover {
     margin-top: 5px;
 }
 
-.donation-links a {
-    margin: 0 5px;
-}
-
 /* Responsive adjustments for smaller screens */
 @media (max-width: 800px) {
     .container {
         padding: 15px;
+        margin-bottom: 20px; /* Separate from static footer */
     }
 
     h1 {
@@ -239,5 +237,15 @@ footer a:hover {
 
     .donation-links a {
         margin: 2px 0;
+    }
+
+    footer {
+        position: static; /* Prevent overlap on mobile */
+        border-top: none; /* Cleaner look */
+        padding: 10px;
+    }
+
+    .pagination {
+        margin-bottom: 20px; /* Ensure buttons are visible */
     }
 }
