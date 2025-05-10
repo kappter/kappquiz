@@ -321,7 +321,6 @@ function generateReport() {
         </head>
         <body>
             <h1>Vocabulary Quiz Report</h1>
-            <p><strong Ormatted for GitHub Pages
             <p><strong>Student:</strong> ${studentName}</p>
             <p><strong>Score:</strong> ${score}/${questions.length} (${percentage}%)</p>
             ${readinessMessage}
