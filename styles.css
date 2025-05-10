@@ -1,17 +1,16 @@
-/* Define theme variables */
 :root {
     --background-color: #f4f4f9;
     --container-bg: white;
     --text-color: #333;
-    --option-bg: #389377; /* Teal from swatch */
+    --option-bg: #389377;
     --option-border: #ddd;
-    --option-hover-bg: #388293; /* Blue-teal from swatch */
-    --correct-bg: #a3d7c2; /* Lighter teal for correct */
+    --option-hover-bg: #388293;
+    --correct-bg: #a3d7c2;
     --correct-border: #8cc7a8;
     --incorrect-bg: #f8d7da;
     --incorrect-border: #f5c6cb;
-    --button-bg: #38938D; /* Teal-blue from swatch */
-    --button-hover-bg: #386B93; /* Mid-tone blue from swatch */
+    --button-bg: #38938D;
+    --button-hover-bg: #386B93;
     --link-color: #38938D;
 }
 
@@ -19,23 +18,23 @@ body.dark {
     --background-color: #333;
     --container-bg: #444;
     --text-color: #f4f4f9;
-    --option-bg: #2a6d5a; /* Darker teal for dark mode */
+    --option-bg: #2a6d5a;
     --option-border: #666;
-    --option-hover-bg: #2a5d6e; /* Darker blue-teal for dark mode */
-    --correct-bg: #1e5a43; /* Darker teal for correct in dark mode */
+    --option-hover-bg: #2a5d6e;
+    --correct-bg: #1e5a43;
     --correct-border: #164d38;
     --incorrect-bg: #d32f2f;
     --incorrect-border: #b71c1c;
-    --button-bg: #385493; /* Deepest blue from swatch */
-    --button-hover-bg: #4a69a5; /* Lighter shade for hover in dark mode */
-    --link-color: #66b0ff; /* Lighter blue for better contrast in dark mode */
+    --button-bg: #385493;
+    --button-hover-bg: #4a69a5;
+    --link-color: #66b0ff;
 }
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
-    padding-bottom: 60px; /* Prevent footer overlap */
+    padding-bottom: 60px;
     background-color: var(--background-color);
     color: var(--text-color);
     min-height: 100vh;
@@ -45,7 +44,7 @@ body {
 
 .container {
     width: 100%;
-    max-width: 800px; /* Fixed width at 800px for larger screens */
+    max-width: 800px;
     margin: 0 auto;
     background: var(--container-bg);
     padding: 20px;
@@ -121,14 +120,14 @@ button:disabled {
 
 .button-group {
     display: flex;
-    gap: 10px; /* Space between Generate Report and Retake Missed Terms buttons */
+    gap: 10px;
     justify-content: center;
     margin-top: 10px;
 }
 
 .button-group button {
-    width: auto; /* Allow buttons to size based on content */
-    padding: 10px 20px; /* Consistent padding for better appearance */
+    width: auto;
+    padding: 10px 20px;
 }
 
 #quizArea, #results {
@@ -167,7 +166,7 @@ button:disabled {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
-    gap: 10px; /* Space between Previous and Next buttons */
+    gap: 10px;
 }
 
 #progress {
@@ -201,11 +200,10 @@ footer a:hover {
     margin-top: 5px;
 }
 
-/* Responsive adjustments for smaller screens */
 @media (max-width: 800px) {
     .container {
         padding: 15px;
-        margin-bottom: 20px; /* Separate from static footer */
+        margin-bottom: 20px;
     }
 
     h1 {
@@ -221,12 +219,12 @@ footer a:hover {
     }
 
     .button-group {
-        flex-direction: column; /* Stack buttons on smaller screens */
+        flex-direction: column;
         gap: 5px;
     }
 
     .button-group button {
-        width: 100%; /* Full width on smaller screens */
+        width: 100%;
     }
 
     .donation-links {
@@ -240,12 +238,12 @@ footer a:hover {
     }
 
     footer {
-        position: static; /* Prevent overlap on mobile */
-        border-top: none; /* Cleaner look */
+        position: static;
+        border-top: none;
         padding: 10px;
     }
 
     .pagination {
-        margin-bottom: 20px; /* Ensure buttons are visible */
+        margin-bottom: 20px;
     }
 }
