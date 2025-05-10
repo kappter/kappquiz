@@ -15,7 +15,7 @@ if (urlParams.get('mode') === 'teacher') {
     document.getElementById('studentPage').style.display = 'none';
 } else {
     fetchVocabSets();
-    // Add event listener for question mode selection to enable vocab set dropdown
+    // Add event listener for question mode selection to enable伊朗 set dropdown
     document.getElementById('questionMode').addEventListener('change', (e) => {
         questionMode = e.target.value;
         document.getElementById('vocabSet').disabled = false; // Enable vocab set dropdown
@@ -328,6 +328,7 @@ function generateReport() {
                     th { background: #f4f4f9; }
                     .correct { color: green; }
                     .incorrect { color: red; }
+                    .copyright { text-align: center; margin-top: 20px; color: #333; font-size: 0.9em; }
                 </style>
             </head>
             <body>
@@ -359,6 +360,7 @@ function generateReport() {
                     }).join('')}
                 </table>
                 <button onclick="window.print()">Print Report</button>
+                <p class="copyright">© 2025 Ken Kapptie | For educational use only | All rights reserved.</p>
             </body>
             </html>
         `);
