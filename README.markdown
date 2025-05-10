@@ -1,91 +1,140 @@
 # Vocabulary Quiz System
 
-The Vocabulary Quiz System is a web-based application designed to help students practice and master vocabulary terms for educational purposes. It provides an interactive platform for taking quizzes from preloaded vocabulary sets, tracking progress, and generating detailed reports to assess readiness for state tests.
+![Vocabulary Quiz System](screenshots/quiz-light-mode.png)
+
+The **Vocabulary Quiz System** is an interactive web application designed to help students master vocabulary terms and definitions for various subjects. Built for educational use, it offers a dynamic, user-friendly interface for students to take quizzes and for teachers to manage vocabulary sets. The app is themed with school colors and packed with features like a quiz timer, dynamic titles, and detailed reports to enhance learning.
+
+© 2025 Ken Kapptie | For educational use only | All rights reserved.
 
 ## Features
 
-- **Preloaded Vocabulary Sets**:
-  - Includes multiple preloaded sets (e.g., `utah_video_production_terms_Final.csv`, `Exploring_Computer_Science_Vocabulary.csv`, and others) for immediate use.
-  - Supports `.csv` files with term, definition, and strand columns.
-- **Question Mode Selection**:
-  - Offers three question modes: "Term to Definition," "Definition to Term," or "Mixed (Both)."
-  - Users must select a mode before choosing a vocabulary set, ensuring the mode impacts the quiz format.
-- **Interactive Quiz**:
-  - Multiple-choice questions with four options per question.
-  - "Next" button is disabled until an option is selected, preventing accidental skips.
-  - Answers are locked after selection; users cannot change responses when navigating back to previous questions using the "Previous" button.
-  - Score is accurately tracked and displayed as a percentage based on answered questions, updating correctly during navigation.
-  - Visual feedback for correct/incorrect answers with color-coded options (teal for correct, red for incorrect).
-  - Navigation between questions using "Previous" and "Next" buttons.
-  - Progress tracking with a running score percentage displayed during the quiz.
-- **Missed Terms Retake**:
-  - Tracks terms answered incorrectly during the quiz.
-  - Provides a "Retake Missed Terms" option to practice only missed terms, enhancing targeted learning.
-- **Report Generation**:
-  - Generates a detailed HTML report including the student's name, score, and state test readiness (based on a score above 80%).
-  - Includes a table detailing each question's term, question type, user's answer, correct answer, result, and strand.
-  - Offers a print option for the report directly from the browser.
-- **Theme Switching**:
-  - Supports light and dark themes, persisted across sessions using `localStorage`.
-  - Uses a custom color swatch (`#389377`, `#38938D`, `#388293`, `#386B93`, `#385493`) for buttons, options, and correct answers, ensuring a cohesive design.
-- **Responsive Design**:
-  - Optimized for desktop and mobile devices.
-  - Buttons stack vertically on smaller screens for improved usability.
-  - Footer links adjust to a vertical layout on mobile devices.
-- **Teacher Dashboard** (Placeholder):
-  - Accessible via `?mode=teacher` URL parameter.
-  - Displays a message indicating that vocab sets are preloaded, with upload functionality disabled.
+- **Flexible Question Modes**: Choose from:
+  - *Term to Definition*: Match terms to their definitions.
+  - *Definition to Term*: Match definitions to their terms.
+  - *Mixed*: A combination of both for a comprehensive challenge.
+- **Quiz Timer**: Tracks time elapsed during the quiz and displays total duration in results and reports.
+- **Dynamic Page Title**: Updates the page title to reflect the selected vocabulary set (e.g., "Exploring Computer Science Vocabulary Quiz").
+- **Preloaded Vocabulary Sets**: Includes sets like:
+  - Exploring Computer Science
+  - Game Development Fundamentals
+  - ARRL Ham Radio Licenses
+  - And more!
+- **Retake Missed Terms**: Automatically generates a new quiz from terms answered incorrectly (requires at least 4 missed terms).
+- **Detailed Reports**: Generates printable reports with:
+  - Student name, score, and total time.
+  - Per-question details (term, question type, answers, correctness, strand).
+  - Readiness indicator (green for >80%, red for ≤80%).
+- **School-Themed Design**: Uses official school colors (#155BEA, #EAA415, #BB8311) for buttons, options, and borders.
+- **Light/Dark Mode**: Toggle between themes, with preferences saved via local storage.
+- **Responsive Design**: Optimized for desktop and mobile devices.
+- **Teacher Dashboard**: View preloaded vocab sets (accessible via `?mode=teacher` URL parameter).
+- **Progress Tracking**: Displays current question, total questions, and live score percentage.
+- **Error Handling**: Robust checks for invalid data, missing files, or insufficient missed terms.
 
-## Usage Instructions
+## Screenshots
 
-1. **Access the App**:
-   - Visit [https://kappter.github.io/kappquiz/](https://kappter.github.io/kappquiz/) to use the app.
-2. **Select a Question Mode**:
-   - Choose a mode ("Term to Definition," "Definition to Term," or "Mixed") to enable the vocabulary set dropdown.
-3. **Select a Vocabulary Set**:
-   - Choose a set from the dropdown to start the quiz.
-4. **Take the Quiz**:
-   - Answer questions by selecting one of four options.
-   - Navigate using "Previous" and "Next" buttons; answers are locked after selection.
-   - Track progress with the score percentage displayed, which updates accurately as you navigate.
-5. **View Results**:
-   - View final score and percentage upon quiz completion.
-   - Enter your name to personalize the report.
-   - Click "Generate Report" for a detailed summary or "Retake Missed Terms" to practice incorrect answers.
-6. **Switch Themes**:
-   - Toggle between light and dark modes using the theme selector in the top-right corner.
+- **Quiz Interface (Light Mode)**: [View](screenshots/quiz-light-mode.png)
+- **Quiz Interface (Dark Mode)**: [View](screenshots/quiz-dark-mode.png)
+- **Generated Report**: [View](screenshots/report.png)
 
-## Setup/Deployment
+*Note: Replace placeholder screenshot links with actual images hosted in your repository.*
 
-The app is hosted on GitHub Pages. To deploy your own instance:
+## Setup Instructions
 
-1. **Clone the Repository**:
+### Prerequisites
+- A modern web browser (Chrome, Firefox, Edge, etc.).
+- [Git](https://git-scm.com/) for cloning the repository.
+- (Optional) A web server for local testing or GitHub Pages for deployment.
+
+### Local Setup
+1. Clone the repository:
    ```bash
    git clone https://github.com/kappter/kappquiz.git
-   ```
-2. **Navigate to the Project Directory**:
-   ```bash
    cd kappquiz
    ```
-3. **Update Vocabulary Sets** (Optional):
-   - Add `.csv` files to the `vocab-sets` directory.
-   - Update the `availableSets` array in `script.js` to include new files.
-4. **Deploy to GitHub Pages**:
-   - Push the repository to your GitHub account.
-   - In repository settings, under "GitHub Pages," set the source to the `main` branch.
-   - Access the app at `https://<your-username>.github.io/kappquiz/`.
-5. **Test the App**:
-   - Verify functionality of question modes, quiz navigation, answer locking, score accuracy, report generation, and theme switching.
+2. Open `index.html` in a browser:
+   - Double-click `index.html`, or
+   - Serve via a local server (e.g., Python):
+     ```bash
+     python -m http.server 8000
+     ```
+     Then visit `http://localhost:8000`.
+3. Ensure the `vocab-sets/` directory contains CSV files with columns: `term`, `definition`, `strand`.
 
-## Credits
+### Deploy to GitHub Pages
+1. Fork or push the repository to GitHub:
+   ```bash
+   git push origin main
+   ```
+2. Enable GitHub Pages in your repository settings:
+   - Go to Settings → Pages.
+   - Set Source to "Deploy from a branch" and select the `main` branch, `/ (root)` folder.
+   - Save and wait for deployment (e.g., `https://kappter.github.io/kappquiz/`).
+3. Clear cache if issues persist:
+   ```bash
+   git add index.html
+   git commit -m "Force cache refresh"
+   git push
+   ```
 
-- **Developed by**: Ken Kapptie
-- **Purpose**: For educational use only.
-- **Links**:
-  - [Detailed Info on App](https://github.com/kappter/kappquiz/)
-  - [More Tools Like This](https://kappter.github.io/portfolio/#projects)
-  - [Want Your Own?](https://kappter.github.io/portfolio/proposal.html)
+### File Structure
+```
+kappquiz/
+├── index.html         # Main HTML file
+├── script.js          # JavaScript logic (quiz, timer, title, reports)
+├── styles.css         # CSS with school colors and responsive design
+├── vocab-sets/        # Directory for CSV vocabulary files
+└── README.md          # Project documentation
+```
+
+## Usage
+
+1. **Select a Question Mode**:
+   - Choose "Term to Definition," "Definition to Term," or "Mixed" from the dropdown.
+2. **Choose a Vocabulary Set**:
+   - Select a set (e.g., "Short Testing Sample") to start the quiz.
+   - The page title updates to reflect the set (e.g., "Short Testing Sample Quiz").
+3. **Take the Quiz**:
+   - Answer multiple-choice questions.
+   - A timer displays elapsed time above the progress bar.
+   - Navigate with "Previous" and "Next" buttons.
+   - Progress shows current question and score percentage.
+4. **View Results**:
+   - See final score, percentage, and total time.
+   - Enter your name for the report.
+   - Retake missed terms if ≥4 terms were missed.
+5. **Generate a Report**:
+   - Click "Generate Report" to open a printable report with detailed results and total time.
+6. **Toggle Theme**:
+   - Switch between light and dark modes using the theme selector.
+7. **Teacher Mode**:
+   - Access via `https://kappter.github.io/kappquiz/?mode=teacher` to view preloaded sets.
+
+## Tech Stack
+
+- **HTML5**: Structure and layout.
+- **CSS3**: Styling with school colors and responsive design.
+- **JavaScript**: Core logic, quiz generation, timer, and report creation.
+- **PapaParse**: CSV parsing for vocabulary sets.
+- **Local Storage**: Theme preference persistence.
+
+## Contributing
+
+Contributions are welcome! To contribute:
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature-name`).
+3. Commit changes (`git commit -m "Add feature"`).
+4. Push to the branch (`git push origin feature-name`).
+5. Open a pull request.
+
+For custom versions or inquiries, visit [Ken Kapptie's Portfolio](https://kappter.github.io/portfolio/proposal.html).
 
 ## License
 
-© 2025 Ken Kapptie. All rights reserved. This project is intended for educational use only.
+This project is for **educational use only**. All rights reserved.
+
+© 2025 Ken Kapptie
+
+---
+
+*Explore more tools at [kappter.github.io/portfolio/#projects](https://kappter.github.io/portfolio/#projects) or learn about the app at [github.com/kappter/kappquiz](https://github.com/kappter/kappquiz/).*
