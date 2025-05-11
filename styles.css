@@ -16,6 +16,10 @@
     --timer-border: #155BEA;
 }
 
+:root button {
+    color: #FFFFFF; /* Explicit white text for buttons in light mode */
+}
+
 body.dark {
     --background-color: #222;
     --container-bg: #333;
@@ -32,6 +36,10 @@ body.dark {
     --link-color: #3B7AF2;
     --timer-bg: #333;
     --timer-border: #3B7AF2;
+}
+
+body.dark select {
+    color: #BBBBBB; /* Darker grey for dropdown text in dark mode */
 }
 
 body {
@@ -77,10 +85,6 @@ select, input, button {
     border: 1px solid var(--option-border);
 }
 
-body.dark select {
-    color: #BBBBBB; /* Darker grey for dropdown text in dark mode */
-}
-
 .theme-selector {
     text-align: right;
 }
@@ -116,7 +120,7 @@ select:disabled {
 
 button {
     background-color: var(--button-bg);
-    color: #FFFFFF; /* White text for buttons in both modes */
+    color: #FFFFFF; /* White text for buttons in both modes, fallback */
     border: none;
     cursor: pointer;
     border-radius: 4px;
