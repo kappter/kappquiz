@@ -1,5 +1,5 @@
-// Vocabulary Quiz System - script.js (Version: 2025-05-16)
-// Includes timer, dynamic title, retake freeze fix, report copyright, school colors
+// Vocabulary Quiz System - script.js (Version: 2025-05-20)
+// Includes timer, dynamic title, retake freeze fix, report copyright, school colors, updated percentage indicator
 
 const availableSets = ['Short_Testing_Sample.csv', 'ARRL_Ham_Radio_General_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Extra_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Technician_License_Terms_Definitions.csv', 'Game_Development_Fundamentals-2_Terms_Definitions.csv', 'Game_Development_Fundamentals_1_Terms_Definitions.csv', 'utah_video_production_terms_Final.csv', 'Computer_Programming_2_Terms_Definitions.csv', 'Exploring_Computer_Science_Vocabulary.csv', 'advanced_computer_programming_vocab.csv', 'Digital_Media_2_Terms_and_Definitions.csv'];
 let vocabSets = {};
@@ -347,18 +347,19 @@ function selectOption(index) {
 }
 
 function updateProgress() {
-    const score = answers.filter((answer, index) => index <= currentQuestionIndex && answer.isCorrect).length;
-    const totalQuestions = currentQuestionIndex + 1 <= questions.length ? currentQuestionIndex + 1 : questions.length;
-    const percentage = totalQuestions > 0 ? Math.round((score / totalQuestions) * 100) : 0;
+    const progress = document.getElementById('progress');
+    if (!progress) return;
+
+    const score = answers.filter(answer => answer.isCorrect).length;
+    const totalAnswered = answers.length; // Only count answered questions
+    const percentage = totalAnswered > 0 ? Math.round((score / totalAnswered) * 100) : 0;
     const questionProgress = currentQuestionIndex < questions.length
         ? `Question ${currentQuestionIndex + 1} of ${questions.length}`
         : `Completed ${questions.length} of ${questions.length}`;
-    const progress = document.getElementById('progress');
-    if (progress) {
-        progress.innerHTML = `
-            ${questionProgress} | Current Score: ${percentage}%
-        `;
-    }
+
+    progress.innerHTML = `
+        ${questionProgress} | Answered ${totalAnswered} of ${questions.length} | Score: ${percentage}%
+    `;
 }
 
 function prevQuestion() {
@@ -383,7 +384,7 @@ function nextQuestion() {
 
 function showResults() {
     const score = answers.filter(answer => answer.isCorrect).length;
-    const percentage = Math.round((score / questions.length) * 100);
+    const percentage = answers.length > 0 ? Math.round((score / answers.length) * 100) : 0;
     const resultsDiv = document.getElementById('results');
     if (!resultsDiv) {
         console.error('Results div not found');
@@ -392,7 +393,7 @@ function showResults() {
     const hasMissedTerms = missedTerms.length > 0;
     resultsDiv.innerHTML = `
         <h2>Quiz Completed!</h2>
-        <p>Final Score: ${score}/${questions.length} (${percentage}%)</p>
+        <p>Final Score: ${score}/${answers.length} (${percentage}%)</p>
         <p>Total Time: ${formatTime(totalDuration)}</p>
         <input type="text" id="studentName" placeholder="Enter your name">
         <div class="button-group">
@@ -443,7 +444,7 @@ function generateReport() {
     try {
         const studentName = document.getElementById('studentName')?.value || 'Student';
         const score = answers.filter(answer => answer.isCorrect).length;
-        const percentage = questions.length > 0 ? Math.round((score / questions.length) * 100) : 0;
+        const percentage = answers.length > 0 ? Math.round((score / answers.length) * 100) : 0;
         const isReady = percentage > 80;
         const readinessMessage = isReady
             ? '<p style="color: green;"><strong>Congratulations!</strong> You are ready for the state test with a score above 80%.</p>'
@@ -477,7 +478,7 @@ function generateReport() {
             <body>
                 <h1>${currentSetName || 'Vocabulary Quiz'} Report</h1>
                 <p><strong>Student:</strong> ${studentName}</p>
-                <p><strong>Score:</strong> ${score}/${questions.length} (${percentage}%)</p>
+                <p><strong>Score:</strong> ${score}/${answers.length} (${percentage}%)</p>
                 <p><strong>Total Time:</strong> ${formatTime(totalDuration)}</p>
                 ${readinessMessage}
                 <table>
