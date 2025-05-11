@@ -1,5 +1,5 @@
-// Vocabulary Quiz System - themes.js (Version: 2025-05-29)
-// Theme switching for themes.html with enforced contrast for Random theme
+// Vocabulary Quiz System - themes.js (Version: 2025-05-30)
+// Theme switching for themes.html with high contrast (7:1) for Random theme
 
 // Calculate relative luminance for a color (WCAG formula)
 function getRelativeLuminance(r, g, b) {
@@ -43,31 +43,31 @@ function hslToRgb(h, s, l) {
 function generateAnalogousColors() {
     const baseHue = Math.floor(Math.random() * 360);
     const saturation = 70;
-    let bgLightness = 50; // Base background lightness
-    let textLightness = 90; // Start with light text
+    let bgLightness = 55; // Moderate background lightness for vibrancy
+    let textLightness = 95; // Start with very light text
 
     // Generate background color
     const bgColor = `hsl(${baseHue}, ${saturation}%, ${bgLightness}%)`;
     const bgRgb = hslToRgb(baseHue, saturation, bgLightness);
 
-    // Adjust text lightness to ensure contrast >= 4.5
+    // Adjust text lightness to ensure contrast >= 7:1
     let contrastRatio;
     do {
         const textRgb = hslToRgb(baseHue, saturation, textLightness);
         contrastRatio = calculateContrastRatio(bgRgb, textRgb);
-        if (contrastRatio < 4.5) {
-            // Try darkening or lightening text
-            textLightness = textLightness > 50 ? 10 : 90; // Toggle between dark and light
+        if (contrastRatio < 7) {
+            // Toggle between very dark (5) and very light (95) text
+            textLightness = textLightness > 50 ? 5 : 95;
         } else {
             break;
         }
-    } while (contrastRatio < 4.5 && textLightness >= 10 && textLightness <= 90);
+    } while (contrastRatio < 7 && textLightness >= 5 && textLightness <= 95);
 
     // Generate other colors with adjusted lightness
     return [
         bgColor, // Background
-        `hsl(${(baseHue + 30) % 360}, ${saturation}%, 40%)`, // Button
-        `hsl(${(baseHue + 60) % 360}, ${saturation}%, 60%)`, // Correct option
+        `hsl(${(baseHue + 30) % 360}, ${saturation}%, 45%)`, // Button (darker for contrast)
+        `hsl(${(baseHue + 60) % 360}, ${saturation}%, 65%)`, // Correct option (lighter)
         `hsl(${baseHue}, ${saturation}%, ${textLightness}%)` // Text
     ];
 }
