@@ -42,48 +42,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vocabulary Quiz</title>
+    <title>Vocabulary Quiz System</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jZKAQMFKon4GBAQbG////MzAwzDAwAABm0gH1qN6V3wAAAABJRU5ErkJggg==">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Vocabulary Quiz</h1>
-    <div>
-        <label for="theme">Theme:</label>
-        <select id="theme">
-            <option value="light">Light</option>
-            <option value="dark">Dark</option>
-            <option value="goofy">Goofy</option>
-            <option value="random">Random</option>
+    <div class="container" id="teacherPage" style="display: none;">
+        <h1>Teacher Dashboard</h1>
+        <h2>Vocab Sets Preloaded</h2>
+        <p>Vocab sets are currently preloaded in the system. Upload functionality is disabled.</p>
+    </div>
+
+    <div class="container" id="studentPage">
+        <div class="theme-selector">
+            <label for="themeSelect">Theme: </label>
+            <select id="themeSelect" onchange="changeTheme()">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+        <h1 id="pageTitle">Student Vocabulary Quiz</h1>
+        <h2>Select Question Mode First</h2>
+        <div class="question-mode-selector">
+            <p class="instruction">Please select a question mode to enable the vocabulary set dropdown.</p>
+            <label for="questionMode">Question Mode: </label>
+            <select id="questionMode">
+                <option value="" disabled selected>Select a mode</option>
+                <option value="termToDefinition">Term to Definition</option>
+                <option value="definitionToTerm">Definition to Term</option>
+                <option value="mixed">Mixed (Both)</option>
+            </select>
+        </div>
+        <h2>Select Vocabulary Set</h2>
+        <select id="vocabSet" onchange="loadVocabSet()" disabled>
+            <option value="">Select a set</option>
         </select>
+        <div id="timer" style="display: none; text-align: center; margin: 10px 0;">Time Elapsed: 00:00</div>
+        <div id="progress"></div>
+        <div id="quizArea"></div>
+        <div id="results"></div>
+        <div class="pagination">
+            <button onclick="prevQuestion()" disabled id="prevBtn">Previous</button>
+            <button onclick="nextQuestion()" disabled id="nextBtn">Next</button>
+        </div>
     </div>
-    <div>
-        <label for="vocab-set">Select Vocabulary Set:</label>
-        <select id="vocab-set"></select>
-    </div>
-    <div>
-        <label for="mode">Mode:</label>
-        <select id="mode">
-            <option value="mixed">Mixed</option>
-            <option value="term">Term to Definition</option>
-            <option value="definition">Definition to Term</option>
-        </select>
-    </div>
-    <div>
-        <label for="question-count">Number of Questions:</label>
-        <input type="number" id="question-count" value="10" min="1">
-    </div>
-    <button id="start-quiz">Start Quiz</button>
-    <button id="restart">Restart</button>
-    <div id="question-container" style="display: none;">
-        <div id="question"></div>
-        <div id="options"></div>
-        <button id="next" style="display: none;">Next</button>
-    </div>
-    <div id="results" style="display: none;"></div>
-    <button id="retake" style="display: none;">Retake Incorrect</button>
-    <button id="generate-report" style="display: none;">Generate Report</button>
-    <div id="report-container"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+
+    <footer>
+        <p>© 2025 Ken Kapptie | For educational use only | All rights reserved.</p>
+        <div class="donation-links">
+            <a href="https://github.com/kappter/kappquiz/">Detailed info on app | </a>
+            <a href="https://kappter.github.io/portfolio/#projects" target="_blank">More tools like this | </a>
+            <a href="https://kappter.github.io/portfolio/proposal.html">Want your own?</a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
