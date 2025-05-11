@@ -1,5 +1,5 @@
-// Vocabulary Quiz System - themes.js (Version: 2025-05-26)
-// Adds Goofy and Random themes with analogous colors, retains retake report fix
+// Vocabulary Quiz System - themes.js (Version: 2025-05-27)
+// Adds Goofy and Random themes with analogous colors, retains retake report fix, fixes quiz loading and theme switching
 
 const availableSets = [
     'Short_Testing_Sample.csv',
@@ -56,24 +56,28 @@ async function fetchVocabSets() {
     for (const set of availableSets) {
         try {
             const response = await fetch(`/kappquiz/vocab-sets/${set}`);
-            if (!response.ok) throw new Error(`Failed to fetch ${set}`);
+            if (!response.ok) throw new Error(`HTTP ${response.status} for ${set}`);
             const csvData = await response.text();
+            if (!csvData.trim()) throw new Error(`Empty CSV data for ${set}`);
             const parsedData = Papa.parse(csvData, { header: true, skipEmptyLines: true }).data;
+            if (!parsedData || parsedData.length === 0) throw new Error(`No valid data parsed for ${set}`);
             vocabSets[set] = parsedData.map(item => ({
                 term: item.term?.trim() || '',
                 definition: item.definition?.trim() || '',
                 strand: item.strand?.trim() || item.category?.trim() || ''
             })).filter(item => item.term && item.definition);
 
+            if (vocabSets[set].length === 0) throw new Error(`No valid terms/definitions for ${set}`);
+
             const option = document.createElement('option');
             option.value = set;
             option.textContent = set.replace('.csv', '');
             select.appendChild(option);
         } catch (error) {
-            console.error(`Error loading ${set}:`, error);
+            console.error(`Error loading ${set}:`, error.message);
             const quizArea = document.getElementById('quizArea');
             if (quizArea) {
-                quizArea.innerHTML = `<p>Error loading ${set}. Please check the file or repository.</p>`;
+                quizArea.innerHTML = `<p>Error loading ${set}: ${error.message}. Please try another set.</p>`;
             }
         }
     }
@@ -111,6 +115,12 @@ function loadVocabSet() {
         pageTitle.textContent = 'Student Vocabulary Quiz - Fun Themes';
         timer.style.display = 'none';
         currentSetName = '';
+        return;
+    }
+
+    if (!vocabSets[setName]) {
+        console.error(`Vocab set ${setName} not found in vocabSets`);
+        document.getElementById('quizArea').innerHTML = `<p>Error: Vocab set ${setName} not loaded. Please try another set.</p>`;
         return;
     }
 
@@ -197,7 +207,7 @@ function startQuiz(data = currentSet) {
         document.getElementById('prevBtn').disabled = true;
         document.getElementById('nextBtn').disabled = true;
     } catch (error) {
-        console.error('Error starting quiz:', error);
+        console.error('Error starting quiz:', error.message);
         quizArea.innerHTML = `<p>Error: ${error.message} Please select a different set or try again.</p>`;
         document.getElementById('results').innerHTML = '';
         document.getElementById('progress').innerHTML = '';
@@ -332,7 +342,7 @@ function selectOption(index) {
         missedTerms.push({
             term: question.term,
             definition: question.definition,
-            strand: question.strand
+            strand: item.strand
         });
     }
 
@@ -561,13 +571,18 @@ function generateAnalogousColors() {
 }
 
 function applyTheme(theme) {
+    console.log('Applying theme:', theme);
     document.body.className = theme;
     localStorage.setItem('theme', theme);
 
     if (theme === 'random') {
-        const [bgColor, buttonColor, thColor, textColor] = generateAnalogousColors();
-        const styleSheet = document.createElement('style');
-        styleSheet.id = 'random-theme';
+        const [bgColor, buttonColor, correctColor, textColor] = generateAnalogousColors();
+        let styleSheet = document.getElementById('random-theme');
+        if (!styleSheet) {
+            styleSheet = document.createElement('style');
+            styleSheet.id = 'random-theme';
+            document.head.appendChild(styleSheet);
+        }
         styleSheet.textContent = `
             body.random {
                 --background-color: ${bgColor};
@@ -576,7 +591,7 @@ function applyTheme(theme) {
                 --option-bg: ${buttonColor};
                 --option-border: ${textColor};
                 --option-hover-bg: hsl(${(parseInt(buttonColor.match(/\d+/)[0]) + 30) % 360}, 70%, 40%);
-                --correct-bg: ${thColor};
+                --correct-bg: ${correctColor};
                 --correct-border: ${textColor};
                 --incorrect-bg: hsl(${(parseInt(bgColor.match(/\d+/)[0]) + 60) % 360}, 70%, 60%);
                 --incorrect-border: ${textColor};
@@ -590,17 +605,15 @@ function applyTheme(theme) {
                 color: ${textColor};
             }
         `;
-        document.head.replaceChild(styleSheet, document.getElementById('random-theme') || styleSheet);
     }
 }
 
 document.addEventListener('DOMContentLoaded', () => {
     console.log('DOM loaded');
     const savedTheme = localStorage.getItem('theme') || 'light';
-    document.body.className = savedTheme;
+    applyTheme(savedTheme);
     const themeSelect = document.getElementById('themeSelect');
     if (themeSelect) {
         themeSelect.value = savedTheme;
-        themeSelect.addEventListener('change', () => applyTheme(themeSelect.value));
     }
 });
