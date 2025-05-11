@@ -37,7 +37,39 @@
         }
         return gk_fileData[filename] || "";
         }
-        </script><!DOCTYPE html>
+        </script><script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex));
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+</script>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,21 +79,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="container" id="teacherPage" style="display: none;">
-        <h1>Teacher Dashboard</h1>
-        <h2>Vocab Sets Preloaded</h2>
-        <p>Vocab sets are currently preloaded in the system. Upload functionality is disabled.</p>
-    </div>
-
     <div class="container" id="studentPage">
-       <div class="theme-selector">
-    <label for="themeSelect">Theme: </label>
-    <select id="themeSelect" onchange="changeTheme()">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-    </select>
-    <a href="themes.html" class="theme-button">Try Fun Themes!</a>
-</div>
+        <div class="theme-selector">
+            <label for="themeSelect">Theme: </label>
+            <select id="themeSelect" onchange="changeTheme()">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
         <h1 id="pageTitle">Student Vocabulary Quiz</h1>
         <h2>Select Question Mode First</h2>
         <div class="question-mode-selector">
@@ -93,11 +118,12 @@
         <div class="donation-links">
             <a href="https://github.com/kappter/kappquiz/">Detailed info on app | </a>
             <a href="https://kappter.github.io/portfolio/#projects" target="_blank">More tools like this | </a>
-            <a href="https://kappter.github.io/portfolio/proposal.html">Want your own?</a>
+            <a href="https://kappter.github.io/portfolio/proposal.html">Want your own? | </a>
+            <a href="themes.html">Try Fun Themes!</a>
         </div>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-    <script src="script.js"></script>
+    <script src="scripts/quiz.js"></script>
 </body>
 </html>
