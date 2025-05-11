@@ -20,10 +20,6 @@
     color: #FFFFFF; /* Explicit white text for buttons in light mode */
 }
 
-:root .container button {
-    color: #FFFFFF !important; /* Higher specificity for light mode */
-}
-
 body.dark {
     --background-color: #222;
     --container-bg: #333;
