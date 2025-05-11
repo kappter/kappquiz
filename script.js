@@ -1,7 +1,7 @@
 // Vocabulary Quiz System - script.js (Version: 2025-05-20)
 // Includes timer, dynamic title, retake freeze fix, report copyright, school colors, updated percentage indicator
 
-const availableSets = ['Short_Testing_Sample.csv', 'Web_Development_Terms_Definitions.csv','Music_Theory_Terms_Definitions.csv','ARRL_Ham_Radio_General_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Extra_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Technician_License_Terms_Definitions.csv', 'Game_Development_Fundamentals-2_Terms_Definitions.csv', 'Game_Development_Fundamentals_1_Terms_Definitions.csv', 'utah_video_production_terms_Final.csv', 'Computer_Programming_2_Terms_Definitions.csv', 'Exploring_Computer_Science_Vocabulary.csv', 'advanced_computer_programming_vocab.csv', 'Digital_Media_2_Terms_and_Definitions.csv'];
+const availableSets = ['Short_Testing_Sample.csv', 'Web_Development_Terms_Definitions.csv','Music_Theory_Terms_Definitions.csv','ARRL_Ham_Radio_General_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Extra_License_Terms_Definitions.csv', 'ARRL_Ham_Radio_Technician_License_Terms_Definitions.csv', 'Game_Development_Fundamentals-2_Terms_Definitions.csv', 'Game_Development_Fundamentals_1_Terms_Definitions.csv', 'utah_video_production_terms_Final.csv', 'Computer_Programming_2_Terms_Definitions.csv', 'Exploring_Computer_Science_Vocabulary.csv', 'ECS_Hardware_OS_DataStorage_Terms_Definitions.csv','advanced_computer_programming_vocab.csv', 'Digital_Media_2_Terms_and_Definitions.csv'];
 let vocabSets = {};
 let currentSet = null;
 let currentQuestionIndex = 0;
