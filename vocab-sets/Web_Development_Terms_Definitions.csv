@@ -1,0 +1,51 @@
+term,definition,category
+HTML,"HyperText Markup Language, used to structure content on the web, e.g., tags like <p> and <div>",HTML
+Tag,"An HTML element, like <h1> or <img>, used to define content structure",HTML
+Attribute,"Additional information in an HTML tag, like class or id, e.g., <img src='image.jpg'>",HTML
+Semantic HTML,"HTML elements that convey meaning, like <article> or <nav>, improving accessibility",HTML
+Div,"A block-level HTML element, <div>, used as a container for other elements",HTML
+Span,"An inline HTML element, <span>, used to style or group small portions of content",HTML
+Alt Attribute,"An attribute for <img> tags, providing text descriptions for accessibility, e.g., alt='logo'",HTML
+Anchor Tag,"The <a> tag, used for hyperlinks, e.g., <a href='https://example.com'>Link</a>",HTML
+Form,"An HTML element, <form>, for collecting user input, e.g., text fields and buttons",HTML
+Meta Tag,"An HTML tag, <meta>, for metadata like character encoding or viewport settings",HTML
+CSS,"Cascading Style Sheets, used to style and format web content, e.g., colors, fonts",CSS
+Selector,"A CSS pattern to target elements, e.g., .class, #id, or element names like p",CSS
+Box Model,"A CSS concept describing an element’s padding, border, margin, and content",CSS
+Flexbox,"A layout system for arranging elements in rows or columns, using properties like justify-content",CSS
+Grid,"A CSS layout system for two-dimensional arrangements, using rows and columns",CSS
+Media Query,"A CSS technique for responsive design, applying styles based on device properties, e.g., @media (max-width: 600px)",CSS
+Pseudo-Class,"A CSS keyword for styling specific states, e.g., :hover for mouse-over effects",CSS
+Transition,"A CSS property for smooth style changes, e.g., color or size, over time",CSS
+REM Unit,"A CSS unit relative to the root font size, e.g., 1rem = 16px if root is 16px",CSS
+Specificity,"The CSS rule determining which style applies when multiple rules target an element",CSS
+JavaScript,"A programming language for dynamic web content, e.g., interactivity and animations",JavaScript
+Variable,"A named storage for data in JavaScript, declared with let, const, or var",JavaScript
+Function,"A reusable block of JavaScript code, defined with function or arrow syntax, e.g., () => {}",JavaScript
+Event Listener,"A JavaScript method to handle user actions, e.g., addEventListener('click', callback)",JavaScript
+DOM,"Document Object Model, a tree-like representation of a webpage, manipulated by JavaScript",JavaScript
+Array,"A JavaScript data structure for ordered lists, e.g., [1, 2, 3], with methods like .map()",JavaScript
+Object,"A JavaScript data structure for key-value pairs, e.g., { name: 'John' }",JavaScript
+Async/Await,"JavaScript syntax for handling asynchronous operations, simplifying promises",JavaScript
+Closure,"A JavaScript function that retains access to its outer scope’s variables",JavaScript
+Promise,"A JavaScript object representing an asynchronous operation’s eventual result",JavaScript
+React,"A JavaScript library for building user interfaces, using components and hooks",Frameworks and Tools
+Node.js,"A runtime for executing JavaScript server-side, enabling backend development",Frameworks and Tools
+NPM,"Node Package Manager, a tool for managing JavaScript libraries and dependencies",Frameworks and Tools
+Webpack,"A module bundler for JavaScript, optimizing assets like code, images, and styles",Frameworks and Tools
+Vue,"A progressive JavaScript framework for building interactive web interfaces",Frameworks and Tools
+Angular,"A TypeScript-based framework for building dynamic web applications",Frameworks and Tools
+SASS,"A CSS preprocessor adding features like variables, nesting, and mixins",Frameworks and Tools
+TypeScript,"A superset of JavaScript adding static types, improving code reliability",Frameworks and Tools
+ESLint,"A tool for identifying and fixing JavaScript code issues, enforcing style rules",Frameworks and Tools
+Vite,"A fast build tool and development server for modern web projects",Frameworks and Tools
+REST,"Representational State Transfer, an API design style using HTTP methods like GET, POST",APIs and Networking
+API,"Application Programming Interface, enabling data exchange between systems, e.g., fetching JSON",APIs and Networking
+CORS,"Cross-Origin Resource Sharing, a security mechanism controlling resource access across domains",APIs and Networking
+JSON,"JavaScript Object Notation, a lightweight format for data exchange, e.g., { 'key': 'value' }",APIs and Networking
+HTTP,"HyperText Transfer Protocol, the foundation for data communication on the web",APIs and Networking
+Accessibility,"Designing websites to be usable by people with diverse abilities, e.g., screen readers",Web Concepts
+SEO,"Search Engine Optimization, improving a website’s visibility on search engines",Web Concepts
+Responsive Design,"Designing websites to adapt to different screen sizes, e.g., mobile, tablet, desktop",Web Concepts
+Version Control,"A system to track and manage code changes, e.g., Git and GitHub",Web Concepts
+Progressive Web App,"A web app with native app-like features, e.g., offline access, push notifications",Web Concepts
