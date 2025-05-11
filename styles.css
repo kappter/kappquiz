@@ -20,6 +20,10 @@
     color: #FFFFFF; /* Explicit white text for buttons in light mode */
 }
 
+:root .option {
+    color: #FFFFFF; /* White text for multiple-choice options in light mode */
+}
+
 body.dark {
     --background-color: #222;
     --container-bg: #333;
