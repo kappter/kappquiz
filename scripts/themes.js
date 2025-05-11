@@ -1,5 +1,5 @@
-// Vocabulary Quiz System - themes.js (Version: 2025-05-30)
-// Theme switching for themes.html with high contrast (7:1) for Random theme
+// Vocabulary Quiz System - themes.js (Version: 2025-05-31)
+// Theme switching for themes.html with high contrast (7:1) for Random theme and fixed Dark mode
 
 // Calculate relative luminance for a color (WCAG formula)
 function getRelativeLuminance(r, g, b) {
@@ -43,48 +43,52 @@ function hslToRgb(h, s, l) {
 function generateAnalogousColors() {
     const baseHue = Math.floor(Math.random() * 360);
     const saturation = 70;
-    let bgLightness = 55; // Moderate background lightness for vibrancy
-    let textLightness = 95; // Start with very light text
+    let bgLightness = 55;
+    let textLightness = 95;
 
-    // Generate background color
     const bgColor = `hsl(${baseHue}, ${saturation}%, ${bgLightness}%)`;
     const bgRgb = hslToRgb(baseHue, saturation, bgLightness);
 
-    // Adjust text lightness to ensure contrast >= 7:1
     let contrastRatio;
     do {
         const textRgb = hslToRgb(baseHue, saturation, textLightness);
         contrastRatio = calculateContrastRatio(bgRgb, textRgb);
         if (contrastRatio < 7) {
-            // Toggle between very dark (5) and very light (95) text
             textLightness = textLightness > 50 ? 5 : 95;
         } else {
             break;
         }
     } while (contrastRatio < 7 && textLightness >= 5 && textLightness <= 95);
 
-    // Generate other colors with adjusted lightness
     return [
-        bgColor, // Background
-        `hsl(${(baseHue + 30) % 360}, ${saturation}%, 45%)`, // Button (darker for contrast)
-        `hsl(${(baseHue + 60) % 360}, ${saturation}%, 65%)`, // Correct option (lighter)
-        `hsl(${baseHue}, ${saturation}%, ${textLightness}%)` // Text
+        bgColor,
+        `hsl(${(baseHue + 30) % 360}, ${saturation}%, 45%)`,
+        `hsl(${(baseHue + 60) % 360}, ${saturation}%, 65%)`,
+        `hsl(${baseHue}, ${saturation}%, ${textLightness}%)`
     ];
 }
 
 function applyTheme(theme) {
     console.log('Applying theme:', theme);
-    document.body.className = theme;
+    
+    // Remove existing theme classes
+    document.body.className = '';
+    
+    // Remove any Random theme styles
+    const randomStyle = document.getElementById('random-theme');
+    if (randomStyle) {
+        randomStyle.remove();
+    }
+
+    // Apply new theme
+    document.body.classList.add(theme);
     localStorage.setItem('theme', theme);
 
     if (theme === 'random') {
         const [bgColor, buttonColor, correctColor, textColor] = generateAnalogousColors();
-        let styleSheet = document.getElementById('random-theme');
-        if (!styleSheet) {
-            styleSheet = document.createElement('style');
-            styleSheet.id = 'random-theme';
-            document.head.appendChild(styleSheet);
-        }
+        let styleSheet = document.createElement('style');
+        styleSheet.id = 'random-theme';
+        document.head.appendChild(styleSheet);
         styleSheet.textContent = `
             body.random {
                 --background-color: ${bgColor};
@@ -117,5 +121,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const themeSelect = document.getElementById('themeSelect');
     if (themeSelect) {
         themeSelect.value = savedTheme;
+        themeSelect.addEventListener('change', (e) => applyTheme(e.target.value));
     }
 });
