@@ -77,6 +77,10 @@ select, input, button {
     border: 1px solid var(--option-border);
 }
 
+body.dark select {
+    color: #BBBBBB; /* Darker grey for dropdown text in dark mode */
+}
+
 .theme-selector {
     text-align: right;
 }
@@ -112,7 +116,7 @@ select:disabled {
 
 button {
     background-color: var(--button-bg);
-    color: white;
+    color: #FFFFFF; /* White text for buttons in both modes */
     border: none;
     cursor: pointer;
     border-radius: 4px;
@@ -208,11 +212,12 @@ footer {
 }
 
 footer a {
-    color: var(--link-color);
+    color: var(--button-hover-bg); /* Gold for footer links */
     text-decoration: none;
 }
 
 footer a:hover {
+    color: #F0B555; /* Lighter gold on hover */
     text-decoration: underline;
 }
 
