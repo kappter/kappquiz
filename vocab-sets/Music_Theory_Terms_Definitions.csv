@@ -1,0 +1,56 @@
+term,definition,category
+Ionian Mode,"A major scale mode starting on the first degree, with a bright and happy sound, scale degrees 1-2-3-4-5-6-7",Modes
+Dorian Mode,"A mode starting on the second degree of the major scale, with a minor third and flattened seventh, often jazzy or melancholic",Modes
+Phrygian Mode,"A mode starting on the third degree, with a minor second and minor seventh, giving a Spanish or exotic feel",Modes
+Lydian Mode,"A mode starting on the fourth degree, with a raised fourth, creating a dreamy or ethereal sound",Modes
+Mixolydian Mode,"A mode starting on the fifth degree, with a major third and flattened seventh, often used in blues and rock",Modes
+Aeolian Mode,"A natural minor scale mode starting on the sixth degree, with a sad or somber mood, scale degrees 1-2-b3-4-5-b6-b7",Modes
+Locrian Mode,"A mode starting on the seventh degree, with a diminished fifth and minor seventh, sounding dissonant and unstable",Modes
+Unison,"An interval where two notes are the same pitch, 0 semitones apart, e.g., C to C",Intervals
+Minor Second,"An interval of one semitone, sounding tense or dissonant, e.g., C to C#",Intervals
+Major Second,"An interval of two semitones, sounding consonant, e.g., C to D",Intervals
+Minor Third,"An interval of three semitones, with a minor quality, e.g., C to Eb",Intervals
+Major Third,"An interval of four semitones, with a major quality, e.g., C to E",Intervals
+Perfect Fourth,"An interval of five semitones, sounding open and consonant, e.g., C to F",Intervals
+Tritone,"An interval of six semitones, known as the 'diabolus in musica,' e.g., C to F#",Intervals
+Perfect Fifth,"An interval of seven semitones, highly consonant, e.g., C to G",Intervals
+Minor Sixth,"An interval of eight semitones, with a minor quality, e.g., C to Ab",Intervals
+Major Sixth,"An interval of nine semitones, with a major quality, e.g., C to A",Intervals
+Minor Seventh,"An interval of ten semitones, common in dominant chords, e.g., C to Bb",Intervals
+Major Seventh,"An interval of eleven semitones, bright and tense, e.g., C to B",Intervals
+Octave,"An interval of twelve semitones, where the higher note is double the frequency of the lower, e.g., C to C",Intervals
+C Ionian,"The Ionian mode in the key of C, starting on C, notes C-D-E-F-G-A-B, equivalent to C major",Modes in Keys
+D Dorian,"The Dorian mode in the key of C, starting on D, notes D-E-F-G-A-B-C, parent scale Bb major",Modes in Keys
+E Phrygian,"The Phrygian mode in the key of C, starting on E, notes E-F-G-A-B-C-D, parent scale Ab major",Modes in Keys
+F Lydian,"The Lydian mode in the key of C, starting on F, notes F-G-A-B-C-D-E, parent scale G major",Modes in Keys
+G Mixolydian,"The Mixolydian mode in the key of C, starting on G, notes G-A-B-C-D-E-F, parent scale F major",Modes in Keys
+A Aeolian,"The Aeolian mode in the key of C, starting on A, notes A-B-C-D-E-F-G, equivalent to A minor",Modes in Keys
+B Locrian,"The Locrian mode in the key of C, starting on B, notes B-C-D-E-F-G-A, parent scale Db major",Modes in Keys
+G Ionian,"The Ionian mode in the key of G, starting on G, notes G-A-B-C-D-E-F#, equivalent to G major",Modes in Keys
+A Dorian,"The Dorian mode in the key of G, starting on A, notes A-B-C-D-E-F#-G, parent scale F major",Modes in Keys
+B Phrygian,"The Phrygian mode in the key of G, starting on B, notes B-C-D-E-F#-G-A, parent scale Eb major",Modes in Keys
+C Lydian,"The Lydian mode in the key of G, starting on C, notes C-D-E-F#-G-A-B, parent scale D major",Modes in Keys
+D Mixolydian,"The Mixolydian mode in the key of G, starting on D, notes D-E-F#-G-A-B-C, parent scale C major",Modes in Keys
+E Aeolian,"The Aeolian mode in the key of G, starting on E, notes E-F#-G-A-B-C-D, equivalent to E minor",Modes in Keys
+F# Locrian,"The Locrian mode in the key of G, starting on F#, notes F#-G-A-B-C-D-E, parent scale Ab major",Modes in Keys
+F Ionian,"The Ionian mode in the key of F, starting on F, notes F-G-A-Bb-C-D-E, equivalent to F major",Modes in Keys
+G Dorian,"The Dorian mode in the key of F, starting on G, notes G-A-Bb-C-D-E-F, parent scale Eb major",Modes in Keys
+A Phrygian,"The Phrygian mode in the key of F, starting on A, notes A-Bb-C-D-E-F-G, parent scale Db major",Modes in Keys
+Bb Lydian,"The Lydian mode in the key of F, starting on Bb, notes Bb-C-D-E-F-G-A, parent scale C major",Modes in Keys
+C Mixolydian,"The Mixolydian mode in the key of F, starting on C, notes C-D-E-F-G-A-Bb, parent scale Bb major",Modes in Keys
+D Aeolian,"The Aeolian mode in the key of F, starting on D, notes D-E-F-G-A-Bb-C, equivalent to D minor",Modes in Keys
+E Locrian,"The Locrian mode in the key of F, starting on E, notes E-F-G-A-Bb-C-D, parent scale Gb major",Modes in Keys
+D Ionian,"The Ionian mode in the key of D, starting on D, notes D-E-F#-G-A-B-C#, equivalent to D major",Modes in Keys
+E Dorian,"The Dorian mode in the key of D, starting on E, notes E-F#-G-A-B-C#-D, parent scale C major",Modes in Keys
+F# Phrygian,"The Phrygian mode in the key of D, starting on F#, notes F#-G-A-B-C#-D-E, parent scale Bb major",Modes in Keys
+G Lydian,"The Lydian mode in the key of D, starting on G, notes G-A-B-C#-D-E-F#, parent scale A major",Modes in Keys
+A Mixolydian,"The Mixolydian mode in the key of D, starting on A, notes A-B-C#-D-E-F#-G, parent scale G major",Modes in Keys
+B Aeolian,"The Aeolian mode in the key of D, starting on B, notes B-C#-D-E-F#-G-A, equivalent to B minor",Modes in Keys
+C# Locrian,"The Locrian mode in the key of D, starting on C#, notes C#-D-E-F#-G-A-B, parent scale Eb major",Modes in Keys
+A Ionian,"The Ionian mode in the key of A, starting on A, notes A-B-C#-D-E-F#-G#, equivalent to A major",Modes in Keys
+B Dorian,"The Dorian mode in the key of A, starting on B, notes B-C#-D-E-F#-G#-A, parent scale G major",Modes in Keys
+C# Phrygian,"The Phrygian mode in the key of A, starting on C#, notes C#-D-E-F#-G#-A-B, parent scale F major",Modes in Keys
+D Lydian,"The D Lydian mode in the key of A, starting on D, notes D-E-F#-G#-A-B-C#, parent scale E major",Modes in Keys
+E Mixolydian,"The Mixolydian mode in the key of A, starting on E, notes E-F#-G#-A-B-C#-D, parent scale D major",Modes in Keys
+F# Aeolian,"The Aeolian mode in the key of A, starting on F#, notes F#-G#-A-B-C#-D-E, equivalent to F# minor",Modes in Keys
+G# Locrian,"The Locrian mode in the key of A, starting on G#, notes G#-A-B-C#-D-E-F#, parent scale Bb major",Modes in Keys
