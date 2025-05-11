@@ -1,0 +1,138 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Quiz System - Fun Themes</title>
+    <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAB5JREFUOE9jZKAQMFKon4GBAQbG////MzAwzDAwAABm0gH1qN6V3wAAAABJRU5ErkJggg==">
+    <link rel="stylesheet" href="themes.css">
+</head>
+<body>
+    <div class="container" id="studentPage">
+        <div class="theme-selector">
+            <label for="themeSelect">Theme: </label>
+            <select id="themeSelect">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="goofy">Goofy</option>
+                <option value="random">Random</option>
+            </select>
+        </div>
+        <h1 id="pageTitle">Student Vocabulary Quiz - Fun Themes</h1>
+        <h2>Select Question Mode First</h2>
+        <div class="question-mode-selector">
+            <p class="instruction">Please select a question mode to enable the vocabulary set dropdown.</p>
+            <label for="questionMode">Question Mode: </label>
+            <select id="questionMode">
+                <option value="" disabled selected>Select a mode</option>
+                <option value="termToDefinition">Term to Definition</option>
+                <option value="definitionToTerm">Definition to Term</option>
+                <option value="mixed">Mixed (Both)</option>
+            </select>
+        </div>
+        <h2>Select Vocabulary Set</h2>
+        <select id="vocabSet" disabled>
+            <option value="">Select a set</option>
+        </select>
+        <div id="timer" style="display: none; text-align: center; margin: 10px 0;">Time Elapsed: 00:00</div>
+        <div id="progress"></div>
+        <div id="quizArea"></div>
+        <div id="results"></div>
+        <div class="pagination">
+            <button onclick="prevQuestion()" disabled id="prevBtn">Previous</button>
+            <button onclick="nextQuestion()" disabled id="nextBtn">Next</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 Ken Kapptie | For educational use only | All rights reserved.</p>
+        <div class="donation-links">
+            <a href="https://github.com/kappter/kappquiz/">Detailed info on app | </a>
+            <a href="https://kappter.github.io/portfolio/#projects" target="_blank">More tools like this | </a>
+            <a href="https://kappter.github.io/portfolio/proposal.html">Want your own?</a>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+    <script src="themes.js"></script>
+</body>
+</html>
