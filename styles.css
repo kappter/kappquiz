@@ -1,286 +1,226 @@
-:root {
-    --background-color: #f4f4f9;
-    --container-bg: white;
-    --text-color: #333;
-    --option-bg: #155BEA;
-    --option-border: #BB8311;
-    --option-hover-bg: #3B7AF2;
-    --correct-bg: #EAA415;
-    --correct-border: #BB8311;
-    --incorrect-bg: #FFE6CC;
-    --incorrect-border: #BB8311;
-    --button-bg: #155BEA;
-    --button-hover-bg: #EAA415;
-    --link-color: #155BEA;
-    --timer-bg: #f4f4f9;
-    --timer-border: #155BEA;
-}
-
-:root button {
-    color: #FFFFFF; /* Explicit white text for buttons in light mode */
-}
-
-:root .option {
-    color: #FFFFFF; /* White text for multiple-choice options in light mode */
-}
-
-body.dark {
-    --background-color: #222;
-    --container-bg: #333;
-    --text-color: #f4f4f9;
-    --option-bg: #3B7AF2;
-    --option-border: #BB8311;
-    --option-hover-bg: #EAA415;
-    --correct-bg: #EAA415;
-    --correct-border: #BB8311;
-    --incorrect-bg: #553C08;
-    --incorrect-border: #BB8311;
-    --button-bg: #155BEA;
-    --button-hover-bg: #EAA415;
-    --link-color: #3B7AF2;
-    --timer-bg: #333;
-    --timer-border: #3B7AF2;
-}
-
-body.dark select {
-    color: #BBBBBB; /* Darker grey for dropdown text in dark mode */
-}
+@import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&display=swap');
 
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    padding-bottom: 60px;
-    background-color: var(--background-color);
-    color: var(--text-color);
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-}
-
-.container {
-    width: 100%;
     max-width: 800px;
     margin: 0 auto;
-    background: var(--container-bg);
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    flex: 1 0 auto;
-}
-
-h1, h2 {
-    text-align: center;
-    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 h1 {
-    word-wrap: break-word;
-    max-width: 100%;
+    text-align: center;
 }
 
 select, input, button {
-    padding: 10px;
-    margin: 10px 0;
-    width: 100%;
-    box-sizing: border-box;
-    background-color: var(--container-bg);
-    color: var(--text-color);
-    border: 1px solid var(--option-border);
-}
-
-.theme-selector {
-    text-align: right;
-}
-
-.theme-selector select {
-    width: auto;
-    display: inline-block;
     padding: 8px;
-}
-
-.question-mode-selector {
-    text-align: center;
-    margin: 10px 0;
-}
-
-.question-mode-selector select {
-    width: auto;
-    display: inline-block;
-    padding: 8px;
-}
-
-.instruction {
-    font-size: 0.9em;
-    color: var(--text-color);
-    margin-bottom: 5px;
-    text-align: center;
-}
-
-select:disabled {
-    background-color: #e0e0e0;
-    cursor: not-allowed;
+    margin: 5px;
+    font-size: 16px;
+    transition: background-color 0.3s, color 0.3s;
 }
 
 button {
-    background-color: var(--button-bg);
-    color: #FFFFFF; /* White text for buttons in both modes, fallback */
     border: none;
     cursor: pointer;
     border-radius: 4px;
 }
 
 button:hover {
-    background-color: var(--button-hover-bg);
+    filter: brightness(90%);
 }
 
 button:disabled {
-    background-color: #cccccc;
+    background-color: #ccc;
     cursor: not-allowed;
 }
 
-.button-group {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 10px;
-}
-
-.button-group button {
-    width: auto;
-    padding: 10px 20px;
-}
-
-#quizArea, #results {
+#question-container {
+    display: none;
     margin-top: 20px;
 }
 
-.question {
+#question {
+    font-size: 18px;
     margin-bottom: 20px;
 }
 
-.option {
-    display: block;
+#options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#options button {
     padding: 10px;
-    margin: 5px 0;
-    background: var(--option-bg);
-    border: 1px solid var(--option-border);
-    cursor: pointer;
-    border-radius: 4px;
+    text-align: left;
 }
 
-.option:hover {
-    background: var(--option-hover-bg);
-}
-
-.correct {
-    background: var(--correct-bg);
-    border-color: var(--correct-border);
-}
-
-.incorrect {
-    background: var(--incorrect-bg);
-    border-color: var(--incorrect-border);
-}
-
-#timer {
-    font-weight: bold;
-    padding: 8px;
-    background: var(--timer-bg);
-    border: 1px solid var(--timer-border);
-    border-radius: 4px;
-    color: var(--text-color);
-    text-align: center;
-    margin: 10px 0;
-}
-
-.pagination {
-    display: flex;
-    justify-content: space-between;
+#results {
+    display: none;
     margin-top: 20px;
-    gap: 10px;
+    font-size: 16px;
 }
 
-#progress {
-    text-align: center;
-    font-weight: bold;
-    margin-bottom: 20px;
+#report-container {
+    margin-top: 20px;
 }
 
-footer {
+#report-container table {
     width: 100%;
-    background: var(--container-bg);
-    color: var(--text-color);
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+#report-container th, #report-container td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+    word-wrap: break-word;
+    max-width: 250px;
+}
+
+#report-container th {
+    font-weight: bold;
+}
+
+#report-container td:nth-child(5) {
     text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    border-top: 1px solid var(--option-border);
 }
 
-footer a {
-    color: var(--button-hover-bg); /* Gold for footer links */
-    text-decoration: none;
+#report-container p {
+    font-size: 16px;
+    margin-bottom: 10px;
 }
 
-footer a:hover {
-    color: #F0B555; /* Lighter gold on hover */
-    text-decoration: underline;
-}
-
-.donation-links {
-    margin-top: 5px;
-}
-
-@media (max-width: 800px) {
-    .container {
-        padding: 15px;
-        margin-bottom: 20px;
+@media (max-width: 600px) {
+    #report-container th, #report-container td {
+        font-size: 14px;
+        padding: 6px;
+        max-width: 150px;
     }
-
-    h1 {
-        font-size: 1.5em;
+    #question {
+        font-size: 16px;
     }
-
-    h2 {
-        font-size: 1.2em;
-    }
-
-    select, input, button {
+    #options button {
+        font-size: 14px;
         padding: 8px;
     }
+}
 
-    .button-group {
-        flex-direction: column;
-        gap: 5px;
-    }
+/* Light Theme (default) */
+body.light {
+    background-color: #fff;
+    color: #000;
+}
 
-    .button-group button {
-        width: 100%;
-    }
+body.light button {
+    background-color: #007bff;
+    color: white;
+}
 
-    .donation-links {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
+body.light button:hover {
+    background-color: #0056b3;
+}
 
-    .donation-links a {
-        margin: 2px 0;
-    }
+body.light #report-container th {
+    background-color: #f2f2f2;
+}
 
-    footer {
-        position: static;
-        border-top: none;
-        padding: 10px;
-    }
+body.light #report-container th, body.light #report-container td {
+    border-color: #ddd;
+}
 
-    .pagination {
-        margin-bottom: 20px;
-    }
+/* Dark Theme */
+body.dark {
+    background-color: #222;
+    color: #fff;
+}
 
-    #timer {
-        font-size: 0.9em;
-    }
+body.dark button {
+    background-color: #0056b3;
+    color: #fff;
+}
+
+body.dark button:hover {
+    background-color: #003d82;
+}
+
+body.dark #report-container th {
+    background-color: #333;
+    color: #fff;
+}
+
+body.dark #report-container th, body.dark #report-container td {
+    border-color: #555;
+}
+
+body.dark #results {
+    color: #ddd;
+}
+
+/* Goofy Theme */
+body.goofy {
+    background-color: #ffeb3b; /* Bright yellow */
+    color: #d81b60; /* Hot pink text */
+    font-family: 'Bubblegum Sans', cursive;
+}
+
+body.goofy h1 {
+    color: #388e3c; /* Green */
+    animation: bounce 1s infinite;
+}
+
+body.goofy button {
+    background-color: #ab47bc; /* Purple */
+    color: #fff;
+    border: 2px solid #0288d1; /* Blue border */
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+body.goofy button:hover {
+    background-color: #7b1fa2;
+    transform: scale(1.05);
+}
+
+body.goofy #report-container th {
+    background-color: #0288d1; /* Blue */
+    color: #fff;
+}
+
+body.goofy #report-container th, body.goofy #report-container td {
+    border-color: #d81b60; /* Pink borders */
+}
+
+body.goofy #results {
+    color: #388e3c; /* Green */
+}
+
+/* Random Theme (placeholders, overridden by JS) */
+body.random {
+    background-color: #fff;
+    color: #000;
+}
+
+body.random button {
+    background-color: #007bff;
+    color: #fff;
+}
+
+body.random button:hover {
+    background-color: #0056b3;
+}
+
+body.random #report-container th {
+    background-color: #f2f2f2;
+}
+
+body.random #report-container th, body.random #report-container td {
+    border-color: #ddd;
+}
+
+/* Animation for Goofy Theme */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
 }
