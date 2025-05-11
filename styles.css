@@ -1,19 +1,44 @@
+/* styles.css (partial) */
 :root {
-    --background-color: #f4f4f9;
-    --container-bg: white;
+    --background-color: #fff;
+    --container-bg: #fff;
     --text-color: #333;
     --option-bg: #155BEA;
     --option-border: #BB8311;
-    --option-hover-bg: #3B7AF2;
-    --correct-bg: #EAA415;
-    --correct-border: #BB8311;
-    --incorrect-bg: #FFE6CC;
-    --incorrect-border: #BB8311;
+    --option-hover-bg: #EAA415;
+    --correct-bg: #4CAF50;
+    --correct-border: #388E3C;
+    --incorrect-bg: #F44336;
+    --incorrect-border: #D32F2F;
     --button-bg: #155BEA;
     --button-hover-bg: #EAA415;
     --link-color: #155BEA;
     --timer-bg: #f4f4f9;
-    --timer-border: #155BEA;
+    --timer-border: #BB8311;
+}
+
+body.light {
+    /* Default light theme */
+    background: var(--background-color);
+    color: var(--text-color);
+}
+
+body.dark {
+    --background-color: #222;
+    --container-bg: #333;
+    --text-color: #fff;
+    --option-bg: #3B7AF2;
+    --option-border: #1E40AF;
+    --option-hover-bg: #1E40AF;
+    --correct-bg: #2E7D32;
+    --correct-border: #1B5E20;
+    --incorrect-bg: #D32F2F;
+    --incorrect-border: #B71C1C;
+    --button-bg: #3B7AF2;
+    --button-hover-bg: #1E40AF;
+    --link-color: #3B7AF2;
+    --timer-bg: #444;
+    --timer-border: #1E40AF;
 }
 
 :root button {
@@ -22,24 +47,6 @@
 
 :root .option {
     color: #FFFFFF; /* White text for multiple-choice options in light mode */
-}
-
-body.dark {
-    --background-color: #222;
-    --container-bg: #333;
-    --text-color: #f4f4f9;
-    --option-bg: #3B7AF2;
-    --option-border: #BB8311;
-    --option-hover-bg: #EAA415;
-    --correct-bg: #EAA415;
-    --correct-border: #BB8311;
-    --incorrect-bg: #553C08;
-    --incorrect-border: #BB8311;
-    --button-bg: #155BEA;
-    --button-hover-bg: #EAA415;
-    --link-color: #3B7AF2;
-    --timer-bg: #333;
-    --timer-border: #3B7AF2;
 }
 
 body.dark select {
