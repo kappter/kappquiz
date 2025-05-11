@@ -1,5 +1,5 @@
-// Vocabulary Quiz System - quiz.js (Version: 2025-05-28)
-// Shared quiz logic for index.html and themes.html, fixes Next button, single CSV list
+// Vocabulary Quiz System - quiz.js (Version: 2025-06-01)
+// Shared quiz logic for index.html and themes.html, with theme switching for index.html
 
 const availableSets = [
     'Short_Testing_Sample.csv',
@@ -31,6 +31,27 @@ let totalDuration = 0;
 let currentSetName = '';
 
 fetchVocabSets();
+
+// Theme switching for index.html
+function applyIndexTheme(theme) {
+    console.log('Applying index theme:', theme);
+    document.body.className = ''; // Clear existing classes
+    document.body.classList.add(theme);
+    localStorage.setItem('indexTheme', theme); // Separate key for index.html
+}
+
+// Initialize theme on index.html
+document.addEventListener('DOMContentLoaded', () => {
+    if (window.location.pathname.includes('index.html') || window.location.pathname === '/kappquiz/') {
+        const savedTheme = localStorage.getItem('indexTheme') || 'light';
+        applyIndexTheme(savedTheme);
+        const themeSelect = document.getElementById('themeSelect');
+        if (themeSelect) {
+            themeSelect.value = savedTheme;
+        }
+    }
+});
+
 const questionModeSelect = document.getElementById('questionMode');
 if (questionModeSelect) {
     questionModeSelect.addEventListener('change', (e) => {
@@ -354,7 +375,7 @@ function selectOption(index) {
 
     updateProgress();
 
-    document.getElementById('nextBtn').disabled = false; // Enable Next after answering
+    document.getElementById('nextBtn').disabled = false;
 
     if (currentQuestionIndex >= questions.length - 1) {
         stopTimer();
