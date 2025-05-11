@@ -1,0 +1,51 @@
+term,definition,strand
+CPU,"Central Processing Unit, the brain of a computer, executing instructions from programs",1
+RAM,"Random Access Memory, temporary storage for data actively used by the CPU",1
+Motherboard,"The main circuit board, connecting all computer components, e.g., CPU, RAM, and ports",1
+GPU,"Graphics Processing Unit, a specialized processor for rendering images and videos",1
+Hard Drive,"A device for long-term data storage, using spinning magnetic disks, e.g., HDD",1
+SSD,"Solid State Drive, a fast storage device using flash memory, no moving parts",1
+Power Supply,"A component converting AC power to DC for computer components",1
+ROM,"Read-Only Memory, non-volatile memory storing firmware or BIOS",1
+Bus,"A communication system transferring data between computer components, e.g., data bus",1
+Cache Memory,"High-speed memory storing frequently accessed data for quick CPU access",1
+Keyboard,"An input device for typing text and commands into a computer",1
+Mouse,"An input device for navigating and interacting with a graphical user interface",1
+Monitor,"An output device displaying visual output from a computer, e.g., LCD or LED screens",1
+Printer,"An output device producing physical copies of digital documents or images",1
+Cooling Fan,"A hardware component preventing overheating by circulating air over components",1
+Expansion Card,"A circuit board adding functionality, e.g., graphics or sound cards",1
+Port,"An interface connecting external devices, e.g., USB, HDMI, or Ethernet ports",1
+BIOS,"Basic Input/Output System, firmware initializing hardware during computer startup",1
+Clock Speed,"The rate at which a CPU executes instructions, measured in GHz, e.g., 3.5 GHz",1
+Chipset,"A set of integrated circuits managing data flow between CPU, memory, and peripherals",1
+Operating System,"Software managing hardware and software resources, e.g., Windows, Linux, macOS",2
+Kernel,"The core of an operating system, handling communication between hardware and software",2
+File System,"A method for organizing and storing files, e.g., NTFS, FAT32, or ext4",2
+Process,"A program in execution, managed by the operating system, e.g., running a web browser",2
+Thread,"A smaller unit of a process, allowing parallel tasks within a program",2
+Multitasking,"An OS feature running multiple programs simultaneously, e.g., browsing and editing",2
+Virtual Memory,"A technique using hard drive space as temporary RAM to extend memory capacity",2
+Device Driver,"Software enabling communication between the OS and hardware, e.g., printer drivers",2
+User Interface,"The means by which users interact with an OS, e.g., GUI or command line",2
+Command Line,"A text-based interface for entering OS commands, e.g., Terminal or CMD",2
+GUI,"Graphical User Interface, allowing interaction via icons, windows, and menus",2
+System Call,"A request from a program to the OS for services, e.g., file access or memory allocation",2
+Task Manager,"A tool displaying running processes, performance, and resource usage in an OS",2
+Boot Process,"The sequence of steps an OS follows to start a computer, loading from BIOS to desktop",2
+Shell,"A program providing an interface to the OS, e.g., Bash for Linux or PowerShell",2
+Primary Storage,"Fast, volatile memory directly accessible by the CPU, e.g., RAM or cache",3
+Secondary Storage,"Non-volatile storage for long-term data, e.g., hard drives or SSDs",3
+Flash Memory,"Non-volatile memory used in USB drives and SSDs, retaining data without power",3
+Cloud Storage,"Remote storage accessed via the internet, e.g., Google Drive, Dropbox",3
+RAID,"Redundant Array of Independent Disks, combining multiple drives for redundancy or speed",3
+Partition,"A division of a storage device, treated as a separate unit by the OS, e.g., C: drive",3
+File Format,"A structure for storing data, e.g., JPEG for images, MP3 for audio",3
+Bit,"The smallest unit of digital data, either 0 or 1",3
+Byte,"A group of 8 bits, representing a single character, e.g., 'A'",3
+Terabyte,"A unit of storage equal to 1 trillion bytes, used for large drives",3
+Backup,"A copy of data stored separately to prevent loss, e.g., external drive or cloud",3
+Encryption,"Securing data by converting it into a coded format, e.g., AES for files",3
+Compression,"Reducing file size for storage or transfer, e.g., ZIP or MP4 formats",3
+NAS,"Network Attached Storage, a device providing centralized storage over a network",3
+Optical Disc,"A storage medium using lasers, e.g., CD, DVD, or Blu-ray for data",3
