@@ -1,15 +1,74 @@
-// Vocabulary Quiz System - themes.js (Version: 2025-05-28)
-// Theme switching for themes.html
+// Vocabulary Quiz System - themes.js (Version: 2025-05-29)
+// Theme switching for themes.html with enforced contrast for Random theme
+
+// Calculate relative luminance for a color (WCAG formula)
+function getRelativeLuminance(r, g, b) {
+    const a = [r, g, b].map(v => {
+        v /= 255;
+        return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+    });
+    return 0.2126 * a[0] + 0.7152 * a[1] + 0.0722 * a[2];
+}
+
+// Calculate contrast ratio between two colors
+function calculateContrastRatio(color1, color2) {
+    const lum1 = getRelativeLuminance(...color1);
+    const lum2 = getRelativeLuminance(...color2);
+    return (Math.max(lum1, lum2) + 0.05) / (Math.min(lum1, lum2) + 0.05);
+}
+
+// Convert HSL to RGB for contrast calculation
+function hslToRgb(h, s, l) {
+    s /= 100;
+    l /= 100;
+    const c = (1 - Math.abs(2 * l - 1)) * s;
+    const x = c * (1 - Math.abs(((h / 60) % 2) - 1));
+    const m = l - c / 2;
+    let r = 0, g = 0, b = 0;
+
+    if (h >= 0 && h < 60) { r = c; g = x; b = 0; }
+    else if (h < 120) { r = x; g = c; b = 0; }
+    else if (h < 180) { r = 0; g = c; b = x; }
+    else if (h < 240) { r = 0; g = x; b = c; }
+    else if (h < 300) { r = x; g = 0; b = c; }
+    else if (h < 360) { r = c; g = 0; b = x; }
+
+    return [
+        Math.round((r + m) * 255),
+        Math.round((g + m) * 255),
+        Math.round((b + m) * 255)
+    ];
+}
 
 function generateAnalogousColors() {
     const baseHue = Math.floor(Math.random() * 360);
     const saturation = 70;
-    const lightness = 50;
+    let bgLightness = 50; // Base background lightness
+    let textLightness = 90; // Start with light text
+
+    // Generate background color
+    const bgColor = `hsl(${baseHue}, ${saturation}%, ${bgLightness}%)`;
+    const bgRgb = hslToRgb(baseHue, saturation, bgLightness);
+
+    // Adjust text lightness to ensure contrast >= 4.5
+    let contrastRatio;
+    do {
+        const textRgb = hslToRgb(baseHue, saturation, textLightness);
+        contrastRatio = calculateContrastRatio(bgRgb, textRgb);
+        if (contrastRatio < 4.5) {
+            // Try darkening or lightening text
+            textLightness = textLightness > 50 ? 10 : 90; // Toggle between dark and light
+        } else {
+            break;
+        }
+    } while (contrastRatio < 4.5 && textLightness >= 10 && textLightness <= 90);
+
+    // Generate other colors with adjusted lightness
     return [
-        `hsl(${baseHue}, ${saturation}%, ${lightness}%)`,
-        `hsl(${(baseHue + 30) % 360}, ${saturation}%, ${lightness}%)`,
-        `hsl(${(baseHue + 60) % 360}, ${saturation}%, ${lightness - 10}%)`,
-        `hsl(${(baseHue - 30 + 360) % 360}, ${saturation}%, ${lightness + 10}%)`
+        bgColor, // Background
+        `hsl(${(baseHue + 30) % 360}, ${saturation}%, 40%)`, // Button
+        `hsl(${(baseHue + 60) % 360}, ${saturation}%, 60%)`, // Correct option
+        `hsl(${baseHue}, ${saturation}%, ${textLightness}%)` // Text
     ];
 }
 
