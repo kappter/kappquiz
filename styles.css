@@ -99,6 +99,19 @@ select, input, button {
     padding: 8px;
 }
 
+.theme-selector .theme-button {
+    display: inline-block;
+    padding: 8px 12px;
+    margin-left: 10px;
+    background: var(--button-bg); /* #155BEA */
+    color: #FFFFFF;
+    text-decoration: none;
+    border-radius: 4px;
+}
+.theme-selector .theme-button:hover {
+    background: var(--button-hover-bg); /* #EAA415 */
+}
+
 .question-mode-selector {
     text-align: center;
     margin: 10px 0;
