@@ -1,0 +1,51 @@
+term,definition,strand
+Variable,"A named storage location for data, e.g., x = 5",1
+Data Type,"A classification of data, e.g., integer, string, or boolean",1
+Integer,"A data type for whole numbers, e.g., 42 or -7",1
+Float,"A data type for decimal numbers, e.g., 3.14 or -0.5",1
+String,"A data type for text, e.g., 'Hello, World!'",1
+Boolean,"A data type with two values, true or false",1
+Input,"Data provided to a program, e.g., keyboard or mouse clicks",1
+Output,"Data produced by a program, e.g., text on a monitor",1
+Assignment Operator,"The symbol used to store a value in a variable, e.g., =",1
+Operator,"A symbol performing operations, e.g., +, -, *, /",1
+Expression,"A combination of values and operators producing a result, e.g., 2 + 3",1
+Statement,"A complete instruction in a program, e.g., print('Hello')",1
+Keyword,"A reserved word with special meaning, e.g., if, for, while",1
+Identifier,"A user-defined name for variables or functions, e.g., myVariable",1
+Comment,"Non-executable text explaining code, e.g., // This is a comment",1
+IDE,"Integrated Development Environment, a tool for coding, compiling, and debugging, e.g., Visual Studio Code",2
+Syntax Error,"A mistake in code structure, e.g., missing a semicolon",2
+Run-time Error,"An error occurring during program execution, e.g., division by zero",2
+Logic Error,"A flaw in program logic causing incorrect results, e.g., wrong formula",2
+Compiled Language,"A language translated to machine code before running, e.g., C++",2
+Interpreted Language,"A language executed line-by-line, e.g., Python",2
+High-level Language,"A language closer to human language, e.g., Java, Python",2
+Low-level Language,"A language closer to machine code, e.g., Assembly",2
+Debugger,"A tool to find and fix errors in code, e.g., breakpoints in an IDE",2
+Program,"A set of instructions for a computer to execute, written in a programming language",2
+White Space,"Empty spaces or lines in code, improving readability, e.g., indentation",3
+CamelCase,"A naming convention combining words, e.g., myVariableName",3
+Underscore,"A naming convention using underscores, e.g., my_variable_name",3
+Constant,"A fixed value that doesn’t change, e.g., const PI = 3.14",3
+Indentation,"The use of spaces or tabs to structure code, improving readability",3
+SDLC,"Software Development Life Cycle, a process for planning, coding, testing, and deploying software",3
+Requirements Analysis,"The SDLC phase identifying what a program should do, e.g., gathering user needs",3
+Design Phase,"The SDLC phase planning a program’s structure, e.g., creating flowcharts",3
+Implementation,"The SDLC phase writing and compiling code, e.g., coding in Python",3
+Testing,"The SDLC phase checking a program for errors, e.g., unit tests",3
+Deployment,"The SDLC phase releasing a program to users, e.g., publishing an app",3
+Maintenance,"The SDLC phase updating and fixing a program after release",3
+Pseudocode,"A high-level description of a program’s logic, e.g., IF input > 0 THEN print 'Positive'",3
+Flowchart,"A diagram representing a program’s logic, using shapes like ovals and arrows",3
+Version Control,"A system to track code changes, e.g., Git for collaboration",3
+Software Piracy,"Unauthorized copying or use of software, violating copyright laws",3
+Privacy,"Protecting user data in software, e.g., secure data storage",3
+Copyright,"Legal protection for software code, preventing unauthorized use",3
+Ethics,"Principles guiding responsible software development, e.g., avoiding harmful code",3
+Software Engineer,"A professional designing and coding software, e.g., developing apps",3
+Programmer,"A person writing code to create programs, e.g., using Python or Java",3
+Quality Assurance,"A role testing software for reliability, e.g., finding bugs",3
+DevOps,"A role combining development and operations, e.g., automating deployments",3
+Career Pathway,"A sequence of courses leading to a job, e.g., CTE Computer Science track",3
+Open Source,"Software with freely available code, e.g., Linux or Python",3
