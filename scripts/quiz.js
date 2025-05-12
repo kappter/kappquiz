@@ -230,8 +230,11 @@ function startQuiz(data = currentSet) {
             correct: false // Will be updated in selectOption
         }))));
 
-        currentQuestionIndex = 0;
+        // Clear answers to prevent mixing initial and retake data
         answers = [];
+        console.log('Cleared answers array');
+
+        currentQuestionIndex = 0;
         missedTerms = [];
         document.getElementById('results').innerHTML = '';
         startTimer();
@@ -504,6 +507,7 @@ function retakeMissedTerms() {
 function generateReport() {
     try {
         console.log('Generating report with answers:', answers);
+        console.log('Current questions:', questions.map(q => q.term));
         const studentName = document.getElementById('studentName')?.value || 'Student';
         const score = answers.filter(answer => answer.isCorrect).length;
         const percentage = answers.length > 0 ? Math.round((score / answers.length) * 100) : 0;
@@ -520,6 +524,7 @@ function generateReport() {
         // Load original results from localStorage
         let originalResults = JSON.parse(localStorage.getItem('originalQuizResults') || '[]');
         console.log('Original results length:', originalResults.length);
+        console.log('Original results terms:', originalResults.map(r => r.term));
 
         if (!originalResults.length) {
             // Fallback: Use current questions if originalQuizResults is empty
@@ -532,37 +537,39 @@ function generateReport() {
             console.log('Using fallback original results:', originalResults.length);
         }
 
-        // Build retake results from all answers, using originalResults for metadata
-        const retakeResults = answers.reduce((acc, answer) => {
-            const originalItem = originalResults.find(item => item.term === answer.term);
-            if (originalItem) {
-                acc.push({
+        // Build retake results, only including answers from current quiz
+        const retakeResults = answers
+            .filter(answer => questions.some(q => q.term === answer.term && q.type === answer.questionType))
+            .map(answer => {
+                const originalItem = originalResults.find(item => item.term === answer.term);
+                return originalItem ? {
                     term: originalItem.term,
                     definition: originalItem.definition,
                     strand: originalItem.strand,
                     correct: answer.isCorrect,
                     questionType: answer.questionType
-                });
-            }
-            return acc;
-        }, []);
+                } : null;
+            })
+            .filter(item => item !== null);
 
         console.log('Retake results length:', retakeResults.length);
         console.log('Retake results terms:', retakeResults.map(r => r.term));
 
-        // Combine results, marking retaken terms with unique key
+        // Combine results, using originalResults as base
         const retakeMap = new Map(retakeResults.map(item => 
             [`${item.term}:${item.definition}:${item.questionType}`, item]
         ));
         const combinedResults = originalResults.map(item => {
-            const questionType = answers.find(a => a.term === item.term)?.questionType || 'unknown';
-            const retakeItem = retakeMap.get(`${item.term}:${item.definition}:${questionType}`);
+            const retakeItem = retakeMap.get(
+                `${item.term}:${item.definition}:${answers.find(a => a.term === item.term)?.questionType || 'unknown'}`
+            );
+            const isRetaken = retakeItem && questions.some(q => q.term === item.term && q.type === retakeItem.questionType);
             return {
                 term: item.term,
                 definition: item.definition,
                 strand: item.strand,
                 correct: retakeItem ? retakeItem.correct : item.correct,
-                retaken: !!retakeItem && questions.some(q => q.term === item.term && q.type === retakeItem.questionType)
+                retaken: isRetaken
             };
         });
 
