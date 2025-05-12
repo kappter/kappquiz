@@ -532,10 +532,8 @@ function generateReport() {
             console.log('Using fallback original results:', originalResults.length);
         }
 
-        // Build retake results, ensuring only current quiz answers are included
-        const retakeResults = answers.filter(answer => 
-            questions.some(q => q.term === answer.term && q.type === answer.questionType)
-        ).reduce((acc, answer) => {
+        // Build retake results from all answers, using originalResults for metadata
+        const retakeResults = answers.reduce((acc, answer) => {
             const originalItem = originalResults.find(item => item.term === answer.term);
             if (originalItem) {
                 acc.push({
@@ -557,13 +555,14 @@ function generateReport() {
             [`${item.term}:${item.definition}:${item.questionType}`, item]
         ));
         const combinedResults = originalResults.map(item => {
-            const retakeItem = retakeMap.get(`${item.term}:${item.definition}:${questions.find(q => q.term === item.term)?.type || 'unknown'}`);
+            const questionType = answers.find(a => a.term === item.term)?.questionType || 'unknown';
+            const retakeItem = retakeMap.get(`${item.term}:${item.definition}:${questionType}`);
             return {
                 term: item.term,
                 definition: item.definition,
                 strand: item.strand,
                 correct: retakeItem ? retakeItem.correct : item.correct,
-                retaken: !!retakeItem
+                retaken: !!retakeItem && questions.some(q => q.term === item.term && q.type === retakeItem.questionType)
             };
         });
 
