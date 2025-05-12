@@ -535,6 +535,16 @@ function generateReport() {
             ? '<p style="color: green;"><strong>Congratulations!</strong> You are ready for the state test with a score above 80%.</p>'
             : '<p style="color: red;">Keep practicing! A score above 80% is recommended to be ready for the state test.</p>';
 
+        // Generate time and date stamp
+        const timestamp = new Date().toLocaleString('en-US', {
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+            hour: 'numeric',
+            minute: '2-digit',
+            hour12: true
+        });
+
         if (!answers.length) {
             alert('No quiz data available to generate a report.');
             return;
@@ -623,6 +633,7 @@ function generateReport() {
                     th { background: #f4f4f9; }
                     .correct { color: green; }
                     .incorrect { color: red; }
+                    .timestamp { text-align: center; margin-top: 10px; color: #333; font-size: 0.9em; }
                     .copyright { text-align: center; margin-top: 20px; color: #333; font-size: 0.9em; }
                 </style>
             </head>
@@ -650,6 +661,7 @@ function generateReport() {
                         </tr>
                     `).join('')}
                 </table>
+                <p class="timestamp">Generated: ${timestamp}</p>
                 <button onclick="window.print()">Print Report</button>
                 <p class="copyright">© 2025 Ken Kapptie | For educational use only | All rights reserved.</p>
             </body>
