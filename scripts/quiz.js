@@ -3,6 +3,7 @@
 
 const availableSets = [
     'Short_Testing_Sample.csv',
+    'Summer_Job_Preparation_Terms_Definitions.csv',
     'Web_Development_Terms_Definitions.csv',
     'Music_Theory_Terms_Definitions.csv',
     'ARRL_Ham_Radio_General_License_Terms_Definitions.csv',
