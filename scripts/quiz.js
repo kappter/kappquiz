@@ -532,26 +532,32 @@ function generateReport() {
             console.log('Using fallback original results:', originalResults.length);
         }
 
-        // Build retake results from answers, using originalResults for metadata
-        const retakeResults = answers.reduce((acc, answer) => {
+        // Build retake results, ensuring only current quiz answers are included
+        const retakeResults = answers.filter(answer => 
+            questions.some(q => q.term === answer.term && q.type === answer.questionType)
+        ).reduce((acc, answer) => {
             const originalItem = originalResults.find(item => item.term === answer.term);
             if (originalItem) {
                 acc.push({
                     term: originalItem.term,
                     definition: originalItem.definition,
                     strand: originalItem.strand,
-                    correct: answer.isCorrect
+                    correct: answer.isCorrect,
+                    questionType: answer.questionType
                 });
             }
             return acc;
         }, []);
 
         console.log('Retake results length:', retakeResults.length);
+        console.log('Retake results terms:', retakeResults.map(r => r.term));
 
-        // Combine results, marking retaken terms
-        const retakeMap = new Map(retakeResults.map(item => [item.term + item.definition, item]));
+        // Combine results, marking retaken terms with unique key
+        const retakeMap = new Map(retakeResults.map(item => 
+            [`${item.term}:${item.definition}:${item.questionType}`, item]
+        ));
         const combinedResults = originalResults.map(item => {
-            const retakeItem = retakeMap.get(item.term + item.definition);
+            const retakeItem = retakeMap.get(`${item.term}:${item.definition}:${questions.find(q => q.term === item.term)?.type || 'unknown'}`);
             return {
                 term: item.term,
                 definition: item.definition,
@@ -562,6 +568,7 @@ function generateReport() {
         });
 
         console.log('Combined results length:', combinedResults.length);
+        console.log('Retaken terms:', combinedResults.filter(r => r.retaken).map(r => r.term));
 
         if (!combinedResults.length) {
             alert('No results available to generate a report. Please complete the quiz.');
