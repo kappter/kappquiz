@@ -1,5 +1,5 @@
-// Vocabulary Quiz System - quiz.js (Version: 2025-06-01)
-// Shared quiz logic for index.html and themes.html, with theme switching for index.html
+// Vocabulary Quiz System - quiz.js (Version: 2025-06-02)
+// Shared quiz logic for index.html and themes.html, with fixed report generation
 
 const availableSets = [
     'Short_Testing_Sample.csv',
@@ -85,7 +85,7 @@ async function fetchVocabSets() {
             vocabSets[set] = parsedData.map(item => ({
                 term: item.term?.trim() || '',
                 definition: item.definition?.trim() || '',
-                strand: item.strand?.trim() || item.category?.trim() || ''
+                strand: item.strand?.trim() || item.category?.trim() || 'N/A'
             })).filter(item => item.term && item.definition);
 
             if (vocabSets[set].length === 0) throw new Error(`No valid terms/definitions for ${set}`);
@@ -218,6 +218,14 @@ function startQuiz(data = currentSet) {
             throw new Error('No valid questions could be generated from the data.');
         }
 
+        // Save quiz results for report (initial or retake)
+        localStorage.setItem('originalQuizResults', JSON.stringify(questions.map(q => ({
+            term: q.term || 'N/A',
+            definition: q.definition || 'N/A',
+            strand: q.strand || 'N/A',
+            correct: false // Will be updated in selectOption
+        }))));
+
         currentQuestionIndex = 0;
         answers = [];
         missedTerms = [];
@@ -302,7 +310,7 @@ function generateQuestions(data) {
             options: options,
             term: item.term,
             definition: item.definition,
-            strand: item.strand
+            strand: item.strand || 'N/A'
         });
     });
 
@@ -359,11 +367,19 @@ function selectOption(index) {
         questionType: question.type
     });
 
+    // Update originalQuizResults with answer
+    let originalResults = JSON.parse(localStorage.getItem('originalQuizResults') || '[]');
+    const resultIndex = originalResults.findIndex(r => r.term === question.term);
+    if (resultIndex !== -1) {
+        originalResults[resultIndex].correct = isCorrect;
+        localStorage.setItem('originalQuizResults', JSON.stringify(originalResults));
+    }
+
     if (!isCorrect) {
         missedTerms.push({
             term: question.term,
             definition: question.definition,
-            strand: question.strand
+            strand: question.strand || 'N/A'
         });
     }
 
@@ -459,7 +475,11 @@ function retakeMissedTerms() {
         const seen = new Set();
         for (const item of missedTerms) {
             if (item && item.term?.trim() && item.definition?.trim() && !seen.has(item.term + item.definition)) {
-                validMissedTerms.push(item);
+                validMissedTerms.push({
+                    term: item.term,
+                    definition: item.definition,
+                    strand: item.strand || 'N/A'
+                });
                 seen.add(item.term + item.definition);
             }
         }
@@ -470,13 +490,6 @@ function retakeMissedTerms() {
             return;
         }
 
-        localStorage.setItem('originalQuizResults', JSON.stringify(questions.map(q => ({
-            term: q.term,
-            definition: q.definition,
-            strand: q.strand,
-            correct: answers.find(a => a.term === q.term && a.questionType === q.type)?.isCorrect || false
-        }))));
-
         startQuiz(validMissedTerms);
     } catch (error) {
         console.error('Error retaking missed terms:', error);
@@ -486,6 +499,7 @@ function retakeMissedTerms() {
 
 function generateReport() {
     try {
+        console.log('Generating report with answers:', answers);
         const studentName = document.getElementById('studentName')?.value || 'Student';
         const score = answers.filter(answer => answer.isCorrect).length;
         const percentage = answers.length > 0 ? Math.round((score / answers.length) * 100) : 0;
@@ -499,23 +513,43 @@ function generateReport() {
             return;
         }
 
-        const originalResults = JSON.parse(localStorage.getItem('originalQuizResults') || '[]');
-        const retakeResults = missedTerms.length > 0 ? answers.map(answer => ({
-            term: answer.term,
-            definition: questions.find(q => q.term === answer.term && q.type === answer.questionType)?.definition || '',
-            strand: questions.find(q => q.term === answer.term && q.type === answer.questionType)?.strand || '',
-            correct: answer.isCorrect
-        })) : [];
-        const retakeMap = new Map(retakeResults.map(item => [item.term, item]));
+        // Use questions array for initial quiz or combine with retake results
+        let originalResults = JSON.parse(localStorage.getItem('originalQuizResults') || '[]');
+        if (!originalResults.length) {
+            // Fallback: Use current questions if originalQuizResults is empty
+            originalResults = questions.map(q => ({
+                term: q.term || 'N/A',
+                definition: q.definition || 'N/A',
+                strand: q.strand || 'N/A',
+                correct: answers.find(a => a.term === q.term && a.questionType === q.type)?.isCorrect || false
+            }));
+        }
 
+        // Build retake results from answers
+        const retakeResults = answers.map(answer => ({
+            term: answer.term,
+            definition: questions.find(q => q.term === answer.term && q.type === answer.questionType)?.definition || 'N/A',
+            strand: questions.find(q => q.term === answer.term && q.type === answer.questionType)?.strand || 'N/A',
+            correct: answer.isCorrect
+        }));
+
+        // Combine results, marking retaken terms
+        const retakeMap = new Map(retakeResults.map(item => [item.term + item.definition, item]));
         const combinedResults = originalResults.map(item => {
-            const retakeItem = retakeMap.get(item.term);
+            const retakeItem = retakeMap.get(item.term + item.definition);
             return {
-                ...item,
+                term: item.term,
+                definition: item.definition,
+                strand: item.strand,
                 correct: retakeItem ? retakeItem.correct : item.correct,
                 retaken: !!retakeItem
             };
         });
+
+        if (!combinedResults.length) {
+            alert('No results available to generate a report. Please complete the quiz.');
+            return;
+        }
 
         const reportWindow = window.open('', '_blank');
         if (!reportWindow) {
@@ -567,6 +601,8 @@ function generateReport() {
             </html>
         `);
         reportWindow.document.close();
+
+        // Clear quiz data only after report is generated
         clearQuizData();
     } catch (error) {
         console.error('Error generating report:', error);
@@ -575,6 +611,7 @@ function generateReport() {
 }
 
 function clearQuizData() {
+    console.log('Clearing quiz data');
     localStorage.removeItem('originalQuizResults');
     localStorage.removeItem('retakeQuizResults');
 }
