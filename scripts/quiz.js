@@ -512,13 +512,15 @@ function generateReport() {
             ? '<p style="color: green;"><strong>Congratulations!</strong> You are ready for the state test with a score above 80%.</p>'
             : '<p style="color: red;">Keep practicing! A score above 80% is recommended to be ready for the state test.</p>';
 
-        if (!answers.length || !questions.length) {
+        if (!answers.length) {
             alert('No quiz data available to generate a report.');
             return;
         }
 
-        // Use questions array for initial quiz or combine with retake results
+        // Load original results from localStorage
         let originalResults = JSON.parse(localStorage.getItem('originalQuizResults') || '[]');
+        console.log('Original results length:', originalResults.length);
+
         if (!originalResults.length) {
             // Fallback: Use current questions if originalQuizResults is empty
             originalResults = questions.map(q => ({
@@ -527,15 +529,24 @@ function generateReport() {
                 strand: q.strand || 'N/A',
                 correct: answers.find(a => a.term === q.term && a.questionType === q.type)?.isCorrect || false
             }));
+            console.log('Using fallback original results:', originalResults.length);
         }
 
-        // Build retake results from answers
-        const retakeResults = answers.map(answer => ({
-            term: answer.term,
-            definition: questions.find(q => q.term === answer.term && q.type === answer.questionType)?.definition || 'N/A',
-            strand: questions.find(q => q.term === answer.term && q.type === answer.questionType)?.strand || 'N/A',
-            correct: answer.isCorrect
-        }));
+        // Build retake results from answers, using originalResults for metadata
+        const retakeResults = answers.reduce((acc, answer) => {
+            const originalItem = originalResults.find(item => item.term === answer.term);
+            if (originalItem) {
+                acc.push({
+                    term: originalItem.term,
+                    definition: originalItem.definition,
+                    strand: originalItem.strand,
+                    correct: answer.isCorrect
+                });
+            }
+            return acc;
+        }, []);
+
+        console.log('Retake results length:', retakeResults.length);
 
         // Combine results, marking retaken terms
         const retakeMap = new Map(retakeResults.map(item => [item.term + item.definition, item]));
@@ -549,6 +560,8 @@ function generateReport() {
                 retaken: !!retakeItem
             };
         });
+
+        console.log('Combined results length:', combinedResults.length);
 
         if (!combinedResults.length) {
             alert('No results available to generate a report. Please complete the quiz.');
