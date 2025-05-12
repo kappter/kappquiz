@@ -17,6 +17,7 @@ const availableSets = [
     'Exploring_Computer_Science_Vocabulary.csv',
     'ECS_Hardware_OS_DataStorage_Terms_Definitions.csv',
     'advanced_computer_programming_vocab.csv',
+    'Yearbook_Staff_Editor_Skills_Terms_Definitions.csv',
     'Digital_Media_2_Terms_and_Definitions.csv'
 ];
 let vocabSets = {};
