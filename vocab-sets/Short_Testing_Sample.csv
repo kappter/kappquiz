@@ -1,5 +1,11 @@
 term,definition,strand
-Computer Science,"The study of computers and computational systems, including programming and problem-solving",1
-Computational Thinking,"A problem-solving approach using decomposition, abstraction, algorithms, and data",1
-Decomposition,"Breaking a complex problem into smaller, manageable parts",1
-Abstraction,"Simplifying a problem by focusing on essential details and ignoring irrelevant ones",1
+CPU,"Central Processing Unit, the brain of a computer, executing instructions from programs",1
+RAM,"Random Access Memory, temporary storage for data actively used by the CPU",1
+Motherboard,"The main circuit board, connecting all computer components, e.g., CPU, RAM, and ports",1
+GPU,"Graphics Processing Unit, a specialized processor for rendering images and videos",1
+Hard Drive,"A device for long-term data storage, using spinning magnetic disks, e.g., HDD",1
+SSD,"Solid State Drive, a fast storage device using flash memory, no moving parts",1
+Power Supply,"A component converting AC power to DC for computer components",1
+ROM,"Read-Only Memory, non-volatile memory storing firmware or BIOS",1
+Bus,"A communication system transferring data between computer components, e.g., data bus",1
+Cache Memory,"High-speed memory storing frequently accessed data for quick CPU access",1
