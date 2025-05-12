@@ -223,12 +223,18 @@ function startQuiz(data = currentSet) {
         }
 
         // Save quiz results for report (initial or retake)
-        localStorage.setItem('originalQuizResults', JSON.stringify(questions.map(q => ({
-            term: q.term || 'N/A',
-            definition: q.definition || 'N/A',
-            strand: q.strand || 'N/A',
-            correct: false // Will be updated in selectOption
-        }))));
+        if (data === currentSet) {
+            // Initial quiz: Save all terms
+            localStorage.setItem('originalQuizResults', JSON.stringify(questions.map(q => ({
+                term: q.term || 'N/A',
+                definition: q.definition || 'N/A',
+                strand: q.strand || 'N/A',
+                correct: false // Updated in selectOption
+            }))));
+            // Clear retake attempts for new initial quiz
+            localStorage.setItem('retakeAttempts', JSON.stringify([]));
+            console.log('Initialized originalQuizResults and cleared retakeAttempts');
+        }
 
         // Clear answers to prevent mixing initial and retake data
         answers = [];
@@ -497,6 +503,19 @@ function retakeMissedTerms() {
             return;
         }
 
+        // Record retake attempts
+        let retakeAttempts = JSON.parse(localStorage.getItem('retakeAttempts') || '[]');
+        validMissedTerms.forEach(item => {
+            const questionType = questionMode === 'mixed' ? (Math.random() > 0.5 ? 'termToDefinition' : 'definitionToTerm') : questionMode;
+            retakeAttempts.push({
+                term: item.term,
+                definition: item.definition,
+                questionType
+            });
+        });
+        localStorage.setItem('retakeAttempts', JSON.stringify(retakeAttempts));
+        console.log('Updated retakeAttempts:', retakeAttempts.map(a => a.term));
+
         startQuiz(validMissedTerms);
     } catch (error) {
         console.error('Error retaking missed terms:', error);
@@ -537,39 +556,45 @@ function generateReport() {
             console.log('Using fallback original results:', originalResults.length);
         }
 
-        // Build retake results, only including answers from current quiz
-        const retakeResults = answers
-            .filter(answer => questions.some(q => q.term === answer.term && q.type === answer.questionType))
-            .map(answer => {
-                const originalItem = originalResults.find(item => item.term === answer.term);
-                return originalItem ? {
-                    term: originalItem.term,
-                    definition: originalItem.definition,
-                    strand: originalItem.strand,
-                    correct: answer.isCorrect,
-                    questionType: answer.questionType
-                } : null;
-            })
-            .filter(item => item !== null);
+        // Load retake attempts
+        const retakeAttempts = JSON.parse(localStorage.getItem('retakeAttempts') || '[]');
+        console.log('Retake attempts:', retakeAttempts.map(a => a.term));
 
-        console.log('Retake results length:', retakeResults.length);
-        console.log('Retake results terms:', retakeResults.map(r => r.term));
+        // Build results for current quiz (initial or retake)
+        const currentResults = answers.map(answer => {
+            const originalItem = originalResults.find(item => item.term === answer.term);
+            return originalItem ? {
+                term: originalItem.term,
+                definition: originalItem.definition,
+                strand: originalItem.strand,
+                correct: answer.isCorrect,
+                questionType: answer.questionType
+            } : null;
+        }).filter(item => item !== null);
+
+        console.log('Current results length:', currentResults.length);
+        console.log('Current results terms:', currentResults.map(r => r.term));
 
         // Combine results, using originalResults as base
-        const retakeMap = new Map(retakeResults.map(item => 
+        const currentResultsMap = new Map(currentResults.map(item => 
+            [`${item.term}:${item.definition}:${item.questionType}`, item]
+        ));
+        const retakeAttemptsMap = new Map(retakeAttempts.map(item => 
             [`${item.term}:${item.definition}:${item.questionType}`, item]
         ));
         const combinedResults = originalResults.map(item => {
-            const retakeItem = retakeMap.get(
+            const currentItem = currentResultsMap.get(
                 `${item.term}:${item.definition}:${answers.find(a => a.term === item.term)?.questionType || 'unknown'}`
             );
-            const isRetaken = retakeItem && questions.some(q => q.term === item.term && q.type === retakeItem.questionType);
+            const wasRetaken = retakeAttemptsMap.has(
+                `${item.term}:${item.definition}:${answers.find(a => a.term === item.term)?.questionType || 'unknown'}`
+            );
             return {
                 term: item.term,
                 definition: item.definition,
                 strand: item.strand,
-                correct: retakeItem ? retakeItem.correct : item.correct,
-                retaken: isRetaken
+                correct: currentItem ? currentItem.correct : item.correct,
+                retaken: wasRetaken
             };
         });
 
@@ -643,5 +668,5 @@ function generateReport() {
 function clearQuizData() {
     console.log('Clearing quiz data');
     localStorage.removeItem('originalQuizResults');
-    localStorage.removeItem('retakeQuizResults');
+    localStorage.removeItem('retakeAttempts');
 }
