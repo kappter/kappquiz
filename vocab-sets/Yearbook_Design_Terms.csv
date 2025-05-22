@@ -1,4 +1,4 @@
-Term,Definition
+term,definition
 Out of Bounds (OOB),A design technique where an image appears to extend beyond its frame or border, creating a 3D effect.
 Frame Within a Frame,Using an element like a photo border or graphic to frame content within a layout, adding depth and focus.
 Grid System,A layout structure dividing the page into columns and rows to ensure consistent alignment in digital editors.
