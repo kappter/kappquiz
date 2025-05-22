@@ -1,4 +1,4 @@
-Term,Definition
+term,definition
 HTML,"HyperText Markup Language, used to structure content on the web, e.g., tags like <p> and <div>"
 Tag,"An HTML element, like <h1> or <img>, used to define content structure"
 Attribute,"Additional information in an HTML tag, like class or id, e.g., <img src='image.jpg'>"
