@@ -1,4 +1,4 @@
-Term,Definition
+term,definition
 Variable,"A named storage location for data, e.g., x = 5"
 Data Type,"A classification of data, e.g., integer, string, or boolean"
 Integer,"A data type for whole numbers, e.g., 42 or -7"
