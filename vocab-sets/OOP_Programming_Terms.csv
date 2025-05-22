@@ -1,0 +1,62 @@
+Term,Definition
+Object-Oriented Programming,A programming paradigm based on objects, which combine data and behavior, promoting modularity and reuse.
+Class,A blueprint for creating objects, defining properties (fields) and behaviors (methods) in OOP.
+Object,An instance of a class, containing specific data and capable of performing defined methods.
+Instance,A single, unique object created from a class, with its own set of data.
+Constructor,A special method in a class that initializes a new object, often setting initial field values.
+Method,A function or procedure defined within a class that describes an object's behavior.
+Field,A variable within a class that holds data specific to an object or the class itself.
+Encapsulation,The bundling of data and methods within a class, restricting direct access to protect data integrity.
+Access Modifier,Keywords (e.g., public, private, protected) that control the visibility of class members in Java.
+Public Access,An access modifier allowing a class, method, or field to be accessed from anywhere.
+Private Access,An access modifier restricting access to a method or field to within the same class.
+Protected Access,An access modifier allowing access within the same package or subclasses in different packages.
+Inheritance,A mechanism where a subclass inherits fields and methods from a parent class, promoting code reuse.
+Superclass,A parent class whose properties and methods are inherited by a subclass.
+Subclass,A class that inherits from a superclass, extending or modifying its behavior.
+Polymorphism,The ability of different classes to be treated as instances of a common superclass, often through method overriding.
+Method Overriding,Redefining a superclass method in a subclass to provide specific behavior.
+Method Overloading,Defining multiple methods with the same name but different parameter lists in a class.
+Interface,A contract in Java defining methods that a class must implement, without providing implementation details.
+Abstract Class,A class that cannot be instantiated and may contain abstract methods, used as a base for subclasses.
+Abstract Method,A method declared without an implementation, requiring subclasses to provide the implementation.
+Implementation,The process of defining the behavior of an abstract method or interface method in a class.
+Package,A namespace in Java that organizes related classes and interfaces, preventing naming conflicts.
+Import Statement,A Java statement (e.g., import java.util.ArrayList;) that makes classes from other packages available.
+this Keyword,A Java keyword referring to the current object, used to access instance fields or methods.
+super Keyword,A Java keyword used to call a superclass's constructor or methods from a subclass.
+Static Keyword,A Java keyword indicating a field or method belongs to the class, not an instance.
+Final Keyword,A Java keyword preventing a class, method, or variable from being modified or overridden.
+Getter,A method that retrieves the value of a private field, typically named getFieldName().
+Setter,A method that sets the value of a private field, typically named setFieldName().
+For Loop,A control structure in Java for iterating a fixed number of times, e.g., for (int i = 0; i < 5; i++) { ... }.
+While Loop,A control structure in Java that repeats as long as a condition is true, e.g., while (x < 10) { x++; }.
+Do-While Loop,A control structure in Java that executes at least once before checking a condition, e.g., do { ... } while (x < 5);.
+If Statement,A conditional statement in Java that executes code if a condition is true, e.g., if (x > 0) { ... }.
+Else Clause,Part of an if statement that executes code when the condition is false, e.g., else { ... }.
+Switch Statement,A Java control structure selecting one of many code blocks to execute, e.g., switch (x) { case 1: ... break; }.
+Break Statement,A Java statement that exits a loop or switch block, preventing further execution.
+Continue Statement,A Java statement that skips the current iteration of a loop and proceeds to the next.
+Variable,A named storage location for data, such as int x = 10; in Java.
+Data Type,The type of data a variable can hold, such as int, double, String, or boolean in Java.
+Primitive Type,A basic data type in Java (e.g., int, double, char) that is not an object.
+Reference Type,A data type in Java that refers to an object, such as String or ArrayList.
+String,A Java class representing a sequence of characters, e.g., String name = "Alice";.
+Array,A data structure in Java that stores a fixed-size collection of elements, e.g., int[] numbers = {1, 2, 3};.
+ArrayList,A resizable list in Java, part of java.util, e.g., ArrayList<String> list = new ArrayList<>();.
+Exception,An error event in Java that disrupts normal program flow, such as NullPointerException.
+Try-Catch,A Java structure for handling exceptions, e.g., try { ... } catch (Exception e) { ... }.
+Throw Statement,A Java statement to explicitly trigger an exception, e.g., throw new Exception("Error");.
+Throws Clause,A Java keyword in a method signature indicating possible exceptions, e.g., void method() throws IOException.
+Null,A special value in Java indicating a reference variable points to no object.
+Object Instantiation,Creating a new object in Java using the new keyword, e.g., MyClass obj = new MyClass();.
+Constructor Overloading,Defining multiple constructors in a class with different parameter lists.
+Accessors,Another term for getter methods, used to access private fields.
+Mutators,Another term for setter methods, used to modify private fields.
+Overloading,Defining multiple methods with the same name but different signatures in a class.
+Override Annotation,A Java annotation (@Override) indicating a method overrides a superclass method.
+Interface Implementation,A class providing concrete implementations for all methods in an interface.
+Default Method,A method in a Java interface with a default implementation, introduced in Java 8.
+Static Method,A method belonging to a class rather than an instance, called without creating an object.
+Class Diagram,A visual representation of classes, their fields, methods, and relationships in OOP design.
+Encapsulation Example,Hiding a field in Java, e.g., private int age; with public getAge() and setAge(int age).

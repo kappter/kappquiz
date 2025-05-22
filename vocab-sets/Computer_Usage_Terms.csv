@@ -1,0 +1,62 @@
+Term,Definition
+Operating System,Software that manages computer hardware and software resources, e.g., Windows, macOS, or Linux.
+File,A collection of data stored on a computer, such as a document, image, or program.
+Folder,A virtual container used to organize files, also called a directory.
+Directory,Another term for a folder, used to group and organize files in a file system.
+File System,The structure used by an operating system to store, organize, and retrieve files, e.g., NTFS or FAT32.
+File Extension,The suffix at the end of a file name (e.g., .docx, .jpg) indicating its format or type.
+Path,The address of a file or folder in a file system, e.g., C:\Users\Name\Documents\file.txt.
+Root Directory,The top-level folder in a file system, containing all other folders and files.
+Subfolder,A folder nested inside another folder, used to further organize files.
+Desktop,A graphical user interface area where files, folders, and shortcuts are displayed for quick access.
+Recycle Bin,A folder in Windows where deleted files are temporarily stored before permanent deletion.
+Trash,The macOS equivalent of the Recycle Bin, where deleted files are held until emptied.
+File Explorer,The Windows application used to navigate, manage, and organize files and folders.
+Finder,The macOS application for browsing and managing files and folders.
+File Compression,Reducing a file’s size using tools like ZIP or RAR to save space or ease sharing.
+ZIP File,A compressed file format that combines multiple files into a single, smaller file.
+Cloud Storage,Online storage services like Google Drive or OneDrive, allowing file access from any device.
+Local Storage,Files stored directly on a computer’s hard drive or SSD, as opposed to cloud storage.
+External Storage,Portable storage devices like USB drives or external hard drives for file backup or transfer.
+Hard Drive,A storage device using spinning disks to store data, common in older computers.
+SSD,Solid State Drive, a faster, flash-based storage device replacing hard drives in modern computers.
+Partition,Dividing a storage device into separate sections, each treated as an independent drive.
+Backup,Copying files to a secondary location (e.g., external drive or cloud) to prevent data loss.
+File Synchronization,Keeping files updated across multiple devices or locations, e.g., via Google Drive or Dropbox.
+Read-Only, A file attribute preventing modifications, allowing only viewing or copying.
+Hidden File,A file not visible by default in file explorers, often used for system or configuration data.
+File Permissions,Settings controlling who can view, edit, or execute a file in an operating system.
+Drive Letter,A letter (e.g., C:, D:) assigned to a storage device or partition in Windows.
+Home Directory,The default folder for a user’s personal files, e.g., /home/username in Linux or macOS.
+File Naming,Rules for naming files, avoiding special characters (e.g., /, *) to ensure compatibility.
+Metadata,Data about a file, such as its size, creation date, or author, stored by the file system.
+Copy and Paste,Duplicating a file or folder to another location while keeping the original.
+Cut and Paste,Moving a file or folder to a new location, removing it from the original spot.
+Drag and Drop,Moving or copying files by clicking and dragging them to a new folder in a file explorer.
+Shortcut,A link to a file or folder, allowing quick access without duplicating the original.
+Context Menu,The right-click menu in file explorers, offering options like copy, delete, or rename.
+Rename,Changing the name of a file or folder, typically via right-click or the F2 key.
+Search,Using a file explorer’s search function to find files by name, type, or content.
+File Type,The category of a file based on its format, e.g., text (.txt), image (.png), or audio (.mp3).
+Download,Transferring a file from the internet or a network to a local or cloud storage location.
+Upload,Sending a file from a local device to a server, cloud, or another device.
+Disk Space,The amount of storage available on a drive, measured in GB or TB.
+File Recovery,Restoring deleted or lost files using tools or backups, e.g., from the Recycle Bin.
+Temporary File,A file created by programs for short-term use, often stored in a Temp folder.
+System File,A critical file used by the operating system, often hidden to prevent accidental changes.
+Cache,A temporary storage area for frequently accessed data to speed up performance.
+Disk Cleanup,A tool in Windows to remove temporary or unnecessary files, freeing up disk space.
+Defragmentation,Reorganizing fragmented files on a hard drive to improve access speed.
+File Sharing,Allowing others to access files via networks, cloud, or permissions, e.g., shared Google Drive folders.
+Network Drive,A storage device accessible over a network, mapped as a drive in file explorers.
+File Encryption,Securing a file with a password or algorithm to protect its contents from unauthorized access.
+Archive,Storing older files in a compressed format or separate location to save space and organize data.
+File Format,The structure of a file, determining how data is stored, e.g., PDF, JPEG, or MP4.
+Clipboard,A temporary storage area for data during copy or cut operations.
+Taskbar,The bar at the bottom of Windows, providing quick access to pinned apps or file explorer.
+Dock,The macOS equivalent of the taskbar, displaying app icons and open folders.
+Command Line,A text-based interface for file management, e.g., cmd in Windows or Terminal in macOS/Linux.
+Batch File,A script file in Windows (.bat) that automates file management tasks, like moving multiple files.
+File Versioning,Keeping multiple versions of a file, often in cloud storage, to track changes or recover older versions.
+Recycle Bin Restore,Recovering a deleted file from the Recycle Bin before it is permanently deleted.
+Disk Formatting,Preparing a storage device for use by erasing data and setting up a file system, e.g., NTFS or exFAT.

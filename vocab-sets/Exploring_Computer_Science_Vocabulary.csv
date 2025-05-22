@@ -1,52 +1,52 @@
-term,definition,strand
-Computer Science,The study of computers and computational systems including programming and problem-solving,1
-Computational Thinking,A problem-solving approach using decomposition abstraction algorithms and data,1
-Decomposition,Breaking a complex problem into smaller manageable parts,1
-Abstraction,Simplifying a problem by focusing on essential details and ignoring irrelevant ones,1
-Career Pathway,A sequence of courses and experiences preparing students for computer science careers,1
-Computer Scientist,A professional who designs and develops computational systems or software,1
-Algorithm,A step-by-step procedure to solve a problem or perform a task,2
-Pseudocode,A simplified human-readable description of a program’s logic,2
-Flowchart,A visual diagram representing the steps of an algorithm or process,2
-Pattern Recognition,Identifying similarities or trends in data to solve problems,2
-Iteration,Repeating a process or set of instructions to achieve a goal,2
-Data,Information processed or stored by a computer such as numbers or text,3
-Data Analysis,The process of examining data to draw conclusions or identify patterns,3
-Binary Number,A number system using only 0s and 1s used by computers,3
-Bit,A single binary digit either 0 or 1,3
-Byte,A group of 8 bits used to represent a character or number,3
-Spreadsheet,A digital tool for organizing analyzing and visualizing data in rows and columns,3
-Data Visualization,Representing data graphically such as in charts or graphs,3
-Variable,A named storage location in memory holding a value,4
-Data Type,A classification of data such as integer string or boolean,4
-Integer,A whole number data type without decimal points,4
-String,A sequence of characters such as text used in programming,4
-Boolean,A data type with only two values: true or false,4
-Operator,A symbol that performs operations like addition (+) or comparison (==),4
-Conditional Statement,A programming construct like “if-then-else” that executes code based on a condition,4
-Loop,A programming construct that repeats a block of code until a condition is met,4
-Function,A reusable block of code that performs a specific task,4
-Debugging,The process of finding and fixing errors in a program,4
-Syntax Error,A mistake in the code’s structure that prevents it from running,4
-Logic Error,A flaw in the program’s logic causing incorrect results,4
-Web Development,The process of creating and maintaining websites,5
-HTML,HyperText Markup Language used to structure content on the web,5
-Tag,An HTML element like <p> or <div> used to define content structure,5
-Attribute,Additional information in an HTML tag like “class” or “id”,5
-CSS,Sheets used to style and format web content,5
-Web Browser,A software application for accessing and viewing websites,5
-URL,Uniform Resource Locator the address of a web resource,5
-Hyperlink,A clickable link that connects one web page to another,5
-Digital Footprint,The trail of data left by a user’s online activities,6
-Digital Citizenship,Responsible and ethical behavior in the digital world,6
-Cybersecurity,Protecting computers and data from unauthorized access or attacks,6
-Encryption,Converting data into a coded form to protect it from unauthorized access,6
-Password,A secret string of characters used to verify a user’s identity,6
-Ethics,Moral principles guiding responsible use of technology,6
-Intellectual Property, Creations like software or designs protected by law,6
-Copyright,A legal right protecting original works from unauthorized use,6
-Fair Use,A legal doctrine allowing limited use of copyrighted material without permission,6
-Social Impact,The effect of computing technologies on society such as privacy or accessibility,6
-Accessibility,Designing technology to be usable by people with diverse abilities,6
-Collaboration,Working with others to solve problems or create projects in computer science,6
-Portfolio,A collection of projects showcasing computer science skills and experience,6
+Term,Definition
+Computer Science,The study of computers and computational systems including programming and problem-solving
+Computational Thinking,A problem-solving approach using decomposition abstraction algorithms and data
+Decomposition,Breaking a complex problem into smaller manageable parts
+Abstraction,Simplifying a problem by focusing on essential details and ignoring irrelevant ones
+Career Pathway,A sequence of courses and experiences preparing students for computer science careers
+Computer Scientist,A professional who designs and develops computational systems or software
+Algorithm,A step-by-step procedure to solve a problem or perform a task
+Pseudocode,A simplified human-readable description of a program’s logic
+Flowchart,A visual diagram representing the steps of an algorithm or process
+Pattern Recognition,Identifying similarities or trends in data to solve problems
+Iteration,Repeating a process or set of instructions to achieve a goal
+Data,Information processed or stored by a computer such as numbers or text
+Data Analysis,The process of examining data to draw conclusions or identify patterns
+Binary Number,A number system using only 0s and 1s used by computers
+Bit,A single binary digit either 0 or 1
+Byte,A group of 8 bits used to represent a character or number
+Spreadsheet,A digital tool for organizing analyzing and visualizing data in rows and columns
+Data Visualization,Representing data graphically such as in charts or graphs
+Variable,A named storage location in memory holding a value
+Data Type,A classification of data such as integer string or boolean
+Integer,A whole number data type without decimal points
+String,A sequence of characters such as text used in programming
+Boolean,A data type with only two values: true or false
+Operator,A symbol that performs operations like addition (+) or comparison (==)
+Conditional Statement,A programming construct like “if-then-else” that executes code based on a condition
+Loop,A programming construct that repeats a block of code until a condition is met
+Function,A reusable block of code that performs a specific task
+Debugging,The process of finding and fixing errors in a program
+Syntax Error,A mistake in the code’s structure that prevents it from running
+Logic Error,A flaw in the program’s logic causing incorrect results
+Web Development,The process of creating and maintaining websites
+HTML,HyperText Markup Language used to structure content on the web
+Tag,An HTML element like <p> or <div> used to define content structure
+Attribute,Additional information in an HTML tag like “class” or “id”
+CSS,Sheets used to style and format web content
+Web Browser,A software application for accessing and viewing websites
+URL,Uniform Resource Locator the address of a web resource
+Hyperlink,A clickable link that connects one web page to another
+Digital Footprint,The trail of data left by a user’s online activities
+Digital Citizenship,Responsible and ethical behavior in the digital world
+Cybersecurity,Protecting computers and data from unauthorized access or attacks
+Encryption,Converting data into a coded form to protect it from unauthorized access
+Password,A secret string of characters used to verify a user’s identity
+Ethics,Moral principles guiding responsible use of technology
+Intellectual Property, Creations like software or designs protected by law
+Copyright,A legal right protecting original works from unauthorized use
+Fair Use,A legal doctrine allowing limited use of copyrighted material without permission
+Social Impact,The effect of computing technologies on society such as privacy or accessibility
+Accessibility,Designing technology to be usable by people with diverse abilities
+Collaboration,Working with others to solve problems or create projects in computer science
+Portfolio,A collection of projects showcasing computer science skills and experience

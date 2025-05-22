@@ -1,0 +1,63 @@
+Term,Definition
+Aperture,The opening in a lens through which light passes to enter the camera, measured in f-stops (e.g., f/2.8).
+Shutter Speed,The amount of time the camera's shutter is open, controlling light exposure and motion blur (e.g., 1/250 sec).
+ISO,The camera sensor's sensitivity to light; higher ISO values increase brightness but may add noise.
+DSLR,Digital Single-Lens Reflex camera, using a mirror and prism to show the exact image through the lens.
+Lens Focal Length,The distance (in mm) between the lens and the sensor, affecting the angle of view and magnification.
+Prime Lens,A lens with a fixed focal length (e.g., 50mm), often sharper and faster than zoom lenses.
+Zoom Lens,A lens with a variable focal length (e.g., 18-55mm), allowing flexible framing without moving.
+Depth of Field,The range of distance in an image that appears sharp, controlled by aperture, lens, and distance.
+Bokeh,The aesthetic quality of the out-of-focus areas in an image, often with soft, circular light spots.
+White Balance,Adjusting the camera to correct color casts caused by different light sources (e.g., sunlight, tungsten).
+Exposure,The amount of light reaching the sensor, determined by aperture, shutter speed, and ISO.
+Overexposure,When an image is too bright due to excessive light hitting the sensor.
+Underexposure,When an image is too dark due to insufficient light hitting the sensor.
+Histogram,A graph showing the distribution of light and dark tones in an image, used to check exposure.
+RAW,A file format that captures unprocessed sensor data, allowing greater editing flexibility.
+JPEG,A compressed image file format that processes colors and tones, smaller than RAW but less editable.
+Autofocus,The camera's ability to automatically focus on a subject using focus points or tracking.
+Manual Focus,Manually adjusting the lens to achieve sharp focus, useful in low light or for creative control.
+Focus Point,A specific area in the viewfinder where the camera focuses, selectable in many DSLRs.
+Shutter Priority,A shooting mode (S or Tv) where the photographer sets the shutter speed, and the camera adjusts aperture.
+Aperture Priority,A shooting mode (A or Av) where the photographer sets the aperture, and the camera adjusts shutter speed.
+Manual Mode,A shooting mode (M) where the photographer controls both aperture and shutter speed.
+Exposure Compensation,Adjusting exposure in auto modes to make images brighter or darker (e.g., +1 or -1 stops).
+Metering,The camera's method of measuring light to determine exposure (e.g., evaluative, spot, center-weighted).
+Rule of Thirds,A composition guideline dividing the frame into a 3x3 grid, placing subjects along lines or intersections.
+Leading Lines,Lines in an image (e.g., roads, fences) that guide the viewer's eye toward the subject.
+Framing,Using elements like windows or arches to enclose the subject, adding context or focus.
+Symmetry,Composing an image with balanced elements mirrored across a central axis for visual harmony.
+Golden Ratio,A compositional proportion (approximately 1:1.618) creating a natural, pleasing balance.
+Foreground,The part of the image closest to the camera, adding depth or context to the composition.
+Background,The area behind the subject, which can be blurred or detailed to enhance the image.
+Perspective,The angle or viewpoint from which a photo is taken, affecting how subjects appear (e.g., low-angle shots).
+Wide-Angle Lens,A lens with a short focal length (e.g., 10-35mm), capturing a broad field of view, ideal for landscapes.
+Telephoto Lens,A lens with a long focal length (e.g., 70-200mm), magnifying distant subjects, ideal for portraits or wildlife.
+Macro Photography,Close-up photography of small subjects (e.g., insects, flowers), showing fine details.
+Portrait Photography,Photography focused on capturing a person's expression, personality, or mood.
+Landscape Photography,Photography capturing natural scenery, often with wide-angle lenses for expansive views.
+Street Photography,Candid photography of everyday life in public spaces, capturing spontaneous moments.
+Panning,A technique where the camera follows a moving subject with a slow shutter speed, blurring the background.
+Long Exposure,A technique using a slow shutter speed to capture motion blur or light trails (e.g., waterfalls, starry skies).
+Fill Light,A secondary light source used to brighten shadows without overpowering the main light.
+Key Light,The primary light source in a scene, defining the subject's illumination and mood.
+Backlighting,Light coming from behind the subject, creating silhouettes or glowing effects like halos.
+Soft Light,Diffused light that reduces harsh shadows, often from overcast skies or softboxes.
+Hard Light,Direct light creating sharp, defined shadows, often from the sun or a bare bulb.
+Golden Hour,The period shortly after sunrise or before sunset, providing warm, soft light for photography.
+Blue Hour,The twilight period before sunrise or after sunset, with cool, blue-toned light.
+Diffuser,A tool (e.g., fabric, umbrella) that softens light by spreading it, reducing harsh shadows.
+Reflector,A tool that bounces light onto a subject to fill shadows or highlight features.
+Flash,A device that emits a burst of light to illuminate a scene, often built into or attached to DSLRs.
+High-Key Lighting,Bright, even lighting with minimal shadows, often used for cheerful or airy images.
+Low-Key Lighting,Dark, dramatic lighting with strong shadows, emphasizing mood or contrast.
+Chiaroscuro,A lighting technique using strong contrasts between light and dark for dramatic effect.
+Silhouette,A subject photographed against a bright background, appearing dark with no visible details.
+Bracketing,Taking multiple shots at different exposures to ensure one is correctly exposed or for HDR.
+HDR,High Dynamic Range imaging, combining multiple exposures to capture details in both shadows and highlights.
+Viewfinder,The eyepiece or screen showing what the lens sees, used for composing and focusing.
+Tripod,A three-legged stand that stabilizes the camera, essential for long exposures or low light.
+Lens Hood,A device attached to the lens to block stray light, reducing flare and improving contrast.
+ND Filter,Neutral Density filter, reduces light entering the lens for long exposures or wide apertures in bright conditions.
+Polarizing Filter,A filter that reduces reflections and glare, enhancing colors and contrast in skies or water.
+Dynamic Range,The range of light intensities a camera can capture, from darkest shadows to brightest highlights.

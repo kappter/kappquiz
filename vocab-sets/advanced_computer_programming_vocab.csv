@@ -1,61 +1,61 @@
-term,definition,strand
-"Polymorphism","The ability of different classes to be treated as instances of the same class through a common interface, enabling method overriding or overloading.","Object-Oriented Programming"
-"Encapsulation","The bundling of data with the methods that operate on that data, restricting direct access to some of an object's components.","Object-Oriented Programming"
-"Recursion","A process where a function calls itself as a subroutine to solve a problem by breaking it into smaller instances of the same problem.","Algorithms"
-"Linked List","A linear data structure where each element is a separate object, linked to the next by pointers.","Data Structures"
-"Binary Search Tree","A tree data structure in which each node has at most two children, used for efficient searching and sorting.","Data Structures"
-"Dynamic Programming","An optimization technique that solves complex problems by breaking them into overlapping subproblems and storing results.","Algorithms"
-"Interface","A abstract type that defines a contract of methods that a class must implement, without specifying how.","Object-Oriented Programming"
-"Hash Table","A data structure that implements an associative array abstract data type, using a hash function to compute an index.","Data Structures"
-"Big-O Notation","A mathematical notation used to describe the upper bound of an algorithm's running time or space complexity.","Algorithms"
-"Agile Development","A software development methodology that emphasizes iterative progress, collaboration, and adaptability to change.","Software Development"
-"Text Field","A GUI control that allows users to input a single line of text, often used for forms.","GUI Controls"
-"Combo Box","A GUI control that combines a dropdown list with a text field, allowing users to select or type a value.","GUI Controls"
-"Radio Button","A GUI control that allows users to select one option from a set of mutually exclusive choices.","GUI Controls"
-"Button","A GUI control that triggers an action when clicked, such as submitting a form or starting a process.","GUI Controls"
-"Date Selector","A GUI control that enables users to select a date from a calendar interface, often used in forms.","GUI Controls"
-"Check Box","A GUI control that allows users to toggle a boolean option, often used for multiple selections.","GUI Controls"
-"Label","A GUI control that displays static text or descriptions, often used to identify other controls.","GUI Controls"
-"Slider","A GUI control that lets users select a value from a range by dragging a handle along a track.","GUI Controls"
-"Spinner","A GUI control that allows users to increment or decrement a numeric value using up/down arrows.","GUI Controls"
-"Toggle Button","A GUI control that switches between two states (e.g., on/off) when clicked.","GUI Controls"
-"Abstract Class","A class that cannot be instantiated and may contain abstract methods, used as a blueprint for subclasses.","Object-Oriented Programming"
-"Abstract Method","A method declared in an abstract class or interface without an implementation, requiring subclasses to provide one.","Object-Oriented Programming"
-"Concrete Class","A class that fully implements all inherited abstract methods and can be instantiated.","Object-Oriented Programming"
-"Superclass","A parent class from which other classes inherit properties and methods.","Object-Oriented Programming"
-"Subclass","A class that inherits properties and methods from a superclass, extending or modifying its behavior.","Object-Oriented Programming"
-"Package","A namespace that organizes a set of related classes and interfaces, helping to manage large codebases.","Object-Oriented Programming"
-"Access Modifier","A keyword (e.g., public, private, protected) that specifies the accessibility of a class, method, or variable.","Object-Oriented Programming"
-"extends Keyword","A Java keyword used to establish an inheritance relationship between a subclass and its superclass.","Object-Oriented Programming"
-"implements Keyword","A Java keyword used to declare that a class will provide implementations for an interface's methods.","Object-Oriented Programming"
-"Enhanced For Loop","A simplified for loop syntax used to iterate over arrays or collections without needing an index variable.","Programming Constructs"
-"For-Each Loop","Another name for the enhanced for loop, commonly used to traverse elements in a collection or array.","Programming Constructs"
-"Ternary Operator","A shorthand conditional operator (?:) that evaluates a condition and returns one of two values based on the result.","Programming Constructs"
-"Conditional Expression","An expression using the ternary operator to provide a concise alternative to an if-else statement.","Programming Constructs"
-"Method Overloading","Defining multiple methods with the same name but different parameter lists within the same class.","Object-Oriented Programming"
-"Method Overriding","Redefining a method in a subclass to provide a specific implementation, replacing the superclass's version.","Object-Oriented Programming"
-"super Keyword","A keyword used to call a superclass's method or constructor from a subclass.","Object-Oriented Programming"
-"Multidimensional Array","An array of arrays, often used to represent matrices or grids, such as a 2D array.","Data Structures"
-"2D Array","A multidimensional array with two dimensions, typically used to store data in rows and columns.","Data Structures"
-"Jagged Array","A multidimensional array where each row can have a different number of columns.","Data Structures"
-"File Input/Output","The process of reading from and writing to files using streams or file handling classes.","I/O and Exception Handling"
-"BufferedReader","A Java class used to read text from a character-input stream, buffering characters to reduce direct access to the underlying system.","I/O and Exception Handling"
-"FileWriter","A Java class used to write character data to a file, often used with buffering for efficiency.","I/O and Exception Handling"
-"Try-Catch Block","A construct used to handle exceptions by attempting risky code and catching errors if they occur.","I/O and Exception Handling"
-"Checked Exception","An exception that must be declared or handled, typically related to external resources like files or networks.","I/O and Exception Handling"
-"Unchecked Exception","An exception that does not need to be declared or handled, typically caused by programming errors (e.g., NullPointerException).","I/O and Exception Handling"
-"Recursive Base Case","The condition in a recursive function that stops the recursion, preventing infinite loops.","Algorithms"
-"Recursive Step","The part of a recursive function where it calls itself with a smaller input to approach the base case.","Algorithms"
-"QuickSort","A divide-and-conquer sorting algorithm that partitions an array around a pivot and recursively sorts subarrays.","Algorithms"
-"MergeSort","A stable sorting algorithm that divides an array into halves, recursively sorts them, and merges the results.","Algorithms"
-"Binary Search","A search algorithm that finds an element in a sorted array by repeatedly dividing the search interval in half.","Algorithms"
-"Filter Method","A method (e.g., in Java streams) that selects elements from a collection based on a given condition.","Algorithms"
-"Binary Tree","A tree data structure where each node has at most two children, referred to as left and right.","Data Structures"
-"Inorder Traversal","A binary tree traversal method that visits the left subtree, the root, and then the right subtree.","Data Structures"
-"Leaf Node","A node in a binary tree that has no children.","Data Structures"
-"ArrayList","A resizable array implementation of the List interface in Java, part of the Collections framework.","Collections"
-"HashSet","A collection that stores unique elements using a hash table, with no guaranteed order.","Collections"
-"HashMap","A collection that stores key-value pairs, allowing efficient retrieval of values by keys.","Collections"
-"Stack","A collection that follows the Last-In-First-Out (LIFO) principle, with push and pop operations.","Collections"
-"Queue","A collection that follows the First-In-First-Out (FIFO) principle, with enqueue and dequeue operations.","Collections"
-"TreeSet","A collection that stores unique elements in a sorted order, implemented as a red-black tree.","Collections"
+Term,Definition
+Polymorphism,"The ability of different classes to be treated as instances of the same class through a common interface, enabling method overriding or overloading."
+Encapsulation,"The bundling of data with the methods that operate on that data, restricting direct access to some of an object's components."
+Recursion,A process where a function calls itself as a subroutine to solve a problem by breaking it into smaller instances of the same problem.
+Linked List,"A linear data structure where each element is a separate object, linked to the next by pointers."
+Binary Search Tree,"A tree data structure in which each node has at most two children, used for efficient searching and sorting."
+Dynamic Programming,An optimization technique that solves complex problems by breaking them into overlapping subproblems and storing results.
+Interface,"A abstract type that defines a contract of methods that a class must implement, without specifying how."
+Hash Table,"A data structure that implements an associative array abstract data type, using a hash function to compute an index."
+Big-O Notation,A mathematical notation used to describe the upper bound of an algorithm's running time or space complexity.
+Agile Development,"A software development methodology that emphasizes iterative progress, collaboration, and adaptability to change."
+Text Field,"A GUI control that allows users to input a single line of text, often used for forms."
+Combo Box,"A GUI control that combines a dropdown list with a text field, allowing users to select or type a value."
+Radio Button,A GUI control that allows users to select one option from a set of mutually exclusive choices.
+Button,"A GUI control that triggers an action when clicked, such as submitting a form or starting a process."
+Date Selector,"A GUI control that enables users to select a date from a calendar interface, often used in forms."
+Check Box,"A GUI control that allows users to toggle a boolean option, often used for multiple selections."
+Label,"A GUI control that displays static text or descriptions, often used to identify other controls."
+Slider,A GUI control that lets users select a value from a range by dragging a handle along a track.
+Spinner,A GUI control that allows users to increment or decrement a numeric value using up/down arrows.
+Toggle Button,"A GUI control that switches between two states (e.g., on/off) when clicked."
+Abstract Class,"A class that cannot be instantiated and may contain abstract methods, used as a blueprint for subclasses."
+Abstract Method,"A method declared in an abstract class or interface without an implementation, requiring subclasses to provide one."
+Concrete Class,A class that fully implements all inherited abstract methods and can be instantiated.
+Superclass,A parent class from which other classes inherit properties and methods.
+Subclass,"A class that inherits properties and methods from a superclass, extending or modifying its behavior."
+Package,"A namespace that organizes a set of related classes and interfaces, helping to manage large codebases."
+Access Modifier,"A keyword (e.g., public, private, protected) that specifies the accessibility of a class, method, or variable."
+extends Keyword,A Java keyword used to establish an inheritance relationship between a subclass and its superclass.
+implements Keyword,A Java keyword used to declare that a class will provide implementations for an interface's methods.
+Enhanced For Loop,A simplified for loop syntax used to iterate over arrays or collections without needing an index variable.
+For-Each Loop,"Another name for the enhanced for loop, commonly used to traverse elements in a collection or array."
+Ternary Operator,A shorthand conditional operator (?:) that evaluates a condition and returns one of two values based on the result.
+Conditional Expression,An expression using the ternary operator to provide a concise alternative to an if-else statement.
+Method Overloading,Defining multiple methods with the same name but different parameter lists within the same class.
+Method Overriding,"Redefining a method in a subclass to provide a specific implementation, replacing the superclass's version."
+super Keyword,A keyword used to call a superclass's method or constructor from a subclass.
+Multidimensional Array,"An array of arrays, often used to represent matrices or grids, such as a 2D array."
+2D Array,"A multidimensional array with two dimensions, typically used to store data in rows and columns."
+Jagged Array,A multidimensional array where each row can have a different number of columns.
+File Input/Output,The process of reading from and writing to files using streams or file handling classes.
+BufferedReader,"A Java class used to read text from a character-input stream, buffering characters to reduce direct access to the underlying system."
+FileWriter,"A Java class used to write character data to a file, often used with buffering for efficiency."
+Try-Catch Block,A construct used to handle exceptions by attempting risky code and catching errors if they occur.
+Checked Exception,"An exception that must be declared or handled, typically related to external resources like files or networks."
+Unchecked Exception,"An exception that does not need to be declared or handled, typically caused by programming errors (e.g., NullPointerException)."
+Recursive Base Case,"The condition in a recursive function that stops the recursion, preventing infinite loops."
+Recursive Step,The part of a recursive function where it calls itself with a smaller input to approach the base case.
+QuickSort,A divide-and-conquer sorting algorithm that partitions an array around a pivot and recursively sorts subarrays.
+MergeSort,"A stable sorting algorithm that divides an array into halves, recursively sorts them, and merges the results."
+Binary Search,A search algorithm that finds an element in a sorted array by repeatedly dividing the search interval in half.
+Filter Method,"A method (e.g., in Java streams) that selects elements from a collection based on a given condition."
+Binary Tree,"A tree data structure where each node has at most two children, referred to as left and right."
+Inorder Traversal,"A binary tree traversal method that visits the left subtree, the root, and then the right subtree."
+Leaf Node,A node in a binary tree that has no children.
+ArrayList,"A resizable array implementation of the List interface in Java, part of the Collections framework."
+HashSet,"A collection that stores unique elements using a hash table, with no guaranteed order."
+HashMap,"A collection that stores key-value pairs, allowing efficient retrieval of values by keys."
+Stack,"A collection that follows the Last-In-First-Out (LIFO) principle, with push and pop operations."
+Queue,"A collection that follows the First-In-First-Out (FIFO) principle, with enqueue and dequeue operations."
+TreeSet,"A collection that stores unique elements in a sorted order, implemented as a red-black tree."

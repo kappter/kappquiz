@@ -1,52 +1,52 @@
-term,definition,strand
-Computer Programming,"The process of designing and writing instructions for a computer to execute",1
-Software Development,"The creation and maintenance of software applications",1
-Career Pathway,"A sequence of courses and experiences preparing students for programming careers",1
-Programmer,"A professional who writes and tests code for software applications",1
-Software Engineer,"A professional who designs, develops, and maintains software systems",1
-Intellectual Property,"Creations of the mind, such as code, protected by law",2
-Copyright,"A legal right protecting original works, including software, from unauthorized use",2
-Open Source,"Software with source code freely available for modification and distribution",2
-Ethics,"Moral principles guiding responsible behavior in programming",2
-Software License,"A legal agreement defining how software can be used or distributed",2
-Data Type,"A classification of data, such as integer or string, determining its operations",3
-Integer,"A whole number data type without decimal points",3
-Float,"A data type representing numbers with decimal points",3
-String,"A sequence of characters, such as text, used in programming",3
-Array,"A data structure storing multiple values of the same type in a single variable",3
-List,"A data structure allowing ordered storage of elements, often dynamic in size",3
-Record,"A data structure grouping related data fields, like a database row",3
-Two-Dimensional Array,"An array of arrays, used to represent matrices or grids",3
-Sequential File,"A file storing data in a continuous sequence, read or written in order",3
-Variable,"A named storage location in memory holding a value",3
-Function,"A reusable block of code performing a specific task",4
-Parameter,"A variable passed to a function to customize its behavior",4
-Return Value,"The output a function sends back to the calling code",4
-Modular Programming,"Dividing a program into independent, reusable modules or functions",4
-Object-Oriented Programming,"A programming paradigm using objects and classes",4
-Class,"A blueprint defining properties and behaviors of objects",4
-Object,"An instance of a class containing data and methods",4
-Method,"A function or procedure defined within a class",4
-Encapsulation,"Hiding an object’s internal data and exposing only necessary interfaces",4
-Inheritance,"A mechanism where a class derives properties from another class",4
-Polymorphism,"The ability of different classes to be treated as instances of a common class",4
-Software Development Life Cycle,"The process of planning, designing, coding, testing, and maintaining software",5
-Algorithm,"A step-by-step procedure to solve a problem",5
-Pseudocode,"A high-level description of a program’s logic, not in a specific programming language",5
-Flowchart,"A visual diagram representing a program’s logic or workflow",5
-Debugging,"The process of identifying and fixing errors in code",5
-Syntax Error,"A mistake in the code’s structure that prevents it from running",5
-Logic Error,"A flaw in the program’s logic causing incorrect results",5
-Runtime Error,"An error occurring during program execution, often due to invalid operations",5
-Test Case,"A specific input and expected output used to verify program correctness",5
-Unit Testing,"Testing individual components or functions of a program",5
-Version Control,"A system to track and manage changes to code, like Git",5
-IDE,"Integrated Development Environment, a tool combining code editing, debugging, and testing",5
-Comment,"Non-executable text in code used to explain its purpose or logic",5
-Documentation,"Written information explaining how to use or maintain software",5
-Portfolio,"A collection of programming projects showcasing skills and experience",6
-Code Review,"The process of examining code to ensure quality and correctness",6
-Collaboration,"Working with others to develop software or solve programming problems",6
-Resume,"A document summarizing skills, education, and experience for job applications",6
-Career-Ready,"Having the skills and knowledge needed for a programming career",6
-Agile Development,"A methodology using iterative cycles to develop software",6
+Term,Definition
+Computer Programming,The process of designing and writing instructions for a computer to execute
+Software Development,The creation and maintenance of software applications
+Career Pathway,A sequence of courses and experiences preparing students for programming careers
+Programmer,A professional who writes and tests code for software applications
+Software Engineer,"A professional who designs, develops, and maintains software systems"
+Intellectual Property,"Creations of the mind, such as code, protected by law"
+Copyright,"A legal right protecting original works, including software, from unauthorized use"
+Open Source,Software with source code freely available for modification and distribution
+Ethics,Moral principles guiding responsible behavior in programming
+Software License,A legal agreement defining how software can be used or distributed
+Data Type,"A classification of data, such as integer or string, determining its operations"
+Integer,A whole number data type without decimal points
+Float,A data type representing numbers with decimal points
+String,"A sequence of characters, such as text, used in programming"
+Array,A data structure storing multiple values of the same type in a single variable
+List,"A data structure allowing ordered storage of elements, often dynamic in size"
+Record,"A data structure grouping related data fields, like a database row"
+Two-Dimensional Array,"An array of arrays, used to represent matrices or grids"
+Sequential File,"A file storing data in a continuous sequence, read or written in order"
+Variable,A named storage location in memory holding a value
+Function,A reusable block of code performing a specific task
+Parameter,A variable passed to a function to customize its behavior
+Return Value,The output a function sends back to the calling code
+Modular Programming,"Dividing a program into independent, reusable modules or functions"
+Object-Oriented Programming,A programming paradigm using objects and classes
+Class,A blueprint defining properties and behaviors of objects
+Object,An instance of a class containing data and methods
+Method,A function or procedure defined within a class
+Encapsulation,Hiding an object’s internal data and exposing only necessary interfaces
+Inheritance,A mechanism where a class derives properties from another class
+Polymorphism,The ability of different classes to be treated as instances of a common class
+Software Development Life Cycle,"The process of planning, designing, coding, testing, and maintaining software"
+Algorithm,A step-by-step procedure to solve a problem
+Pseudocode,"A high-level description of a program’s logic, not in a specific programming language"
+Flowchart,A visual diagram representing a program’s logic or workflow
+Debugging,The process of identifying and fixing errors in code
+Syntax Error,A mistake in the code’s structure that prevents it from running
+Logic Error,A flaw in the program’s logic causing incorrect results
+Runtime Error,"An error occurring during program execution, often due to invalid operations"
+Test Case,A specific input and expected output used to verify program correctness
+Unit Testing,Testing individual components or functions of a program
+Version Control,"A system to track and manage changes to code, like Git"
+IDE,"Integrated Development Environment, a tool combining code editing, debugging, and testing"
+Comment,Non-executable text in code used to explain its purpose or logic
+Documentation,Written information explaining how to use or maintain software
+Portfolio,A collection of programming projects showcasing skills and experience
+Code Review,The process of examining code to ensure quality and correctness
+Collaboration,Working with others to develop software or solve programming problems
+Resume,"A document summarizing skills, education, and experience for job applications"
+Career-Ready,Having the skills and knowledge needed for a programming career
+Agile Development,A methodology using iterative cycles to develop software

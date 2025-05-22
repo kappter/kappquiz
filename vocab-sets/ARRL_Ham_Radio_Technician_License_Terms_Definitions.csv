@@ -1,51 +1,51 @@
-term,definition,category
-Amateur Radio,"A service for qualified persons to communicate and experiment with radio without commercial interest",Regulations
-Technician License,"Entry-level FCC license granting privileges above 30 MHz and limited HF bands",Regulations
-FCC,"Federal Communications Commission, the U.S. agency regulating amateur radio",Regulations
-Call Sign,"Unique identifier assigned to a licensed amateur radio operator",Regulations
-FRN,"FCC Registration Number, a 10-digit number required for licensing",Regulations
-License Term,"U.S. amateur radio licenses are valid for 10 years before renewal",Regulations
-Volunteer Examiner,"Trained amateur who administers license exams under a VEC",Regulations
-Band Plan,"Guidelines for frequency use to avoid interference among amateurs",Regulations
-Frequency Privilege,"The range of radio frequencies a Technician licensee can use",Regulations
-2-Meter Band,"A popular VHF band (144-148 MHz) used by Technician licensees",Regulations
-Control Operator,"The licensed amateur responsible for a station’s transmissions",Regulations
-Station Log,"Record of radio communications, not required but recommended",Operating Practices
-QSO,"A two-way radio contact between amateur radio operators",Operating Practices
-Simplex,"Direct radio communication without a repeater",Operating Practices
-Repeater,"A device that retransmits signals to extend communication range",Operating Practices
-CTCSS,"Continuous Tone-Coded Squelch System, a tone used to access repeaters",Operating Practices
-FM,"Frequency Modulation, a common voice mode used in VHF/UHF",Operating Practices
-CW,"Continuous Wave, a mode using Morse code, allowed on HF for Technicians",Operating Practices
-SSB,"Single Sideband, a voice mode used on HF bands",Operating Practices
-Digital Packet,"Data transmission mode for computer communication",Operating Practices
-Beacon,"An automated station transmitting signals for testing or navigation",Operating Practices
-Satellite Contact,"Communication via amateur radio satellites, allowed for Technicians",Operating Practices
-Kerchunking,"Briefly transmitting to test a repeater without identifying",Operating Practices
-Voltage,"The electrical potential difference driving current in a circuit",Electronics Theory
-Current,"The flow of electrons through a conductor, measured in amperes",Electronics Theory
-Resistance,"Opposition to current flow, measured in ohms",Electronics Theory
-Ohm’s Law,"The relationship V=IR, linking voltage, current, and resistance",Electronics Theory
-Power,"The rate of energy transfer, calculated as P=VI, in watts",Electronics Theory
-Capacitor,"A component storing electrical energy in an electric field",Electronics Theory
-Inductor,"A component storing energy in a magnetic field",Electronics Theory
-Diode,"A component allowing current flow in one direction only",Electronics Theory
-Transistor,"A component amplifying or switching electrical signals",Electronics Theory
-Frequency,"The number of radio wave cycles per second, in hertz",Electronics Theory
-Wavelength,"The physical length of one radio wave cycle, in meters",Electronics Theory
-Decibel,"A unit measuring signal strength or power ratio",Electronics Theory
-Antenna,"A device that radiates or receives radio waves",Antenna Systems
-Dipole,"A simple antenna with two equal-length elements",Antenna Systems
-Yagi,"A directional antenna with multiple elements for gain",Antenna Systems
-SWR,"Standing Wave Ratio, a measure of antenna system efficiency",Antenna Systems
-Feedline,"The cable connecting a radio to an antenna, like coaxial cable",Antenna Systems
-Coaxial Cable,"A shielded cable used for RF signal transmission",Antenna Systems
-Ground Plane,"A conductive surface enhancing antenna performance",Antenna Systems
-Polarization,"The orientation of a radio wave’s electric field, like vertical or horizontal",Antenna Systems
-RF Safety,"Protecting against harmful exposure to radio frequency energy",Safety
-Grounding,"Connecting equipment to earth to prevent electrical hazards",Safety
-Antenna Safety,"Avoiding contact with antennas to prevent RF burns or shocks",Safety
-Electrical Safety,"Following precautions to avoid shocks or fires from equipment",Safety
-Battery Safety,"Proper handling of batteries to prevent leaks or explosions",Safety
-Ergonomics,"Designing a station for comfort and efficiency during operation",Safety
-Emergency Communication,"Using amateur radio to assist during disasters",Safety
+Term,Definition
+Amateur Radio,A service for qualified persons to communicate and experiment with radio without commercial interest
+Technician License,Entry-level FCC license granting privileges above 30 MHz and limited HF bands
+FCC,"Federal Communications Commission, the U.S. agency regulating amateur radio"
+Call Sign,Unique identifier assigned to a licensed amateur radio operator
+FRN,"FCC Registration Number, a 10-digit number required for licensing"
+License Term,U.S. amateur radio licenses are valid for 10 years before renewal
+Volunteer Examiner,Trained amateur who administers license exams under a VEC
+Band Plan,Guidelines for frequency use to avoid interference among amateurs
+Frequency Privilege,The range of radio frequencies a Technician licensee can use
+2-Meter Band,A popular VHF band (144-148 MHz) used by Technician licensees
+Control Operator,The licensed amateur responsible for a station’s transmissions
+Station Log,"Record of radio communications, not required but recommended"
+QSO,A two-way radio contact between amateur radio operators
+Simplex,Direct radio communication without a repeater
+Repeater,A device that retransmits signals to extend communication range
+CTCSS,"Continuous Tone-Coded Squelch System, a tone used to access repeaters"
+FM,"Frequency Modulation, a common voice mode used in VHF/UHF"
+CW,"Continuous Wave, a mode using Morse code, allowed on HF for Technicians"
+SSB,"Single Sideband, a voice mode used on HF bands"
+Digital Packet,Data transmission mode for computer communication
+Beacon,An automated station transmitting signals for testing or navigation
+Satellite Contact,"Communication via amateur radio satellites, allowed for Technicians"
+Kerchunking,Briefly transmitting to test a repeater without identifying
+Voltage,The electrical potential difference driving current in a circuit
+Current,"The flow of electrons through a conductor, measured in amperes"
+Resistance,"Opposition to current flow, measured in ohms"
+Ohm’s Law,"The relationship V=IR, linking voltage, current, and resistance"
+Power,"The rate of energy transfer, calculated as P=VI, in watts"
+Capacitor,A component storing electrical energy in an electric field
+Inductor,A component storing energy in a magnetic field
+Diode,A component allowing current flow in one direction only
+Transistor,A component amplifying or switching electrical signals
+Frequency,"The number of radio wave cycles per second, in hertz"
+Wavelength,"The physical length of one radio wave cycle, in meters"
+Decibel,A unit measuring signal strength or power ratio
+Antenna,A device that radiates or receives radio waves
+Dipole,A simple antenna with two equal-length elements
+Yagi,A directional antenna with multiple elements for gain
+SWR,"Standing Wave Ratio, a measure of antenna system efficiency"
+Feedline,"The cable connecting a radio to an antenna, like coaxial cable"
+Coaxial Cable,A shielded cable used for RF signal transmission
+Ground Plane,A conductive surface enhancing antenna performance
+Polarization,"The orientation of a radio wave’s electric field, like vertical or horizontal"
+RF Safety,Protecting against harmful exposure to radio frequency energy
+Grounding,Connecting equipment to earth to prevent electrical hazards
+Antenna Safety,Avoiding contact with antennas to prevent RF burns or shocks
+Electrical Safety,Following precautions to avoid shocks or fires from equipment
+Battery Safety,Proper handling of batteries to prevent leaks or explosions
+Ergonomics,Designing a station for comfort and efficiency during operation
+Emergency Communication,Using amateur radio to assist during disasters

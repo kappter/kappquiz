@@ -1,64 +1,64 @@
-term,definition,strand
-Anchor Desk,"The primary set location where news anchors present.",""
-Aspect Ratio,"The ratio of width to height of a video frame, such as 16:9 or 4:3, affecting how the video is displayed.",""
-Aspect Ratio,"The width-to-height ratio of a video frame, like 16:9 or 4:3, affecting display.",""
-Audio,"Sound in video, including dialogue, music, and effects, critical for storytelling.",""
-Blocking,"Planning actors’ movements and camera positions for effective storytelling.",""
-B-Roll,"Supplementary footage used to enhance the main narrative, provide context, or cover transitions.",""
-Camera Angle,"The position of the camera relative to the subject, such as eye-level, high angle, or low angle, which affects the mood and perspective of the shot.",""
-Camera Movement,"Techniques like pan, tilt, zoom, or dolly used to follow action, reveal information, or create dynamic visuals.",""
-Chroma Key,"Green screen editing technique to replace backgrounds.",""
-Close-Up,"A tightly framed shot focusing on a face or object, conveying emotion or detail.",""
-Color Grading,"Adjusting colors in post-production to enhance mood or visual style.",""
-Composition,"The arrangement of visual elements within a frame to create a balanced and aesthetically pleasing shot.",""
-Continuity,"Ensuring consistency in props, costumes, and lighting across shots for a seamless narrative.",""
-Control Room / Switcher,"Room where live editing and directing take place.",""
-Crane Shot,"A shot using a crane to move the camera up, down, or across for sweeping perspectives.",""
-Crew Base,"The pool of local production professionals available in Utah.",""
-Cue,"Signal to begin or end action on set.",""
-Depth of Field,"The range within a shot that appears sharp, controlled by aperture, lens, and distance to subject.",""
-Dutch Angle,"A tilted camera angle creating disorientation or unease, often for dramatic effect.",""
-Export Settings,"Configuration for compressing and saving the final video.",""
-Film Utah / Utah Film Commission,"State agency overseeing film incentives, permits, and location support.",""
-Foley,"Custom-recorded sound effects added in post-production.",""
-Frame Rate,"The number of frames captured per second, affecting the smoothness and style of motion (e.g., 24 fps for cinematic, 60 fps for smooth action).",""
-Framing,"The process of positioning subjects and objects within the camera's view to convey meaning or focus attention.",""
-HB 337 (Film Tax Credit),"Utah state law offering tax credits to local film productions.",""
-High Angle,"A camera angle looking down on the subject, making them appear vulnerable or small.",""
-Jump Cut,"An abrupt transition that skips time in the footage.",""
-Lighting,"The use of natural or artificial light to illuminate a scene, set mood, or highlight subjects.",""
-Location Scouting,"Finding and selecting filming locations to match the story's needs.",""
-Low Angle,"A camera angle looking up at the subject, conveying power or importance.",""
-Lower Thirds,"Text displayed in the lower third of the screen, often for names or titles.",""
-Medium Shot,"A shot framing the subject from the waist up, ideal for dialogue or action with detail.",""
-Microphone Types,"Various microphones, such as shotgun, lavalier, or condenser, each suited for specific recording situations.",""
-MOS,"Mit Out Sound  a shot recorded without synchronized sound.",""
-Over-the-Shoulder Shot,"A shot over one character's shoulder showing another, used in conversations for perspective.",""
-Package,"A pre-recorded and edited story used in a broadcast.",""
-Pan,"Horizontal camera movement left or right, often to follow action or show a scene.",""
-Permitting,"Process of gaining legal approval to film in public spaces.",""
-Point-of-View Shot,"A shot from a character's perspective, immersing the audience in their experience.",""
-Post-Production,"The editing phase, including cutting footage, adding effects, color correction, and sound design.",""
-Pre-Production,"The planning phase of video production, including scripting, storyboarding, casting, and location scouting.",""
-Production,"The phase of video production where actual filming or recording takes place.",""
-Production,"The filming or recording phase of video production.",""
-Resolution,"The quality of the video image, such as 1080p or 4K.",""
-Rule of Thirds,"A composition guideline dividing the frame into thirds to place subjects along lines or intersections for visual interest.",""
-Rundown,"Schedule or outline of segments for a video production.",""
-Rural Production Incentive,"Bonus tax credit for filming in rural Utah areas.",""
-Script,"A written document containing dialogue, actions, and directions for a video production.",""
-Shot List,"A detailed list of every camera shot planned for a scene.",""
-Shot Types,"Different ways to frame a subject, such as wide shot, medium shot, or close-up, each serving a specific narrative purpose.",""
-Slate / Clapperboard,"Tool used to sync audio and video and label takes.",""
-Stage Rental,"Rental of professional studio spaces like Utah Film Studios.",""
-Storyboard,"A sequence of drawings or sketches representing shots planned for a video production to visualize the narrative.",""
-Studio Lighting,"Use of key, fill, and back light to illuminate a subject.",""
-Talent,"People who appear on camera.",""
-Teleprompter,"Device that scrolls script text for on-camera presenters.",""
-Three-Point Lighting,"A standard lighting technique using a key light (main light), fill light (reduces shadows), and back light (separates subject from background).",""
-Tilt,"Vertical camera movement up or down, used to reveal height or details.",""
-Tracking Shot,"A shot where the camera moves alongside the subject, following their action.",""
-Utah High School Film Festival,"Annual showcase event for student video work in Utah.",""
-Voice-over (VO),"Narration or commentary that is added over the video.",""
-White Balance,"Adjusting the camera to ensure colors appear natural under different lighting conditions, like daylight or tungsten.",""
-Wide Shot,"A shot capturing a large area or scene, used to establish location or context.",""
+Term,Definition
+Anchor Desk,The primary set location where news anchors present.
+Aspect Ratio,"The ratio of width to height of a video frame, such as 16:9 or 4:3, affecting how the video is displayed."
+Aspect Ratio,"The width-to-height ratio of a video frame, like 16:9 or 4:3, affecting display."
+Audio,"Sound in video, including dialogue, music, and effects, critical for storytelling."
+Blocking,Planning actors’ movements and camera positions for effective storytelling.
+B-Roll,"Supplementary footage used to enhance the main narrative, provide context, or cover transitions."
+Camera Angle,"The position of the camera relative to the subject, such as eye-level, high angle, or low angle, which affects the mood and perspective of the shot."
+Camera Movement,"Techniques like pan, tilt, zoom, or dolly used to follow action, reveal information, or create dynamic visuals."
+Chroma Key,Green screen editing technique to replace backgrounds.
+Close-Up,"A tightly framed shot focusing on a face or object, conveying emotion or detail."
+Color Grading,Adjusting colors in post-production to enhance mood or visual style.
+Composition,The arrangement of visual elements within a frame to create a balanced and aesthetically pleasing shot.
+Continuity,"Ensuring consistency in props, costumes, and lighting across shots for a seamless narrative."
+Control Room / Switcher,Room where live editing and directing take place.
+Crane Shot,"A shot using a crane to move the camera up, down, or across for sweeping perspectives."
+Crew Base,The pool of local production professionals available in Utah.
+Cue,Signal to begin or end action on set.
+Depth of Field,"The range within a shot that appears sharp, controlled by aperture, lens, and distance to subject."
+Dutch Angle,"A tilted camera angle creating disorientation or unease, often for dramatic effect."
+Export Settings,Configuration for compressing and saving the final video.
+Film Utah / Utah Film Commission,"State agency overseeing film incentives, permits, and location support."
+Foley,Custom-recorded sound effects added in post-production.
+Frame Rate,"The number of frames captured per second, affecting the smoothness and style of motion (e.g., 24 fps for cinematic, 60 fps for smooth action)."
+Framing,The process of positioning subjects and objects within the camera's view to convey meaning or focus attention.
+HB 337 (Film Tax Credit),Utah state law offering tax credits to local film productions.
+High Angle,"A camera angle looking down on the subject, making them appear vulnerable or small."
+Jump Cut,An abrupt transition that skips time in the footage.
+Lighting,"The use of natural or artificial light to illuminate a scene, set mood, or highlight subjects."
+Location Scouting,Finding and selecting filming locations to match the story's needs.
+Low Angle,"A camera angle looking up at the subject, conveying power or importance."
+Lower Thirds,"Text displayed in the lower third of the screen, often for names or titles."
+Medium Shot,"A shot framing the subject from the waist up, ideal for dialogue or action with detail."
+Microphone Types,"Various microphones, such as shotgun, lavalier, or condenser, each suited for specific recording situations."
+MOS,Mit Out Sound  a shot recorded without synchronized sound.
+Over-the-Shoulder Shot,"A shot over one character's shoulder showing another, used in conversations for perspective."
+Package,A pre-recorded and edited story used in a broadcast.
+Pan,"Horizontal camera movement left or right, often to follow action or show a scene."
+Permitting,Process of gaining legal approval to film in public spaces.
+Point-of-View Shot,"A shot from a character's perspective, immersing the audience in their experience."
+Post-Production,"The editing phase, including cutting footage, adding effects, color correction, and sound design."
+Pre-Production,"The planning phase of video production, including scripting, storyboarding, casting, and location scouting."
+Production,The phase of video production where actual filming or recording takes place.
+Production,The filming or recording phase of video production.
+Resolution,"The quality of the video image, such as 1080p or 4K."
+Rule of Thirds,A composition guideline dividing the frame into thirds to place subjects along lines or intersections for visual interest.
+Rundown,Schedule or outline of segments for a video production.
+Rural Production Incentive,Bonus tax credit for filming in rural Utah areas.
+Script,"A written document containing dialogue, actions, and directions for a video production."
+Shot List,A detailed list of every camera shot planned for a scene.
+Shot Types,"Different ways to frame a subject, such as wide shot, medium shot, or close-up, each serving a specific narrative purpose."
+Slate / Clapperboard,Tool used to sync audio and video and label takes.
+Stage Rental,Rental of professional studio spaces like Utah Film Studios.
+Storyboard,A sequence of drawings or sketches representing shots planned for a video production to visualize the narrative.
+Studio Lighting,"Use of key, fill, and back light to illuminate a subject."
+Talent,People who appear on camera.
+Teleprompter,Device that scrolls script text for on-camera presenters.
+Three-Point Lighting,"A standard lighting technique using a key light (main light), fill light (reduces shadows), and back light (separates subject from background)."
+Tilt,"Vertical camera movement up or down, used to reveal height or details."
+Tracking Shot,"A shot where the camera moves alongside the subject, following their action."
+Utah High School Film Festival,Annual showcase event for student video work in Utah.
+Voice-over (VO),Narration or commentary that is added over the video.
+White Balance,"Adjusting the camera to ensure colors appear natural under different lighting conditions, like daylight or tungsten."
+Wide Shot,"A shot capturing a large area or scene, used to establish location or context."

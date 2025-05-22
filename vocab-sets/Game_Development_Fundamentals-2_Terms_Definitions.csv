@@ -1,51 +1,51 @@
-term,definition,strand
-Game Development,"The process of creating interactive digital games",1
-Game Development Life Cycle,"A structured process for planning, designing, building, testing, and releasing a game",1
-Project Management,"Organizing and overseeing tasks to complete a game development project",1
-Game Design,"The process of defining the rules, mechanics, and player experience of a game",1
-Game Mechanics,"The rules and systems that govern player interactions in a game",1
-Prototype,"An early version of a game used to test concepts and mechanics",1
-Scripting,"Writing code to control game behavior and interactions",1
-Digital Asset,"Any digital content, like images or audio, used in a game",1
-Sprite,"A 2D image or animation used as a game character or object",1
-Texture,"A digital image applied to a game object to define its appearance",1
-Storyboard,"A visual plan of game scenes or interactions to guide development",1
-Collaboration,"Working with a team to develop a game",1
-Game Engine,"Software used to create and run video games, like Unity or Unreal",1
-Level Design,"Creating the environments and challenges within a game",1
-Playtesting,"Testing a game to identify issues and improve player experience",1
-Game Interface,"The visual and interactive elements players use to interact with a game",2
-User Interface,"The part of a game’s interface for menus, buttons, and information displays",2
-Aesthetic Design,"The visual style and artistic elements of a game",2
-Functional Design,"The practical components of a game that ensure it works correctly",2
-Usability,"How easy and intuitive a game is for players to use",2
-Accessibility,"Designing games to be playable by people with diverse abilities",2
-HUD,"Heads-Up Display, showing game information like health or score",2
-Control Scheme,"The mapping of player inputs to game actions, like keyboard or controller",2
-Feedback Loop,"Visual or audio cues that inform players of their actions’ results",2
-Navigation,"The system allowing players to move through a game’s world or menus",2
-Visual Hierarchy,"Arranging interface elements to guide player attention",2
-Color Palette,"The set of colors used to create a game’s visual style",2
-Typography,"The style and arrangement of text in a game’s interface",2
-Iconography,"Using symbols or icons to convey information in a game",2
-Animation,"Creating moving visuals for characters or objects in a game",2
-Beta Testing,"Testing a near-complete game to identify bugs and gather feedback",3
-Bug,"An error in a game that causes it to malfunction",3
-Patch,"An update to fix bugs or improve a game after release",3
-Marketing,"Promoting a game to attract players and generate interest",3
-Monetization,"Strategies to earn revenue from a game, like purchases or subscriptions",3
-Freemium,"A monetization model offering a free game with paid optional content",3
-Upfront Purchase,"A monetization model where players pay once to own a game",3
-Subscription,"A monetization model charging players regularly for game access",3
-Game Release,"The process of publishing a game for public use",3
-Post-Release Content,"Additional content or updates provided after a game’s launch",3
-Analytics,"Data collected to understand player behavior and improve a game",3
-Target Audience,"The specific group of players a game is designed for",3
-Branding,"Creating a unique identity for a game through visuals and messaging",3
-Trailer,"A short video showcasing a game to attract players",3
-Social Media Marketing,"Using platforms like X to promote a game",3
-Quality Assurance,"Ensuring a game meets quality standards before release",3
-Version Control,"A system to track and manage changes to game files",3
-Build,"A specific version of a game during development or testing",3
-Game Balance,"Adjusting game elements to ensure fair and enjoyable gameplay",3
-Player Experience,"The overall feeling and satisfaction a player gets from a game",3
+Term,Definition
+Game Development,The process of creating interactive digital games
+Game Development Life Cycle,"A structured process for planning, designing, building, testing, and releasing a game"
+Project Management,Organizing and overseeing tasks to complete a game development project
+Game Design,"The process of defining the rules, mechanics, and player experience of a game"
+Game Mechanics,The rules and systems that govern player interactions in a game
+Prototype,An early version of a game used to test concepts and mechanics
+Scripting,Writing code to control game behavior and interactions
+Digital Asset,"Any digital content, like images or audio, used in a game"
+Sprite,A 2D image or animation used as a game character or object
+Texture,A digital image applied to a game object to define its appearance
+Storyboard,A visual plan of game scenes or interactions to guide development
+Collaboration,Working with a team to develop a game
+Game Engine,"Software used to create and run video games, like Unity or Unreal"
+Level Design,Creating the environments and challenges within a game
+Playtesting,Testing a game to identify issues and improve player experience
+Game Interface,The visual and interactive elements players use to interact with a game
+User Interface,"The part of a game’s interface for menus, buttons, and information displays"
+Aesthetic Design,The visual style and artistic elements of a game
+Functional Design,The practical components of a game that ensure it works correctly
+Usability,How easy and intuitive a game is for players to use
+Accessibility,Designing games to be playable by people with diverse abilities
+HUD,"Heads-Up Display, showing game information like health or score"
+Control Scheme,"The mapping of player inputs to game actions, like keyboard or controller"
+Feedback Loop,Visual or audio cues that inform players of their actions’ results
+Navigation,The system allowing players to move through a game’s world or menus
+Visual Hierarchy,Arranging interface elements to guide player attention
+Color Palette,The set of colors used to create a game’s visual style
+Typography,The style and arrangement of text in a game’s interface
+Iconography,Using symbols or icons to convey information in a game
+Animation,Creating moving visuals for characters or objects in a game
+Beta Testing,Testing a near-complete game to identify bugs and gather feedback
+Bug,An error in a game that causes it to malfunction
+Patch,An update to fix bugs or improve a game after release
+Marketing,Promoting a game to attract players and generate interest
+Monetization,"Strategies to earn revenue from a game, like purchases or subscriptions"
+Freemium,A monetization model offering a free game with paid optional content
+Upfront Purchase,A monetization model where players pay once to own a game
+Subscription,A monetization model charging players regularly for game access
+Game Release,The process of publishing a game for public use
+Post-Release Content,Additional content or updates provided after a game’s launch
+Analytics,Data collected to understand player behavior and improve a game
+Target Audience,The specific group of players a game is designed for
+Branding,Creating a unique identity for a game through visuals and messaging
+Trailer,A short video showcasing a game to attract players
+Social Media Marketing,Using platforms like X to promote a game
+Quality Assurance,Ensuring a game meets quality standards before release
+Version Control,A system to track and manage changes to game files
+Build,A specific version of a game during development or testing
+Game Balance,Adjusting game elements to ensure fair and enjoyable gameplay
+Player Experience,The overall feeling and satisfaction a player gets from a game

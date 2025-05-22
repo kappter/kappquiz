@@ -1,51 +1,51 @@
-term,definition,category
-General License,"Second-level FCC amateur license granting extensive HF frequency privileges",Regulations
-Part 97,"FCC rules governing the Amateur Radio Service",Regulations
-Secondary User,"Amateur service sharing a band with a primary service, yielding if interference occurs",Regulations
-CSCE,"Certificate of Successful Completion of Examination, valid for 365 days for upgrades",Regulations
-VEC,"Volunteer Examiner Coordinator, organization accrediting exam administrators",Regulations
-Band Allocation,"Specific frequency ranges assigned to amateur radio by the FCC",Regulations
-60-Meter Band,"HF band at 5.3 MHz with specific channelized frequencies for General use",Regulations
-Power Limit,"Maximum power allowed, like 1500 W PEP on most bands, 100 W ERP on 60 meters",Regulations
-Third-Party Traffic,"Messages relayed for non-licensed persons, subject to FCC rules",Regulations
-QSL Card,"A postcard confirming a radio contact, often exchanged between hams",Operating Practices
-QRL,"Q signal meaning ""Is this frequency in use?"" or ""Are you busy?""",Operating Practices
-QRS,"Q signal requesting the other station to send slower",Operating Practices
-Zero Beat,"Matching your transmit frequency to a received CW signal",Operating Practices
-Full Break-In,"QSK, allowing reception between CW characters for seamless communication",Operating Practices
-DX,"A distant station, typically in another country, contacted via radio",Operating Practices
-Pileup,"Multiple stations calling a rare or distant station simultaneously",Operating Practices
-Digital Mode,"Data transmission like FT8 or PSK31, popular on HF bands",Operating Practices
-RTTY,"Radio Teletype, a digital mode for text communication",Operating Practices
-Split Operation,"Transmitting on one frequency and listening on another to manage pileups",Operating Practices
-Impedance,"Opposition to AC current flow, measured in ohms, critical for antenna matching",Electronics Theory
-Resonance,"Frequency at which a circuit or antenna operates most efficiently",Electronics Theory
-Reactance,"Opposition to AC current by capacitors or inductors, measured in ohms",Electronics Theory
-Transformer,"A device transferring energy between circuits via magnetic coupling",Electronics Theory
-Schematic Diagram,"A diagram representing circuit components and connections",Electronics Theory
-PEP,"Peak Envelope Power, the maximum power output of a transmitter",Electronics Theory
-Harmonics,"Unwanted signals at multiples of the operating frequency",Electronics Theory
-Filter,"A circuit that passes or blocks specific frequencies",Electronics Theory
-Modulation,"Adding information, like voice or data, to a carrier signal",Electronics Theory
-Beam Antenna,"A directional antenna, like a Yagi, for increased signal gain",Antenna Systems
-Driven Element,"The antenna element directly connected to the feedline",Antenna Systems
-Reflector,"An antenna element that directs radio waves toward the driven element",Antenna Systems
-Balun,"A device matching balanced and unbalanced transmission lines",Antenna Systems
-Feedpoint,"The point where the feedline connects to the antenna",Antenna Systems
-Antenna Gain,"The increase in signal strength in a specific direction, measured in dBi",Antenna Systems
-Propagation,"The travel of radio waves from transmitter to receiver",Propagation
-Ionosphere,"Atmospheric layer reflecting HF signals, enabling long-distance communication",Propagation
-Sunspot Cycle,"An 11-year cycle affecting HF propagation due to solar activity",Propagation
-K-Index,"Measure of short-term geomagnetic field stability, affecting propagation",Propagation
-A-Index,"Measure of long-term geomagnetic field stability, impacting HF signals",Propagation
-Skip Zone,"Area where HF signals are not received due to ionospheric reflection",Propagation
-MUF,"Maximum Usable Frequency, the highest frequency for reliable HF communication",Propagation
-Fading,"Signal strength variation due to changing propagation conditions",Propagation
-RF Exposure,"Safety concern from radio frequency energy, requiring evaluation",Safety
-SAR,"Specific Absorption Rate, measure of RF energy absorbed by the body",Safety
-Duty Cycle,"Percentage of time a transmitter is active, affecting RF safety",Safety
-Ground Fault,"Unintended current path to ground, posing electrical hazard",Safety
-Lightning Protection,"Measures like grounding to protect equipment from lightning strikes",Safety
-Antenna Height,"Safety consideration to avoid contact with power lines or people",Safety
-MPE,"Maximum Permissible Exposure, FCC limit for RF radiation",Safety
-Station Ground,"A conductive connection to earth for safety and signal clarity",Safety
+Term,Definition
+General License,Second-level FCC amateur license granting extensive HF frequency privileges
+Part 97,FCC rules governing the Amateur Radio Service
+Secondary User,"Amateur service sharing a band with a primary service, yielding if interference occurs"
+CSCE,"Certificate of Successful Completion of Examination, valid for 365 days for upgrades"
+VEC,"Volunteer Examiner Coordinator, organization accrediting exam administrators"
+Band Allocation,Specific frequency ranges assigned to amateur radio by the FCC
+60-Meter Band,HF band at 5.3 MHz with specific channelized frequencies for General use
+Power Limit,"Maximum power allowed, like 1500 W PEP on most bands, 100 W ERP on 60 meters"
+Third-Party Traffic,"Messages relayed for non-licensed persons, subject to FCC rules"
+QSL Card,"A postcard confirming a radio contact, often exchanged between hams"
+QRL,"Q signal meaning ""Is this frequency in use?"" or ""Are you busy?"""
+QRS,Q signal requesting the other station to send slower
+Zero Beat,Matching your transmit frequency to a received CW signal
+Full Break-In,"QSK, allowing reception between CW characters for seamless communication"
+DX,"A distant station, typically in another country, contacted via radio"
+Pileup,Multiple stations calling a rare or distant station simultaneously
+Digital Mode,"Data transmission like FT8 or PSK31, popular on HF bands"
+RTTY,"Radio Teletype, a digital mode for text communication"
+Split Operation,Transmitting on one frequency and listening on another to manage pileups
+Impedance,"Opposition to AC current flow, measured in ohms, critical for antenna matching"
+Resonance,Frequency at which a circuit or antenna operates most efficiently
+Reactance,"Opposition to AC current by capacitors or inductors, measured in ohms"
+Transformer,A device transferring energy between circuits via magnetic coupling
+Schematic Diagram,A diagram representing circuit components and connections
+PEP,"Peak Envelope Power, the maximum power output of a transmitter"
+Harmonics,Unwanted signals at multiples of the operating frequency
+Filter,A circuit that passes or blocks specific frequencies
+Modulation,"Adding information, like voice or data, to a carrier signal"
+Beam Antenna,"A directional antenna, like a Yagi, for increased signal gain"
+Driven Element,The antenna element directly connected to the feedline
+Reflector,An antenna element that directs radio waves toward the driven element
+Balun,A device matching balanced and unbalanced transmission lines
+Feedpoint,The point where the feedline connects to the antenna
+Antenna Gain,"The increase in signal strength in a specific direction, measured in dBi"
+Propagation,The travel of radio waves from transmitter to receiver
+Ionosphere,"Atmospheric layer reflecting HF signals, enabling long-distance communication"
+Sunspot Cycle,An 11-year cycle affecting HF propagation due to solar activity
+K-Index,"Measure of short-term geomagnetic field stability, affecting propagation"
+A-Index,"Measure of long-term geomagnetic field stability, impacting HF signals"
+Skip Zone,Area where HF signals are not received due to ionospheric reflection
+MUF,"Maximum Usable Frequency, the highest frequency for reliable HF communication"
+Fading,Signal strength variation due to changing propagation conditions
+RF Exposure,"Safety concern from radio frequency energy, requiring evaluation"
+SAR,"Specific Absorption Rate, measure of RF energy absorbed by the body"
+Duty Cycle,"Percentage of time a transmitter is active, affecting RF safety"
+Ground Fault,"Unintended current path to ground, posing electrical hazard"
+Lightning Protection,Measures like grounding to protect equipment from lightning strikes
+Antenna Height,Safety consideration to avoid contact with power lines or people
+MPE,"Maximum Permissible Exposure, FCC limit for RF radiation"
+Station Ground,A conductive connection to earth for safety and signal clarity

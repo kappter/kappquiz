@@ -1,51 +1,51 @@
-term,definition,strand
-Game Development,"The process of designing and creating interactive digital games",1
-Video Game,"An electronic game involving player interaction with a digital interface",1
-Game Industry,"The sector of businesses involved in creating, publishing, and selling games",1
-Game Designer,"A professional who creates the rules, story, and mechanics of a game",1
-Game Programmer,"A professional who writes code to implement game features",1
-Game Artist,"A professional who creates visual assets like characters and environments",1
-Career Pathway,"A sequence of courses and experiences preparing students for game development careers",1
-Game Genre,"A category of games with similar gameplay, like action or puzzle",1
-Indie Game,"A game developed by a small team or individual without major publisher funding",1
-AAA Game,"A high-budget game developed by a large studio with significant resources",1
-Game Engine,"Software used to create and run video games, like Unity or Godot",2
-IDE,"Integrated Development Environment, a tool for writing and testing game code",2
-Sprite,"A 2D image or animation used as a game character or object",2
-Texture,"A digital image applied to a game object to define its appearance",2
-Asset,"Any digital content, like images or sounds, used in a game",2
-2D Game,"A game with gameplay and visuals in two dimensions, like side-scrollers",2
-3D Game,"A game with gameplay and visuals in three dimensions, like first-person shooters",2
-Scripting,"Writing code to control game behavior and interactions",2
-Version Control,"A system to track and manage changes to game files, like Git",2
-Debugger,"A tool used to find and fix errors in game code",2
-Game Design,"The process of defining a game’s rules, mechanics, and player experience",3
-Game Mechanic,"A rule or system that governs player interactions, like jumping or scoring",3
-Storyboarding,"Creating a visual plan of game scenes or interactions",3
-Narrative,"The story or plot that guides a game’s progression",3
-Level Design,"Creating the environments and challenges within a game",3
-Player Experience,"The overall feeling and satisfaction a player gets from a game",3
-Balance,"Adjusting game elements to ensure fair and enjoyable gameplay",3
-Challenge,"A task or obstacle players must overcome in a game",3
-Reward,"An in-game benefit, like points or items, given for completing tasks",3
-Prototype,"An early version of a game used to test ideas and mechanics",3
-Game Loop,"The core cycle of player input, game update, and rendering in a game",4
-Playtesting,"Testing a game to identify issues and improve player experience",4
-Bug,"An error in a game that causes it to malfunction",4
-Collision Detection,"Code that determines when game objects touch or overlap",4
-Animation,"Creating moving visuals for characters or objects in a game",4
-Audio Asset,"A sound or music file used to enhance a game’s atmosphere",4
-User Interface,"The part of a game for menus, buttons, and information displays",4
-Control Scheme,"The mapping of player inputs to game actions, like keyboard or controller",4
-Build,"A specific version of a game during development or testing",4
-Game Jam,"A short event where developers create a game from scratch",4
-Portfolio,"A collection of projects showcasing game development skills",5
-Resume,"A document summarizing skills, education, and experience for job applications",5
-Career-Ready,"Having the skills and knowledge needed for a game development career",5
-Collaboration,"Working with a team to develop a game",5
-Soft Skills,"Non-technical skills like communication and teamwork essential for careers",5
-Game Tester,"A professional who plays games to identify bugs and issues",5
-Project Management,"Organizing and overseeing tasks to complete a game project",5
-Feedback,"Comments or suggestions to improve a game during development",5
-Documentation,"Written information explaining a game’s design or code",5
-Student Leadership,"Participating in organizations like FBLA or TSA to build career skills",5
+Term,Definition
+Game Development,The process of designing and creating interactive digital games
+Video Game,An electronic game involving player interaction with a digital interface
+Game Industry,"The sector of businesses involved in creating, publishing, and selling games"
+Game Designer,"A professional who creates the rules, story, and mechanics of a game"
+Game Programmer,A professional who writes code to implement game features
+Game Artist,A professional who creates visual assets like characters and environments
+Career Pathway,A sequence of courses and experiences preparing students for game development careers
+Game Genre,"A category of games with similar gameplay, like action or puzzle"
+Indie Game,A game developed by a small team or individual without major publisher funding
+AAA Game,A high-budget game developed by a large studio with significant resources
+Game Engine,"Software used to create and run video games, like Unity or Godot"
+IDE,"Integrated Development Environment, a tool for writing and testing game code"
+Sprite,A 2D image or animation used as a game character or object
+Texture,A digital image applied to a game object to define its appearance
+Asset,"Any digital content, like images or sounds, used in a game"
+2D Game,"A game with gameplay and visuals in two dimensions, like side-scrollers"
+3D Game,"A game with gameplay and visuals in three dimensions, like first-person shooters"
+Scripting,Writing code to control game behavior and interactions
+Version Control,"A system to track and manage changes to game files, like Git"
+Debugger,A tool used to find and fix errors in game code
+Game Design,"The process of defining a game’s rules, mechanics, and player experience"
+Game Mechanic,"A rule or system that governs player interactions, like jumping or scoring"
+Storyboarding,Creating a visual plan of game scenes or interactions
+Narrative,The story or plot that guides a game’s progression
+Level Design,Creating the environments and challenges within a game
+Player Experience,The overall feeling and satisfaction a player gets from a game
+Balance,Adjusting game elements to ensure fair and enjoyable gameplay
+Challenge,A task or obstacle players must overcome in a game
+Reward,"An in-game benefit, like points or items, given for completing tasks"
+Prototype,An early version of a game used to test ideas and mechanics
+Game Loop,"The core cycle of player input, game update, and rendering in a game"
+Playtesting,Testing a game to identify issues and improve player experience
+Bug,An error in a game that causes it to malfunction
+Collision Detection,Code that determines when game objects touch or overlap
+Animation,Creating moving visuals for characters or objects in a game
+Audio Asset,A sound or music file used to enhance a game’s atmosphere
+User Interface,"The part of a game for menus, buttons, and information displays"
+Control Scheme,"The mapping of player inputs to game actions, like keyboard or controller"
+Build,A specific version of a game during development or testing
+Game Jam,A short event where developers create a game from scratch
+Portfolio,A collection of projects showcasing game development skills
+Resume,"A document summarizing skills, education, and experience for job applications"
+Career-Ready,Having the skills and knowledge needed for a game development career
+Collaboration,Working with a team to develop a game
+Soft Skills,Non-technical skills like communication and teamwork essential for careers
+Game Tester,A professional who plays games to identify bugs and issues
+Project Management,Organizing and overseeing tasks to complete a game project
+Feedback,Comments or suggestions to improve a game during development
+Documentation,Written information explaining a game’s design or code
+Student Leadership,Participating in organizations like FBLA or TSA to build career skills

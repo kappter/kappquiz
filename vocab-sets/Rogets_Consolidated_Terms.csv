@@ -1,0 +1,1001 @@
+Term,Definition,Category
+existence,State of being or reality,Abstract Relations
+inexistence,State of not existing,Abstract Relations
+substantiality,Having real, tangible essence,Abstract Relations
+unsubstantiality,Lacking substance or reality,Abstract Relations
+intrinsicality,Inherent or essential quality,Abstract Relations
+extrinsicality,External or non-essential quality,Abstract Relations
+state,Condition or mode of being,Abstract Relations
+circumstance,External condition affecting a situation,Abstract Relations
+relation,Connection or association between things,Abstract Relations
+irrelation,Lack of connection or relevance,Abstract Relations
+consanguinity,Kinship or familial relation,Abstract Relations
+correlation,Mutual or reciprocal relation,Abstract Relations
+identity,Sameness or exact equivalence,Abstract Relations
+contrariety,Opposition or contradiction,Abstract Relations
+difference,Distinction or dissimilarity,Abstract Relations
+uniformity,Consistency or sameness,Abstract Relations
+similarity,Likeness or resemblance,Abstract Relations
+dissimilarity,Lack of likeness or difference,Abstract Relations
+imitation,Copying or mimicking,Abstract Relations
+nonimitation,Originality, not copying,Abstract Relations
+copy,A reproduction or duplicate,Abstract Relations
+prototype,Original model or archetype,Abstract Relations
+agreement,Harmony or conformity,Abstract Relations
+disagreement,Conflict or lack of harmony,Abstract Relations
+quantity,Amount or measurable extent,Abstract Relations
+degree,Level or extent of a quality,Abstract Relations
+equality,State of being equal,Abstract Relations
+inequality,State of being unequal,Abstract Relations
+mean,Average or middle value,Abstract Relations
+compensation,Balancing or offsetting,Abstract Relations
+greatness,Large size or importance,Abstract Relations
+smallness,Small size or minor importance,Abstract Relations
+superiority,Being better or higher,Abstract Relations
+inferiority,Being lesser or lower,Abstract Relations
+increase,Growth or addition,Abstract Relations
+nonincrease, decrease,Lack of growth or reduction,Abstract Relations
+addition,Act of adding or joining,Abstract Relations
+nonaddition, subtraction,Act of removing or deducting,Abstract Relations
+adjunct,Something added but not essential,Abstract Relations
+remainder,What is left after subtraction,Abstract Relations
+mixture,Combination of different elements,Abstract Relations
+simpleness,State of being unmixed or simple,Abstract Relations
+junction,Act of joining or uniting,Abstract Relations
+disjunction,Act of separating or disconnecting,Abstract Relations
+connection,Link or association,Abstract Relations
+coherence,Logical or consistent connection,Abstract Relations
+incoherence,Lack of logical connection,Abstract Relations
+combination,Joining of multiple elements,Abstract Relations
+decomposition,Breaking down into parts,Abstract Relations
+whole,Complete entity or total,Abstract Relations
+part,Portion or segment of a whole,Abstract Relations
+completeness,State of being whole or finished,Abstract Relations
+incompleteness,State of being partial or unfinished,Abstract Relations
+composition,Structure or makeup of a whole,Abstract Relations
+exclusion,Act of leaving out or omitting,Abstract Relations
+component,Part of a larger whole,Abstract Relations
+extraneousness,Being external or irrelevant,Abstract Relations
+order,Arrangement or sequence,Abstract Relations
+disorder,Lack of arrangement or chaos,Abstract Relations
+arrangement,Organized placement or structure,Abstract Relations
+derangement,Disruption of order or arrangement,Abstract Relations
+precedence,Priority or going before,Abstract Relations
+sequence,Order of succession,Abstract Relations
+precursor,Something that comes before,Abstract Relations
+sequel,Something that follows,Abstract Relations
+beginning,Start or origin,Abstract Relations
+end,Conclusion or termination,Abstract Relations
+middle,Central point or portion,Abstract Relations
+continuity,Unbroken sequence or flow,Abstract Relations
+discontinuity,Break or interruption in sequence,Abstract Relations
+term,Fixed point or limit,Abstract Relations
+assemblage,Collection or gathering,Abstract Relations
+nonassemblage, dispersion,Scattering or spreading apart,Abstract Relations
+focus,Central point of convergence,Abstract Relations
+class,Group with shared characteristics,Abstract Relations
+inclusion,Act of encompassing or containing,Abstract Relations
+exclusion,Act of leaving out or barring,Abstract Relations
+generality,Broad or universal quality,Abstract Relations
+speciality,Specific or distinct quality,Abstract Relations
+normality,State of being typical or standard,Abstract Relations
+multiformity,Having many forms or variations,Abstract Relations
+conformity,Compliance with standards or norms,Abstract Relations
+unconformity,Lack of compliance with norms,Abstract Relations
+number,Numerical quantity or count,Abstract Relations
+numeration,Act of counting or numbering,Abstract Relations
+list,Ordered catalog or sequence,Abstract Relations
+unity,Oneness or singularity,Abstract Relations
+accompaniment,Something that goes along with,Abstract Relations
+duality,State of being two or paired,Abstract Relations
+duplication,Act of doubling or copying,Abstract Relations
+bisection,Division into two parts,Abstract Relations
+triality,State of being three,Abstract Relations
+triplication,Act of tripling or making threefold,Abstract Relations
+trisection,Division into three parts,Abstract Relations
+four,The number four,Abstract Relations
+quadruplication,Act of multiplying by four,Abstract Relations
+quadrisection,Division into four parts,Abstract Relations
+five, &c,The number five and beyond,Abstract Relations
+quinquesection, &c,Division into five or more parts,Abstract Relations
+plurality,More than one; many,Abstract Relations
+zero,Absence of quantity or null,Abstract Relations
+multitude,Large number or crowd,Abstract Relations
+fewness,Small number or scarcity,Abstract Relations
+repetition,Act of repeating or recurrence,Abstract Relations
+infinity,Boundless or endless quantity,Abstract Relations
+time,Duration or sequence of events,Abstract Relations
+neverness,Absence of occurrence in time,Abstract Relations
+period,Specific duration or interval,Abstract Relations
+course,Progression or flow of time,Abstract Relations
+diuturnity,Long duration or endurance,Abstract Relations
+transientness,Brief duration or fleetingness,Abstract Relations
+perpetuity,Endless or indefinite duration,Abstract Relations
+instantaneity,Momentary or immediate occurrence,Abstract Relations
+chronometry,Measurement of time,Abstract Relations
+anachronism,Error in time placement,Abstract Relations
+priority,State of coming before in time,Abstract Relations
+posteriority,State of coming after in time,Abstract Relations
+the present time,Current moment or now,Abstract Relations
+different time,Another time, past or future,Abstract Relations
+synchronism,Occurrence at the same time,Abstract Relations
+futurity,The future or time to come,Abstract Relations
+the past,Time that has gone by,Abstract Relations
+newness,State of being recent or novel,Abstract Relations
+oldness,State of being old or aged,Abstract Relations
+morning,Early part of the day,Abstract Relations
+evening,Later part of the day,Abstract Relations
+youth,Early stage of life,Abstract Relations
+age,Advanced stage of life,Abstract Relations
+infant,Very young person or thing,Abstract Relations
+veteran,Experienced or aged person,Abstract Relations
+adolescence,Transitional stage to adulthood,Abstract Relations
+earliness,Occurring early in time,Abstract Relations
+lateness,Occurring late in time,Abstract Relations
+occasion,Suitable time or opportunity,Abstract Relations
+untimeliness,Inappropriate timing,Abstract Relations
+frequency,Rate of occurrence or repetition,Abstract Relations
+infrequency,Rarity of occurrence,Abstract Relations
+regularity of recurrence,Consistent repetition pattern,Abstract Relations
+irregularity of recurrence,Inconsistent repetition pattern,Abstract Relations
+change,Alteration or transformation,Abstract Relations
+permanence,Unchanging state or stability,Abstract Relations
+cessation,Coming to an end,Abstract Relations
+continuance in action,Ongoing activity or persistence,Abstract Relations
+conversion,Change from one form to another,Abstract Relations
+reversion,Return to a previous state,Abstract Relations
+revolution,Radical or complete change,Abstract Relations
+substitution,Replacement of one thing with another,Abstract Relations
+interchange,Mutual exchange or swap,Abstract Relations
+changeableness,Tendency to change or vary,Abstract Relations
+stability,Resistance to change,Abstract Relations
+eventuality,Possible future event or outcome,Abstract Relations
+destiny,Predetermined course of events,Abstract Relations
+cause,Source or reason for an effect,Abstract Relations
+effect,Result or outcome of a cause,Abstract Relations
+attribution,Assigning a cause or characteristic,Abstract Relations
+chance,Random or unpredictable event,Abstract Relations
+power,Ability to act or influence,Abstract Relations
+impotence,Lack of power or effectiveness,Abstract Relations
+strength,Capacity for force or endurance,Abstract Relations
+weakness,Lack of strength or vulnerability,Abstract Relations
+production,Act of creating or making,Abstract Relations
+destruction,Act of ruining or eliminating,Abstract Relations
+reproduction,Act of copying or generating anew,Abstract Relations
+producer,Entity that creates or produces,Abstract Relations
+destroyer,Entity that ruins or eliminates,Abstract Relations
+paternity,Origin or fatherhood,Abstract Relations
+posterity,Future generations or descendants,Abstract Relations
+productiveness,Capacity to produce or create,Abstract Relations
+unproductiveness,Lack of capacity to produce,Abstract Relations
+agency,Means or instrument of action,Abstract Relations
+physical energy,Force or vigor in physical systems,Abstract Relations
+physical inertness,Lack of physical activity,Abstract Relations
+violence,Intense or destructive force,Abstract Relations
+moderation,Restraint or temperance,Abstract Relations
+influence,Power to affect or sway,Abstract Relations
+tendency,Inclination toward a particular action,Abstract Relations
+liability,Susceptibility or obligation,Abstract Relations
+concurrence,Simultaneous occurrence or agreement,Abstract Relations
+counteraction,Action opposing or neutralizing another,Abstract Relations
+space,Extent or area in any dimension,Space
+region,A large, defined area or territory,Space
+place,A specific location or position,Space
+situation,The position or context of something,Space
+location,A particular place or position,Space
+displacement,Moving something from its place,Space
+presence,State of being in a specific place,Space
+absence,State of not being in a place,Space
+inhabitant,A person or entity residing in a place,Space
+abode,A place of residence or dwelling,Space
+contents,What is contained within a space,Space
+receptacle,A container or space for holding things,Space
+size,The magnitude or extent of an object,Space
+littleness,Small size or extent,Space
+expansion,Increase in size or volume,Space
+contraction,Decrease in size or volume,Space
+distance,The space between two points,Space
+nearness,Proximity or closeness,Space
+interval,A gap or space between things,Space
+contiguity,Touching or being adjacent,Space
+length,Extent in one dimension, end to end,Space
+shortness,Limited extent in length,Space
+breadth, thickness,Extent in width or depth,Space
+narrowness, thinness,Limited width or thickness,Space
+layer,A single thickness or level,Space
+filament,A thin, thread-like structure,Space
+height,Vertical extent upward,Space
+lowness,Lack of height or nearness to ground,Space
+depth,Extent downward or inward,Space
+shallowness,Limited depth,Space
+summit,The highest point or peak,Space
+base,The lowest point or foundation,Space
+verticality,State of being upright,Space
+horizontality,State of being level or flat,Space
+pendency,State of hanging or suspension,Space
+support,Structure holding something up,Space
+parallelism,Lines or planes equally spaced apart,Space
+obliquity,Slanting or inclined state,Space
+inversion,Reversal of position or order,Space
+crossing,Intersection or passing over,Space
+exteriority,State of being outside,Space
+interiority,State of being inside,Space
+centrality,State of being at the center,Space
+covering,Something that overlies or protects,Space
+lining,Inner covering or layer,Space
+clothing,Material covering a body or object,Space
+divestment,Removal of covering or clothing,Space
+circumjacence,Surrounding or encircling,Space
+interposition,Placement between objects,Space
+circumscription,Limiting or enclosing within bounds,Space
+outline,The outer shape or contour,Space
+edge,The boundary or rim of an object,Space
+inclosure,An enclosed space or area,Space
+limit,A boundary or restriction,Space
+front,The forward-facing side,Space
+rear,The back or hind side,Space
+laterality,Position on one side,Space
+contraposition,Opposite placement or position,Space
+dextrality,Right-sided orientation,Space
+sinistrality,Left-sided orientation,Space
+form,Shape or structure of an object,Space
+amorphism,Lack of definite shape,Space
+symmetry,Balanced or proportional shape,Space
+distortion,Warping or misshaping,Space
+angularity,Having angles or sharp corners,Space
+curvature,The state of being curved,Space
+straightness,The state of being straight,Space
+circularity,The state of being round or circular,Space
+convolution,A coiled or twisted shape,Space
+rotundity,Rounded or spherical shape,Space
+convexity,Outward-curving surface,Space
+flatness,Even or level surface,Space
+concavity,Inward-curving surface,Space
+sharpness,Having a fine or pointed edge,Space
+bluntness,Lack of sharpness or dullness,Space
+smoothness,Even or polished surface,Space
+roughness,Uneven or coarse surface,Space
+notch,A V-shaped cut or indentation,Space
+fold,A bend or crease in a surface,Space
+furrow,A narrow groove or trench,Space
+opening,A gap or hole,Space
+closure,The act of sealing or closing,Space
+perforator,A tool or agent that makes holes,Space
+stopper,A device to close an opening,Space
+motion,Change in position or place,Space
+quiescence,State of rest or stillness,Space
+journey,Travel from one place to another,Space
+navigation,Travel or movement by sea or air,Space
+traveler,One who journeys or moves,Space
+mariner,A sailor or seafarer,Space
+transference,Act of moving something to a new place,Space
+carrier,A person or thing that transports,Space
+vehicle,A means of transport, e.g., car,Space
+ship,A vessel for water travel,Space
+velocity,Speed of motion,Space
+slowness,Lack of speed,Space
+impulse,A sudden force causing motion,Space
+recoil,Backward motion from force,Space
+direction,Course or path of movement,Space
+deviation,Divergence from a path,Space
+precession,Motion preceding or leading,Space
+sequence,Order of following in motion,Space
+progression,Forward or onward movement,Space
+regression,Backward or return movement,Space
+propulsion,Force driving something forward,Space
+traction,Pulling or drawing force,Space
+approach,Moving closer to something,Space
+recession,Moving away or retreating,Space
+attraction,Force pulling objects together,Space
+repulsion,Force pushing objects apart,Space
+convergence,Moving toward a common point,Space
+divergence,Moving apart or spreading,Space
+arrival,Reaching a destination,Space
+departure,Leaving a place,Space
+ingress,Act of entering,Space
+egress,Act of exiting,Space
+reception,Act of taking in or receiving,Space
+ejection,Act of throwing out or expelling,Space
+food,Material taken in to sustain life,Space
+excretion,Expelling waste from a system,Space
+insertion,Act of placing something inside,Space
+extraction,Act of removing or pulling out,Space
+passage,Movement through or across,Space
+transcursion,Passing across or through,Space
+shortcoming,Failure to reach a destination,Space
+ascent,Upward movement,Space
+descent,Downward movement,Space
+elevation,Raising to a higher position,Space
+depression,Lowering to a lower position,Space
+leap,A sudden jump or bound,Space
+plunge,A sudden downward dive,Space
+circuition,Circular or roundabout motion,Space
+rotation,Spinning around an axis,Space
+evolution,Gradual unfolding or development,Space
+oscillation,Back-and-forth motion,Space
+agitation,Rapid, irregular motion,Space
+materiality,State of being material or tangible,Matter
+immateriality,State of being non-material or intangible,Matter
+world,The physical earth or material universe,Matter
+gravity,Force pulling objects toward the earth,Matter
+levity,Lightness or lack of weight,Matter
+density,Compactness or mass per unit volume,Matter
+rarity,Thinness or low density of matter,Matter
+hardness,Resistance to deformation or scratching,Matter
+softness,Lack of hardness; pliability,Matter
+elasticity,Ability to return to original shape,Matter
+inelasticity,Lack of ability to return to shape,Matter
+tenacity,Strength or toughness of material,Matter
+brittleness,Tendency to break or shatter,Matter
+texture,Surface feel or appearance of material,Matter
+pulverulence,State of being powdery or dusty,Matter
+friction,Resistance to motion between surfaces,Matter
+lubrication,Reducing friction with a substance,Matter
+fluidity,State of flowing freely, like liquids,Matter
+gaseity,State of being gaseous,Matter
+liquefaction,Process of turning into liquid,Matter
+vaporization,Process of turning into vapor,Matter
+water,Liquid essential for life,Matter
+air,Gaseous mixture surrounding the earth,Matter
+moisture,Presence of water or liquid,Matter
+dryness,Absence of moisture,Matter
+ocean,Large body of saltwater,Matter
+land,Solid surface of the earth,Matter
+gulf, lake,Large enclosed water bodies,Matter
+plain,Flat, open land area,Matter
+marsh,Wet, boggy land area,Matter
+island,Land surrounded by water,Matter
+stream,Small flowing body of water,Matter
+river,Large flowing body of water,Matter
+wind,Moving air or breeze,Matter
+conduit,Channel for transporting fluids,Matter
+airpipe,Tube for air passage,Matter
+semiliquidity,Partial liquid state, e.g., mud,Matter
+bubble; cloud,Gas-filled sphere or vapor mass,Matter
+pulpiness,Soft, mushy consistency,Matter
+unctuousness,Oily or greasy quality,Matter
+oil,Liquid used for lubrication or fuel,Matter
+organization,Structured arrangement of parts,Matter
+inorganization,Lack of structured arrangement,Matter
+life,State of living organisms,Matter
+death,Cessation of life,Matter
+killing,Act of causing death,Matter
+corpse,Dead body,Matter
+interment,Burial of a body,Matter
+animality,Quality of being animal-like,Matter
+vegetability,Quality of being plant-like,Matter
+animal,Living creature with mobility,Matter
+vegetable,Living plant organism,Matter
+zoology,Study of animals,Matter
+botany,Study of plants,Matter
+husbandry,Animal farming or care,Matter
+agriculture,Cultivation of crops and plants,Matter
+mankind,Human species collectively,Matter
+man,Adult male human,Matter
+woman,Adult female human,Matter
+physical sensibility,Ability to perceive physical stimuli,Matter
+physical insensibility,Lack of physical perception,Matter
+physical pleasure,Enjoyable physical sensation,Matter
+physical pain,Unpleasant physical sensation,Matter
+touch,Sense of contact or pressure,Matter
+sensations of touch,Feelings from physical contact,Matter
+numbness,Loss of sensation or feeling,Matter
+heat,High temperature or warmth,Matter
+cold,Low temperature or chill,Matter
+calefaction,Act of heating or warming,Matter
+refrigeration,Act of cooling or chilling,Matter
+furnace,Device for generating heat,Matter
+refrigerator,Device for cooling,Matter
+fuel,Material burned for heat,Matter
+thermometer,Device measuring temperature,Matter
+taste,Sense of flavor,Matter
+insipidity,Lack of flavor or taste,Matter
+pungency,Sharp or spicy taste,Matter
+condiment,Substance enhancing flavor,Matter
+savoriness,Pleasant taste or flavor,Matter
+unsavoriness,Unpleasant taste or flavor,Matter
+sweetness,Sugary or pleasant taste,Matter
+sourness,Acidic or tart taste,Matter
+odor,Sense of smell or scent,Matter
+inodorousness,Lack of smell or scent,Matter
+fragrance,Pleasant or sweet smell,Matter
+fetor,Unpleasant or foul smell,Matter
+sound,Vibrations perceived by hearing,Matter
+silence,Absence of sound,Matter
+loudness,High volume or intensity of sound,Matter
+faintness,Low volume or weak sound,Matter
+snap,Sharp, sudden sound,Matter
+roll,Continuous, low sound,Matter
+resonance,Deep, echoing sound quality,Matter
+sibilation,Hiss-like sound,Matter
+stridor,Harsh, grating sound,Matter
+cry,Loud vocal expression,Matter
+ululation,Prolonged, wailing sound,Matter
+melody concord,Harmonious musical sound,Matter
+discord,Inharmonious or clashing sound,Matter
+music,Organized sound for aesthetic effect,Matter
+musician,Person who creates or performs music,Matter
+musical instruments,Tools for producing music,Matter
+hearing,Sense of perceiving sound,Matter
+deafness,Inability to hear,Matter
+light,Electromagnetic radiation enabling sight,Matter
+darkness,Absence of light,Matter
+dimness,Partial or faint light,Matter
+luminary,Source of light, e.g., sun or lamp,Matter
+shade,Area of reduced light,Matter
+transparency,Allowing light to pass through,Matter
+opacity,Blocking light passage,Matter
+semitransparency,Partially allowing light through,Matter
+color,Visual property from light reflection,Matter
+achromatism,Absence of color,Matter
+whiteness,Color of pure light,Matter
+blackness,Absence of light or color,Matter
+gray,Neutral color between black and white,Matter
+brown,Earthy color tone,Matter
+redness,Color of red hue,Matter
+greenness,Color of green hue,Matter
+yellowness,Color of yellow hue,Matter
+purple,Color combining red and blue,Matter
+blueness,Color of blue hue,Matter
+orange,Color combining red and yellow,Matter
+variegation,Mixed or mottled colors,Matter
+vision,Sense of sight,Matter
+blindness,Inability to see,Matter
+dimsightedness,Impaired or weak vision,Matter
+spectator,One who observes visually,Matter
+optical instruments,Tools aiding vision, e.g., glasses,Matter
+visibility,State of being visible,Matter
+invisibility,State of not being visible,Matter
+appearance,Visual presence or manifestation,Matter
+disappearance,Act of becoming invisible,Matter
+intellect,Faculty of thought and reasoning,Intellectual Faculties
+thought,Mental process of thinking,Intellectual Faculties
+incogitancy,Lack of thought or reflection,Intellectual Faculties
+idea,Mental concept or image,Intellectual Faculties
+topic,Subject of thought or discussion,Intellectual Faculties
+curiosity,Desire to know or learn,Intellectual Faculties
+incuriosity,Lack of desire to learn,Intellectual Faculties
+attention,Focused mental awareness,Intellectual Faculties
+inattention,Lack of focus or awareness,Intellectual Faculties
+care,Careful attention or caution,Intellectual Faculties
+neglect,Failure to attend or care,Intellectual Faculties
+inquiry,Search for information,Intellectual Faculties
+answer,Response to a question,Intellectual Faculties
+experiment,Test to gain knowledge,Intellectual Faculties
+comparison,Examining similarities or differences,Intellectual Faculties
+discrimination,Distinguishing differences,Intellectual Faculties
+measurement,Determining size or quantity,Intellectual Faculties
+evidence,Proof supporting a claim,Intellectual Faculties
+counter evidence,Proof opposing a claim,Intellectual Faculties
+qualification,Limitation or modification,Intellectual Faculties
+possibility,State of being possible,Intellectual Faculties
+impossibility,State of being impossible,Intellectual Faculties
+probability,Likelihood of occurrence,Intellectual Faculties
+improbability,Unlikelihood of occurrence,Intellectual Faculties
+certainty,State of being sure,Intellectual Faculties
+uncertainty,Lack of assurance or doubt,Intellectual Faculties
+reasoning,Logical thought process,Intellectual Faculties
+intuition,Instinctive understanding,Intellectual Faculties
+demonstration,Proof through reasoning,Intellectual Faculties
+confutation,Disproving an argument,Intellectual Faculties
+judgment,Forming an opinion or decision,Intellectual Faculties
+misjudgment,Incorrect opinion or decision,Intellectual Faculties
+overestimation,Judging too highly,Intellectual Faculties
+underestimation,Judging too lowly,Intellectual Faculties
+belief,Acceptance as true,Intellectual Faculties
+unbelief, doubt,Lack of belief or uncertainty,Intellectual Faculties
+credulity,Tendency to believe easily,Intellectual Faculties
+incredulity,Skepticism or disbelief,Intellectual Faculties
+assent,Agreement or acceptance,Intellectual Faculties
+dissent,Disagreement or opposition,Intellectual Faculties
+knowledge,Information or understanding,Intellectual Faculties
+ignorance,Lack of knowledge,Intellectual Faculties
+scholar,Learned or knowledgeable person,Intellectual Faculties
+ignoramus,Ignorant or uninformed person,Intellectual Faculties
+truth,Fact or reality,Intellectual Faculties
+error,Mistake or falsehood,Intellectual Faculties
+maxim,General truth or principle,Intellectual Faculties
+absurdity,Illogical or ridiculous idea,Intellectual Faculties
+intelligence, wisdom,Mental acuity or sound judgment,Intellectual Faculties
+imbecility, folly,Lack of intelligence or foolishness,Intellectual Faculties
+sage,Wise or learned person,Intellectual Faculties
+fool,Person lacking wisdom,Intellectual Faculties
+sanity,Mental soundness,Intellectual Faculties
+insanity,Mental disorder or irrationality,Intellectual Faculties
+madman,Person with severe mental disorder,Intellectual Faculties
+memory,Ability to retain and recall,Intellectual Faculties
+oblivion,State of forgetting,Intellectual Faculties
+expectation,Anticipation of an event,Intellectual Faculties
+inexpectation,Lack of anticipation,Intellectual Faculties
+disappointment,Failure to meet expectations,Intellectual Faculties
+foresight,Ability to predict future,Intellectual Faculties
+prediction,Foretelling future events,Intellectual Faculties
+omen,Sign of future events,Intellectual Faculties
+oracle,Source of prophetic advice,Intellectual Faculties
+supposition,Assumption or hypothesis,Intellectual Faculties
+imagination,Creative mental faculty,Intellectual Faculties
+meaning,Significance or intent,Intellectual Faculties
+unmeaningness,Lack of significance,Intellectual Faculties
+intelligibility,Clarity of expression,Intellectual Faculties
+unintelligibility,Lack of clarity,Intellectual Faculties
+equivocalness,Ambiguity or vagueness,Intellectual Faculties
+metaphor,Figurative language use,Intellectual Faculties
+interpretation,Explaining meaning,Intellectual Faculties
+misinterpretation,Incorrect explanation,Intellectual Faculties
+interpreter,Person who translates meaning,Intellectual Faculties
+manifestation,Clear expression or display,Intellectual Faculties
+latency, implication,Hidden or implied meaning,Intellectual Faculties
+information,Shared knowledge or data,Intellectual Faculties
+concealment,Hiding information,Intellectual Faculties
+disclosure,Revealing information,Intellectual Faculties
+ambush,Hidden or deceptive setup,Intellectual Faculties
+publication,Making information public,Intellectual Faculties
+news,New or recent information,Intellectual Faculties
+secret,Hidden or confidential information,Intellectual Faculties
+messenger,Person delivering information,Intellectual Faculties
+affirmation,Positive statement or assertion,Intellectual Faculties
+negation,Denial or contradiction,Intellectual Faculties
+teaching,Imparting knowledge,Intellectual Faculties
+misteaching,Incorrect teaching,Intellectual Faculties
+learning,Acquiring knowledge,Intellectual Faculties
+teacher,Person who instructs,Intellectual Faculties
+learner,Person acquiring knowledge,Intellectual Faculties
+school,Place for learning,Intellectual Faculties
+veracity,Truthfulness or honesty,Intellectual Faculties
+falsehood,Untruth or deception,Intellectual Faculties
+deception,Act of misleading,Intellectual Faculties
+untruth,False statement,Intellectual Faculties
+dupe,Person deceived,Intellectual Faculties
+deceiver,Person who misleads,Intellectual Faculties
+exaggeration,Overstating or amplifying,Intellectual Faculties
+indication,Sign or signal,Intellectual Faculties
+record,Permanent account or document,Intellectual Faculties
+obliteration,Erasing or destroying records,Intellectual Faculties
+recorder,Device or person keeping records,Intellectual Faculties
+representation,Depiction or portrayal,Intellectual Faculties
+misrepresentation,False or misleading depiction,Intellectual Faculties
+painting,Visual art using paint,Intellectual Faculties
+sculpture,Art of shaping materials,Intellectual Faculties
+engraving,Art of cutting designs into surfaces,Intellectual Faculties
+artist,Creator of art,Intellectual Faculties
+language,System of communication,Intellectual Faculties
+letter,Written character or message,Intellectual Faculties
+word,Unit of language,Intellectual Faculties
+neologism,Newly coined word,Intellectual Faculties
+nomenclature,System of naming,Intellectual Faculties
+misnomer,Incorrect or unsuitable name,Intellectual Faculties
+phrase,Group of words expressing an idea,Intellectual Faculties
+grammar,Rules of language structure,Intellectual Faculties
+solecism,Grammatical error,Intellectual Faculties
+style,Manner of expression,Intellectual Faculties
+perspicuity,Clarity in expression,Intellectual Faculties
+obscurity,Lack of clarity in expression,Intellectual Faculties
+conciseness,Brief and clear expression,Intellectual Faculties
+diffuseness,Wordy or lengthy expression,Intellectual Faculties
+vigor,Forceful or lively expression,Intellectual Faculties
+feebleness,Weak or ineffective expression,Intellectual Faculties
+plainness,Simple or unadorned style,Intellectual Faculties
+ornament,Decorative or embellished style,Intellectual Faculties
+elegance,Refined or graceful style,Intellectual Faculties
+inelegance,Lack of refinement in style,Intellectual Faculties
+voice,Sound produced by vocal cords,Intellectual Faculties
+aphony,Loss of voice,Intellectual Faculties
+speech,Spoken communication,Intellectual Faculties
+stammering,Hesitant or interrupted speech,Intellectual Faculties
+loquacity,Excessive talkativeness,Intellectual Faculties
+taciturnity,Reserved or minimal speech,Intellectual Faculties
+allocution,Formal speech or address,Intellectual Faculties
+response,Reply to a speech or question,Intellectual Faculties
+conversation,Informal spoken exchange,Intellectual Faculties
+soliloquy,Speaking alone or to oneself,Intellectual Faculties
+writing,Written communication,Intellectual Faculties
+printing,Producing written material,Intellectual Faculties
+correspondence,Written exchange, e.g., letters,Intellectual Faculties
+book,Bound written or printed work,Intellectual Faculties
+description,Detailed account or portrayal,Intellectual Faculties
+dissertation,Extended written treatment,Intellectual Faculties
+compendium,Concise summary or collection,Intellectual Faculties
+poetry,Expressive, rhythmic writing,Intellectual Faculties
+prose,Ordinary written language,Intellectual Faculties
+drama,Written work for performance,Intellectual Faculties
+will,Faculty of choice or determination,Volition
+necessity,Compulsion by unavoidable need,Volition
+willingness,Readiness to act or agree,Volition
+unwillingness,Reluctance to act or agree,Volition
+resolution,Firm determination to act,Volition
+irresolution,Lack of firm decision,Volition
+obstinacy,Stubborn adherence to will,Volition
+tergiversation,Evasion or changing sides,Volition
+caprice,Whimsical or impulsive choice,Volition
+choice,Act of selecting,Volition
+rejection,Act of refusing or discarding,Volition
+predetermination,Decision made in advance,Volition
+impulse,Sudden urge to act,Volition
+habit,Regular or repeated behavior,Volition
+desuetude,Disuse or abandonment of habit,Volition
+motive,Reason prompting action,Volition
+dissuasion,Persuasion against action,Volition
+pretext,False reason to justify action,Volition
+good,Beneficial quality or outcome,Volition
+evil,Harmful or undesirable outcome,Volition
+intention,Purpose or planned action,Volition
+chance,Unplanned or random outcome,Volition
+pursuit,Act of chasing or seeking,Volition
+avoidance,Act of evading or shunning,Volition
+relinquishment,Act of giving up or abandoning,Volition
+business,Purposeful activity or occupation,Volition
+plan,Scheme or method for action,Volition
+method,Systematic way of doing something,Volition
+mid-course,Middle path or compromise,Volition
+circuit,Indirect or roundabout course,Volition
+requirement,Necessary condition or need,Volition
+instrumentality,Means to achieve an end,Volition
+means,Resources or methods for action,Volition
+instrument,Tool or device for a task,Volition
+substitute,Replacement for something else,Volition
+materials,Substances used for creation,Volition
+store,Stock or supply of resources,Volition
+provision,Act of supplying or preparing,Volition
+waste,Unnecessary loss of resources,Volition
+sufficiency,Adequate amount or supply,Volition
+insufficiency,Lack of adequate supply,Volition
+redundancy,Excess or surplus,Volition
+importance,Significance or value,Volition
+unimportance,Lack of significance,Volition
+utility,Usefulness or practical value,Volition
+inutility,Lack of usefulness,Volition
+expedience,Suitability for a purpose,Volition
+inexpedience,Unsuitability for a purpose,Volition
+goodness,High quality or virtue,Volition
+badness,Poor quality or fault,Volition
+perfection,State of being flawless,Volition
+imperfection,State of having flaws,Volition
+cleanness,State of being clean,Volition
+uncleanness,State of being dirty,Volition
+health,State of physical well-being,Volition
+disease,State of ill health,Volition
+salubrity,Health-promoting quality,Volition
+insalubrity,Health-harming quality,Volition
+improvement,Act of making better,Volition
+deterioration,Act of becoming worse,Volition
+restoration,Act of repairing or renewing,Volition
+relapse,Return to a worse state,Volition
+remedy,Means of curing or improving,Volition
+bane,Source of harm or ruin,Volition
+safety,State of being secure,Volition
+danger,Risk of harm or injury,Volition
+refuge,Place or means of safety,Volition
+pitfall,Hidden danger or trap,Volition
+warning,Notice of potential danger,Volition
+alarm,Sudden warning of danger,Volition
+preservation,Act of protecting or saving,Volition
+escape,Act of fleeing danger,Volition
+deliverance,Act of being rescued,Volition
+preparation,Act of getting ready,Volition
+nonpreparation,Lack of readiness,Volition
+essay,Attempt or trial,Volition
+undertaking,Task or enterprise,Volition
+use,Act of employing something,Volition
+disuse,Cessation of use,Volition
+misuse,Incorrect or improper use,Volition
+action,Process of doing something,Volition
+inaction,Lack of action,Volition
+activity,State of being active,Volition
+inactivity,State of being idle,Volition
+haste,Rapid or hurried action,Volition
+leisure,Time free from work,Volition
+exertion,Physical or mental effort,Volition
+repose,State of rest or calm,Volition
+fatigue,Exhaustion from effort,Volition
+refreshment,Restoration of energy,Volition
+agent,Person or thing causing action,Volition
+workshop,Place for work or production,Volition
+conduct,Manner of acting or managing,Volition
+direction,Guidance or management,Volition
+director,Person who guides or manages,Volition
+advice,Guidance or recommendation,Volition
+council,Group giving advice,Volition
+precept,Rule or principle for action,Volition
+skill,Ability to perform well,Volition
+unskillfulness,Lack of skill,Volition
+proficient,Skilled or expert person,Volition
+bungler,Inept or clumsy person,Volition
+cunning,Craftiness or sly skill,Volition
+artlessness,Lack of cunning or simplicity,Volition
+difficulty,Obstacle or challenge,Volition
+facility,Ease or skill in doing,Volition
+hindrance,Obstacle to action,Volition
+aid,Help or support,Volition
+opposition,Resistance or conflict,Volition
+cooperation,Working together,Volition
+opponent,Person or thing opposing,Volition
+auxiliary,Person or thing assisting,Volition
+party,Group united for a purpose,Volition
+discord,Conflict or disagreement,Volition
+concord,Agreement or harmony,Volition
+defiance,Open resistance or challenge,Volition
+attack,Act of aggression,Volition
+defense,Act of protecting,Volition
+retaliation,Act of returning harm,Volition
+resistance,Act of opposing force,Volition
+contention,Struggle or competition,Volition
+peace,State of calm or non-conflict,Volition
+warfare,State of armed conflict,Volition
+pacification,Act of making peace,Volition
+mediation,Act of resolving disputes,Volition
+submission,Yielding to authority,Volition
+combatant,Person engaged in fighting,Volition
+arms,Weapons used in conflict,Volition
+arena,Place of conflict or competition,Volition
+completion,Act of finishing,Volition
+noncompletion,Failure to finish,Volition
+success,Achievement of a goal,Volition
+failure,Lack of success,Volition
+trophy,Prize or symbol of success,Volition
+prosperity,State of success or wealth,Volition
+adversity,State of hardship or misfortune,Volition
+mediocrity,Average or ordinary state,Volition
+authority,Power to command or control,Volition
+laxity,Lack of strictness,Volition
+severity,Strict or harsh control,Volition
+lenity,Mildness or leniency,Volition
+command,Order or directive,Volition
+disobedience,Refusal to follow orders,Volition
+obedience,Compliance with orders,Volition
+compulsion,Forcing compliance,Volition
+master,Person with authority,Volition
+servant,Person under authority,Volition
+scepter,Symbol of authority,Volition
+freedom,State of being unrestricted,Volition
+subjection,State of being controlled,Volition
+liberation,Act of setting free,Volition
+restraint,Act of limiting or controlling,Volition
+prison,Place of confinement,Volition
+keeper,Person guarding or managing,Volition
+prisoner,Person confined,Volition
+commission,Task or authority given,Volition
+abrogation,Act of repealing or canceling,Volition
+resignation,Act of giving up a position,Volition
+consignee,Person tasked with receiving,Volition
+deputy,Person acting for another,Volition
+permission,Authorization to act,Volition
+prohibition,Forbidding an action,Volition
+consent,Agreement or approval,Volition
+offer,Proposal or presentation,Volition
+refusal,Act of declining,Volition
+request,Act of asking for something,Volition
+deprecation,Plea against something,Volition
+petitioner,Person making a request,Volition
+promise,Commitment to act,Volition
+compact,Formal agreement,Volition
+conditions,Terms of an agreement,Volition
+security,Guarantee or protection,Volition
+observance,Following rules or customs,Volition
+nonobservance,Failure to follow rules,Volition
+compromise,Agreement by mutual concession,Volition
+acquisition,Act of gaining possession,Volition
+loss,Act of losing possession,Volition
+possession,State of owning,Volition
+participation,Sharing or partaking,Volition
+possessor,Person who owns,Volition
+property,Owned things or assets,Volition
+retention,Act of keeping possession,Volition
+relinquishment,Act of giving up possession,Volition
+transfer,Act of moving ownership,Volition
+giving,Act of bestowing,Volition
+receiving,Act of accepting,Volition
+apportionment,Dividing or distributing,Volition
+lending,Giving for temporary use,Volition
+borrowing,Taking for temporary use,Volition
+taking,Act of acquiring,Volition
+restitution,Act of returning or restoring,Volition
+stealing,Taking without permission,Volition
+thief,Person who steals,Volition
+booty,Stolen or plundered goods,Volition
+barter,Exchange of goods,Volition
+purchase,Acquiring by payment,Volition
+sale,Act of selling,Volition
+merchant,Person engaged in trade,Volition
+merchandise,Goods for sale,Volition
+mart,Place of trade or market,Volition
+money,Medium of exchange,Volition
+treasurer,Person managing funds,Volition
+treasury,Place for storing funds,Volition
+wealth,Abundance of resources,Volition
+poverty,Lack of resources,Volition
+credit,Trust in future payment,Volition
+debt,Obligation to pay,Volition
+payment,Act of paying,Volition
+nonpayment,Failure to pay,Volition
+expenditure,Act of spending,Volition
+receipt,Act of receiving payment,Volition
+accounts,Records of financial transactions,Volition
+price,Cost of something,Volition
+discount,Reduction in price,Volition
+dearness,High cost,Volition
+cheapness,Low cost,Volition
+liberality,Generosity in giving,Volition
+economy,Careful use of resources,Volition
+prodigality,Wasteful spending,Volition
+parsimony,Extreme frugality,Volition
+affections,Emotions or feelings,Affections
+feeling,Emotional or sensory experience,Affections
+sensibility,Capacity to feel emotions,Affections
+insensibility,Lack of emotional sensitivity,Affections
+excitation,Arousal of emotions,Affections
+excitability,Tendency to be easily aroused,Affections
+inexcitability,Resistance to emotional arousal,Affections
+pleasure,Enjoyable emotion or sensation,Affections
+pain,Unpleasant emotion or sensation,Affections
+pleasurableness,Quality of being pleasant,Affections
+painfulness,Quality of being painful,Affections
+content,Satisfaction or contentment,Affections
+discontent,Dissatisfaction or unease,Affections
+regret,Sorrow for past actions,Affections
+relief,Alleviation of pain or distress,Affections
+aggravation,Worsening of distress,Affections
+cheerfulness,Happy or optimistic mood,Affections
+dejection,Sadness or low spirits,Affections
+rejoicing,Expression of joy,Affections
+lamentation,Expression of sorrow,Affections
+amusement,Enjoyable diversion,Affections
+weariness,Fatigue or boredom,Affections
+wit,Clever or humorous expression,Affections
+dullness,Lack of wit or excitement,Affections
+humorist,Person skilled in humor,Affections
+beauty,Aesthetic pleasing quality,Affections
+ugliness,Lack of aesthetic appeal,Affections
+ornament,Decorative enhancement,Affections
+blemish,Imperfection or flaw,Affections
+simplicity,Plain or unadorned quality,Affections
+taste,Sense of aesthetic judgment,Affections
+vulgarity,Lack of taste or refinement,Affections
+fashion,Current style or trend,Affections
+ridiculousness,Quality of being laughable,Affections
+fop,Person overly concerned with fashion,Affections
+affectation,Artificial or exaggerated behavior,Affections
+ridicule,Mockery or derision,Affections
+laughingstock,Object of ridicule,Affections
+hope,Expectation of positive outcome,Affections
+hopelessness,Lack of hope,Affections
+fear,Anxiety about danger,Affections
+courage,Bravery in facing danger,Affections
+cowardice,Lack of bravery,Affections
+rashness,Reckless boldness,Affections
+caution,Careful avoidance of risk,Affections
+desire,Strong wish or craving,Affections
+indifference,Lack of interest or concern,Affections
+dislike,Feeling of aversion,Affections
+fastidiousness,Excessive choosiness,Affections
+satiety,Feeling of being overly full,Affections
+wonder,Awe or amazement,Affections
+expectance,State of expecting,Affections
+prodigy,Extraordinary phenomenon,Affections
+repute,Good reputation,Affections
+disrepute,Bad reputation,Affections
+nobility,High moral or social rank,Affections
+commonality,Ordinary or common status,Affections
+title,Name or rank of honor,Affections
+pride,Self-respect or arrogance,Affections
+humility,Modest self-view,Affections
+vanity,Excessive pride in appearance,Affections
+modesty,Humble or reserved demeanor,Affections
+ostentation,Showy display,Affections
+celebration,Festive commemoration,Affections
+boasting,Excessive self-praise,Affections
+insolence,Arrogant disrespect,Affections
+servility,Excessive submissiveness,Affections
+blusterer,Loud, boastful person,Affections
+friendship,Mutual affection,Affections
+enmity,Hostility or hatred,Affections
+friend,Person with whom one is allied,Affections
+enemy,Person opposed or hostile,Affections
+sociality,Tendency to socialize,Affections
+seclusion, exclusion,Isolation or exclusion,Affections
+courtesy,Polite behavior,Affections
+discourtesy,Rude behavior,Affections
+congratulation,Expression of joy for success,Affections
+love,Deep affection,Affections
+hate,Intense dislike,Affections
+favorite,Preferred person or thing,Affections
+resentment,Bitter indignation,Affections
+irascibility,Tendency to anger,Affections
+endearment,Act of expressing affection,Affections
+marriage,Union of two people,Affections
+celibacy,State of being unmarried,Affections
+divorce,Dissolution of marriage,Affections
+benevolence,Kindness or goodwill,Affections
+malevolence,Ill will or malice,Affections
+malediction,Curse or evil wish,Affections
+threat,Expression of intent to harm,Affections
+philanthropy,Love of humanity; charity,Affections
+misanthropy,Hatred of humanity,Affections
+benefactor,Person who helps others,Affections
+evil,Harmful act or quality,Affections
+pity,Sympathy for suffering,Affections
+condolence,Expression of sympathy,Affections
+gratitude,Thankfulness for benefits,Affections
+ingratitude,Lack of thankfulness,Affections
+forgiveness,Pardon for wrongs,Affections
+revenge,Retaliation for wrongs,Affections
+jealousy,Envy or fear of rivalry,Affections
+envy,Desire for another's advantages,Affections
+right,Moral or legal correctness,Affections
+wrong,Moral or legal incorrectness,Affections
+dueness,What is owed or deserved,Affections
+undueness,What is not deserved,Affections
+duty,Moral or legal obligation,Affections
+dereliction of duty,Failure to fulfill duty,Affections
+respect,Admiration or regard,Affections
+disrespect,Lack of respect,Affections
+contempt,Scorn or disdain,Affections
+approbation,Approval or praise,Affections
+disapprobation,Disapproval or criticism,Affections
+flattery,Excessive or insincere praise,Affections
+detraction,Belittling or slander,Affections
+flatterer,Person who flatters,Affections
+detractor,Person who disparages,Affections
+vindication,Defense or justification,Affections
+accusation,Claim of wrongdoing,Affections
+probity,Integrity or honesty,Affections
+improbity,Dishonesty or immorality,Affections
+knave,Dishonest person,Affections
+disinterestedness,Impartiality or unselfishness,Affections
+selfishness,Concern for self over others,Affections
+virtue,Moral excellence,Affections
+vice,Moral fault or wickedness,Affections
+innocence,Freedom from guilt,Affections
+guilt,State of being culpable,Affections
+good man,Person of moral virtue,Affections
+bad man,Person of moral fault,Affections
+penitence,Regret for wrongdoing,Affections
+impenitence,Lack of regret for wrongs,Affections
+atonement,Making amends for wrongs,Affections
+temperance,Self-control or moderation,Affections
+intemperance,Lack of self-control,Affections
+asceticism,Severe self-discipline,Affections
+fasting,Abstaining from food,Affections
+gluttony,Excessive eating,Affections
+sobriety,Abstinence from alcohol,Affections
+drunkenness,State of intoxication,Affections
+purity,Freedom from corruption,Affections
+impurity,Corruption or immorality,Affections
+libertine,Morally unrestrained person,Affections
+legality,Conformity to law,Affections
+illegality,Violation of law,Affections
+jurisdiction,Authority over legal matters,Affections
+tribunal,Court or place of judgment,Affections
+judge,Person who decides legal cases,Affections
+lawyer,Legal professional,Affections
+lawsuit,Legal action or case,Affections
+acquittal,Legal finding of not guilty,Affections
+condemnation,Legal finding of guilt,Affections
+punishment,Penalty for wrongdoing,Affections
+reward,Benefit for good action,Affections
+penalty,Punishment for violation,Affections
+scourge,Severe punishment or affliction,Affections
+deity,Divine being or god,Affections
+angel,Benevolent spiritual being,Affections
+satan,Evil spiritual being,Affections
+Jupiter,Chief Roman god,Affections
+demon,Evil supernatural being,Affections
+heaven,Divine or blissful realm,Affections
+hell,Realm of punishment or evil,Affections
+theology,Study of divine matters,Affections
+heterodoxy,Beliefs deviating from doctrine,Affections
+Judeo-Christian revelation,Divine truths in Jewish-Christian texts,Affections
+Non-Judeo-Christian revelation,Divine truths in other faiths,Affections
+piety,Devotion to religion,Affections
+impiety,Lack of religious devotion,Affections
+irreligion,Rejection of religion,Affections
+worship,Reverent devotion to deity,Affections
+idolatry,Worship of idols,Affections
+sorcery,Use of magic or witchcraft,Affections
+spell,Magical incantation,Affections
+sorcerer,Practitioner of magic,Affections
+churchdom,Religious institution or authority,Affections
+clergy,Religious leaders,Affections
+laity,Non-clergy religious members,Affections
+rite,Religious ceremony,Affections
+canonicals,Clerical garments,Affections
+temple,Place of worship,Affections
