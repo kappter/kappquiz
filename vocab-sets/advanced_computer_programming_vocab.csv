@@ -1,4 +1,4 @@
-Term,Definition
+term,definition
 Polymorphism,"The ability of different classes to be treated as instances of the same class through a common interface, enabling method overriding or overloading."
 Encapsulation,"The bundling of data with the methods that operate on that data, restricting direct access to some of an object's components."
 Recursion,A process where a function calls itself as a subroutine to solve a problem by breaking it into smaller instances of the same problem.
