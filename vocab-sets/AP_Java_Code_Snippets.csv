@@ -1,0 +1,72 @@
+term,definition
+Variable Declaration,int x = 5;
+Variable Assignment,x = 10;
+String Declaration,String name = "Alice";
+Arithmetic Operation,int sum = x + y;
+Increment Operator,x++;
+Decrement Operator,x--;
+Relational Comparison,boolean isEqual = (x == y);
+Logical AND,boolean result = (x > 0 && y < 10);
+Logical OR,boolean result = (x > 0 || y < 10);
+Logical NOT,boolean notTrue = !isValid;
+If Statement,if (x > 0) { System.out.println("Positive"); }
+Else Statement,else { System.out.println("Non-positive"); }
+If-Else Statement,if (x > 0) { System.out.println("Positive"); } else { System.out.println("Negative"); }
+Nested If,if (x > 0) { if (y > 0) { System.out.println("Both positive"); } }
+Switch Statement,switch (day) { case 1: System.out.println("Monday"); break; }
+For Loop,for (int i = 0; i < 5; i++) { System.out.println(i); }
+While Loop,while (x < 10) { x++; }
+Do-While Loop,do { x--; } while (x > 0);
+Break Statement,break;
+Continue Statement,continue;
+Array Declaration,int[] numbers = new int[5];
+Array Initialization,int[] numbers = {1, 2, 3, 4, 5};
+Array Element Access,int value = numbers[0];
+Array Element Assignment,numbers[0] = 10;
+Array Length,int size = numbers.length;
+Two-Dimensional Array Declaration,int[][] matrix = new int[3][3];
+Two-Dimensional Array Access,int value = matrix[0][1];
+ArrayList Declaration,ArrayList<Integer> list = new ArrayList<>();
+ArrayList Add,list.add(42);
+ArrayList Get,int value = list.get(0);
+ArrayList Size,int size = list.size();
+ArrayList Remove,list.remove(0);
+Class Declaration,class Student { int id; String name; }
+Object Instantiation,Student student = new Student();
+Constructor Definition,Student() { id = 0; name = ""; }
+Method Declaration,void printName() { System.out.println(name); }
+Method Call,student.printName();
+Parameter Passing,void setId(int newId) { id = newId; }
+Return Statement,int getId() { return id; }
+Static Method,static void printSchool() { System.out.println("High School"); }
+Instance Variable Declaration,private int id;
+Local Variable,int temp = 5;
+This Keyword,this.id = id;
+Super Keyword,super(name);
+Public Access,public int getId() { return id; }
+Private Access,private int id;
+Method Overloading,int add(int a, int b) { return a + b; }
+Method Overriding,@Override public String toString() { return name; }
+Inheritance,class Teacher extends Person { }
+Polymorphism,Person person = new Teacher();
+String Concatenation,String fullName = firstName + " " + lastName;
+String Length,int length = name.length();
+String Substring,String part = name.substring(0, 3);
+String Comparison,boolean isEqual = name.equals("Alice");
+Math Absolute Value,int absValue = Math.abs(-10);
+Math Power,double result = Math.pow(2, 3);
+Random Number,int rand = (int)(Math.random() * 100);
+Boolean Expression,boolean isValid = (x > 0 && y < 10);
+Ternary Operator,String result = (x > 0) ? "Positive" : "Non-positive";
+Try-Catch Block,try { int result = 10 / x; } catch (ArithmeticException e) { }
+Exception Throwing,throw new IllegalArgumentException("Invalid input");
+Null Check,if (obj == null) { System.out.println("Null object"); }
+Wrapper Class Integer,int value = Integer.parseInt("123");
+For-Each Loop,for (int num : numbers) { System.out.println(num); }
+ArrayList Iteration,for (Integer num : list) { System.out.println(num); }
+ToString Method,public String toString() { return "ID: " + id; }
+Equals Method,public boolean equals(Object obj) { return this.id == ((Student)obj).id; }
+Interface Implementation,class Student implements Comparable<Student> { }
+Abstract Method,abstract void calculateGrade();
+Type Casting,int value = (int) 3.14;
+StringBuilder,StringBuilder sb = new StringBuilder("Hello");
