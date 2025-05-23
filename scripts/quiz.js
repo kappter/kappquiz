@@ -6,6 +6,7 @@ const availableSets = [
       'Computer_Usage_Terms.csv',
       'Guitar_Techniques.csv',
       'OS_Navigation_Capabilities.csv',
+      'Literary_Techniques.csv',
       'Rogets_Abstract_Relations_Terms.csv',
       'Rogets_Space_Terms.csv',
       'Rogets_Matter_Terms.csv',
