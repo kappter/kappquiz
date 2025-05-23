@@ -1,0 +1,101 @@
+term,definition
+File Explorer Navigation,"Using a graphical interface to browse files and folders, such as File Explorer in Windows or Finder in macOS."
+Command Line Interface,Interacting with the operating system using text-based commands in a terminal or command prompt.
+Directory Navigation,"Using commands like `cd`, `ls` (Linux/macOS), or `dir` (Windows) to move through file system directories."
+Keyboard Shortcuts,Using key combinations like Ctrl+C (copy) or Alt+Tab (switch windows) to perform tasks quickly.
+Task Manager,"Monitoring and managing running processes, performance, and services in Windows."
+Activity Monitor,Viewing and controlling system processes and resource usage in macOS.
+File Search,Using search tools like Spotlight (macOS) or Windows Search to locate files and applications.
+Path Navigation,"Specifying file or folder locations using absolute or relative paths (e.g., `/home/user` or `../docs`)."
+Terminal Commands,"Executing basic commands like `mkdir`, `rm`, `cp`, or `mv` to manage files in Linux/macOS."
+Environment Variables,Setting or modifying variables like PATH to configure system behavior.
+File Permissions,Managing access rights for files and directories using commands like `chmod` or `chown` in Linux/macOS.
+Taskbar Customization,Pinning apps or rearranging icons on the taskbar (Windows) or Dock (macOS) for quick access.
+Virtual Desktops,Creating and switching between multiple desktops to organize workspaces in Windows or macOS.
+Shell Scripting,"Writing scripts (e.g., Bash, PowerShell) to automate repetitive tasks."
+System Updates,Checking and installing operating system updates via GUI or commands like `apt` or `yum`.
+Package Management,"Installing or updating software using package managers like `apt` (Debian), `yum` (Red Hat), or `brew` (macOS)."
+Process Management,"Using commands like `ps`, `top`, or `kill` to monitor or terminate processes in Linux/macOS."
+Disk Management,Managing disk partitions and storage using tools like Disk Management (Windows) or Disk Utility (macOS).
+File Compression,"Compressing and decompressing files using tools like `zip`, `tar`, or GUI utilities."
+Registry Editing,Modifying Windows Registry to tweak system settings or behavior.
+Group Policy Editor,Configuring system policies in Windows for user and computer settings.
+Command Aliases,"Creating shortcuts for frequently used commands in Linux/macOS (e.g., `alias ll='ls -l'`)."
+File System Mounting,Mounting drives or network shares using commands like `mount` or GUI tools.
+Remote Desktop,Accessing another computer remotely using tools like RDP (Windows) or VNC.
+SSH Access,Securely connecting to a remote system using Secure Shell (SSH) for command-line access.
+Cron Jobs,Scheduling automated tasks in Linux/macOS using `cron` or `schtasks` in Windows.
+PowerShell Scripting,Writing scripts in PowerShell to automate Windows system tasks.
+Symbolic Links,Creating shortcuts to files or directories using `ln -s` (Linux/macOS) or `mklink` (Windows).
+File Explorer Navigation,"Using a graphical interface to browse files and folders, such as File Explorer in Windows or Finder in macOS."
+Command Line Interface,Interacting with the operating system using text-based commands in a terminal or command prompt.
+Directory Navigation,"Using commands like `cd`, `ls` (Linux/macOS), or `dir` (Windows) to move through file system directories."
+Keyboard Shortcuts,Using key combinations like Ctrl+C (copy) or Alt+Tab (switch windows) to perform tasks quickly.
+Task Manager,"Monitoring and managing running processes, performance, and services in Windows."
+Activity Monitor,Viewing and controlling system processes and resource usage in macOS.
+File Search,Using search tools like Spotlight (macOS) or Windows Search to locate files and applications.
+Path Navigation,"Specifying file or folder locations using absolute or relative paths (e.g., `/home/user` or `../docs`)."
+Terminal Commands,"Executing basic commands like `mkdir`, `rm`, `cp`, or `mv` to manage files in Linux/macOS."
+Environment Variables,Setting or modifying variables like PATH to configure system behavior.
+File Permissions,Managing access rights for files and directories using commands like `chmod` or `chown` in Linux/macOS.
+Taskbar Customization,Pinning apps or rearranging icons on the taskbar (Windows) or Dock (macOS) for quick access.
+Virtual Desktops,Creating and switching between multiple desktops to organize workspaces in Windows or macOS.
+Shell Scripting,"Writing scripts (e.g., Bash, PowerShell) to automate repetitive tasks."
+System Updates,Checking and installing operating system updates via GUI or commands like `apt` or `yum`.
+Package Management,"Installing or updating software using package managers like `apt` (Debian), `yum` (Red Hat), or `brew` (macOS)."
+Process Management,"Using commands like `ps`, `top`, or `kill` to monitor or terminate processes in Linux/macOS."
+Disk Management,Managing disk partitions and storage using tools like Disk Management (Windows) or Disk Utility (macOS).
+File Compression,"Compressing and decompressing files using tools like `zip`, `tar`, or GUI utilities."
+Registry Editing,Modifying Windows Registry to tweak system settings or behavior.
+Group Policy Editor,Configuring system policies in Windows for user and computer settings.
+Command Aliases,"Creating shortcuts for frequently used commands in Linux/macOS (e.g., `alias ll='ls -l'`)."
+File System Mounting,Mounting drives or network shares using commands like `mount` or GUI tools.
+Remote Desktop,Accessing another computer remotely using tools like RDP (Windows) or VNC.
+SSH Access,Securely connecting to a remote system using Secure Shell (SSH) for command-line access.
+Cron Jobs,Scheduling automated tasks in Linux/macOS using `cron` or `schtasks` in Windows.
+PowerShell Scripting,Writing scripts in PowerShell to automate Windows system tasks.
+Symbolic Links,Creating shortcuts to files or directories using `ln -s` (Linux/macOS) or `mklink` (Windows).
+File Recovery,Using tools like `undelete` or third-party software to recover deleted files.
+System Restore,Reverting the system to a previous state using System Restore (Windows) or Time Machine (macOS).
+Environment Configuration,"Customizing shell environments (e.g., `.bashrc`, `.zshrc`) for user preferences."
+Task Scheduler,Automating tasks in Windows using Task Scheduler for recurring operations.
+Network Configuration,Setting up network interfaces using GUI tools or commands like `ifconfig` or `ip`.
+Firewall Management,"Configuring firewall rules using `ufw` (Linux), Windows Defender Firewall, or macOS Application Firewall."
+Disk Formatting,"Formatting drives to file systems like NTFS, FAT32, or ext4 using GUI or command-line tools."
+User Account Management,"Creating, modifying, or deleting user accounts via GUI or commands like `useradd` or `passwd`."
+Services Management,"Starting, stopping, or configuring system services using `systemctl` (Linux) or Services (Windows)."
+Log File Analysis,Reviewing system logs using `journalctl` (Linux) or Event Viewer (Windows) for troubleshooting.
+Hotkeys Customization,Creating custom keyboard shortcuts for specific actions or applications.
+File Sharing,"Setting up file sharing over a network using SMB, NFS, or AFP protocols."
+Backup Automation,Automating backups using tools like `rsync` (Linux/macOS) or Windows Backup.
+Performance Monitoring,Using tools like `htop` (Linux) or Resource Monitor (Windows) to track system performance.
+Boot Loader Configuration,Modifying boot settings using GRUB (Linux) or Windows Boot Manager.
+Kernel Modules,Loading or unloading kernel modules in Linux using `modprobe` or `lsmod`.
+System Diagnostics,Running diagnostic tools like `fsck` (Linux) or `sfc /scannow` (Windows) to check system integrity.
+Virtual Machine Management,Setting up and managing virtual machines using tools like VirtualBox or VMware.
+Containerization,Using Docker or Podman to create and manage containers for isolated environments.
+Remote File Access,"Accessing files remotely via FTP, SFTP, or SCP protocols."
+System Monitoring,Using tools like Nagios or Zabbix to monitor system health and performance.
+Disk Quota Management,Setting storage limits for users in Linux using `quota` or `edquota`.
+File Encryption,Encrypting files or drives using tools like BitLocker (Windows) or FileVault (macOS).
+Command Pipelines,"Combining multiple commands using pipes (e.g., `ls | grep`) for complex operations."
+Regular Expressions,Using regex patterns in commands like `grep` or `find` for advanced searches.
+Sudo Privileges,Managing elevated permissions in Linux/macOS using `sudo` for administrative tasks.
+Network Diagnostics,"Troubleshooting network issues using `ping`, `traceroute`, or `netstat`."
+Shell Customization,Customizing the terminal prompt or environment in Linux/macOS for productivity.
+Batch Files,Creating `.bat` files in Windows to automate repetitive tasks.
+System Cleanup,Removing unnecessary files using Disk Cleanup (Windows) or `du`/`find` (Linux).
+Driver Management,Installing or updating device drivers via Device Manager (Windows) or Linux kernel modules.
+Symbolic Link Management,Managing symbolic links to optimize file system navigation.
+File Comparison,Comparing files or directories using `diff` (Linux) or `fc` (Windows).
+System Logs Rotation,Configuring log rotation in Linux using `logrotate` to manage log file sizes.
+Chroot Jail,Isolating processes in a restricted directory in Linux for security.
+Environment Backup,Backing up environment configurations like `.bashrc` or Registry settings.
+GUI Automation,Automating GUI interactions using tools like AutoHotkey (Windows) or AppleScript (macOS).
+Disk Cloning,Creating exact copies of disks using tools like `dd` (Linux) or third-party software.
+File System Repair,Repairing corrupted file systems using `fsck` (Linux) or `chkdsk` (Windows).
+Network File Systems,Setting up NFS or CIFS for cross-platform file sharing.
+System Profiling,Analyzing system performance with tools like `perf` (Linux) or Performance Monitor (Windows).
+Command History,Using command history (`history` in Linux/macOS or `doskey` in Windows) to recall commands.
+Screen Recording,Capturing screen activity using built-in tools like Game Bar (Windows) or QuickTime (macOS).
+Accessibility Features,Using OS accessibility tools like Narrator (Windows) or VoiceOver (macOS).
