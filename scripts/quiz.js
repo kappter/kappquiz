@@ -5,6 +5,7 @@ const availableSets = [
      'Exploring_Computer_Science_Vocabulary.csv',
      'AP_Computer_Science_A_Concepts.csv',
      'AP_Java_Code_Snippets.csv',
+     'AP_Astronomy_Concepts.csv',
       'Computer_Usage_Terms.csv',
       'Guitar_Techniques.csv',
      'Music_Composition_Techniques.csv',
