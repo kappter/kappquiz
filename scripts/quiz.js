@@ -19,7 +19,6 @@ const availableSets = [
       'Computer_Programming_2_Terms_Definitions.csv',
       'Digital_Media_2_Terms_and_Definitions.csv',
       'ECS_Hardware_OS_DataStorage_Terms_Definitions.csv',
-      'Game_Development_Fundamentals_2_Terms_Definitions.csv',
       'Game_Development_Fundamentals_1_Terms_Definitions.csv',
       'Game_Development_Terms_2020s.csv',
       'Music_Theory_Terms_Definitions.csv',
