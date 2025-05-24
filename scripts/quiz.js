@@ -3,6 +3,7 @@
 
 const availableSets = [
      'Exploring_Computer_Science_Vocabulary.csv',
+     'Periodic_Table_Elements.csv',
      'Study_Skills_High_School.csv',
      'Financial_Management_Tips.csv',
      'AP_Computer_Science_A_Concepts.csv',
