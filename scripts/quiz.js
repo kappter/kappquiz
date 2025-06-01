@@ -51,6 +51,7 @@ const availableSets = [
       'common_appetizers_usa.csv',
       'common_us_entrees.csv',
       'common_us_side_dishes.csv',
+      'Yearbook-Staff-Roles.csv',
       'Math_938_Summer_Review_Planner.csv'
 ];
 let vocabSets = {};
